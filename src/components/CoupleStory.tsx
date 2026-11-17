@@ -2,6 +2,7 @@ import React from 'react';
 import { Heart, Sparkles } from 'lucide-react';
 import { Language } from '../types/wedding';
 import { translations } from '../data/translations';
+import { COUPLE_PORTRAIT_URL, COUPLE_PORTRAIT_FALLBACK_URL } from '../data/weddingData';
 
 interface CoupleStoryProps {
   currentLang: Language;
@@ -44,9 +45,14 @@ export const CoupleStory: React.FC<CoupleStoryProps> = ({ currentLang }) => {
           <div className="md:col-span-4 relative flex justify-center">
             <div className="w-64 h-80 sm:w-72 sm:h-92 rounded-2xl overflow-hidden shadow-lg border-4 border-amber-200 bg-amber-50 relative">
               <img
-                src="/images/deepika_pruthvi_caricature_1791601211737.jpeg"
+                src={COUPLE_PORTRAIT_URL}
                 alt="Keerthi and Hariprasad"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  if (!e.currentTarget.src.endsWith(COUPLE_PORTRAIT_FALLBACK_URL)) {
+                    e.currentTarget.src = COUPLE_PORTRAIT_FALLBACK_URL;
+                  }
+                }}
                 className="w-full h-full object-cover object-top"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />

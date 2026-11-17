@@ -15,6 +15,17 @@ export const HALDI_PELLIKODUKU_COORDS = { lat: 18.654689, lng: 78.106245 };
 export const WEDDING_MAP_URL = 'https://www.google.com/maps/search/?api=1&query=Sai+Baba+Temple+Madhav+Nagar+Nizamabad+Telangana';
 export const WEDDING_COORDS = { lat: 18.6725, lng: 78.0941 };
 
+const assetImages = import.meta.glob('../assets/images/*.{png,jpg,jpeg,webp}', {
+  eager: true,
+  import: 'default',
+}) as Record<string, string>;
+
+export const COUPLE_PORTRAIT_URL =
+  assetImages['../assets/images/hari.png'] || '/images/hari.png';
+
+export const COUPLE_PORTRAIT_FALLBACK_URL =
+  '/images/deepika_pruthvi_caricature_1791601211737.jpeg';
+
 export const INITIAL_EVENTS: EventItem[] = [
   {
     id: 'haldi-mangala-snanam',
@@ -88,7 +99,7 @@ export const INITIAL_GALLERY: GalleryPhoto[] = [
   },
   {
     id: 'photo-2',
-    url: '/images/deepika_pruthvi_caricature_1791601211737.jpeg',
+    url: COUPLE_PORTRAIT_URL,
     captionEn: 'Keerthi & Hariprasad - Our Cartoon Caricature Portrait',
     captionTe: 'కీర్తి & హరిప్రసాద్ - ప్రత్యేక కార్టూన్ క్యారికేచర్ చిత్రం',
     category: 'couple',

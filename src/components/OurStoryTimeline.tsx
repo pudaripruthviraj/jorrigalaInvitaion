@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Heart, Sparkles, Calendar, MapPin, ChevronRight } from 'lucide-react';
 import { Language } from '../types/wedding';
 import { LordGaneshHeader } from './LordGaneshHeader';
+import { COUPLE_PORTRAIT_URL, COUPLE_PORTRAIT_FALLBACK_URL } from '../data/weddingData';
 
 interface Milestone {
   id: string;
@@ -33,7 +34,7 @@ const MILESTONES: Milestone[] = [
     locationTe: 'పరిచయం - అనుబంధం',
     descriptionEn: 'Back in 2020, our paths crossed. What began with simple conversations, genuine smiles, and heartfelt conversations gradually laid the foundation for an unbreakable companionship.',
     descriptionTe: '2020 లో మొదలైన పరిచయం. ఒకరి ఆలోచనలు మరొకరు పంచుకుంటూ, కష్టసుఖాలలో తోడుగా నిలుస్తూ ఒక గాఢమైన స్నేహ బంధం ఏర్పడింది.',
-    imageUrl: '/images/deepika_pruthvi_caricature_1791601211737.jpeg',
+    imageUrl: COUPLE_PORTRAIT_URL,
     icon: '🌸',
   },
   {
@@ -158,6 +159,11 @@ export const OurStoryTimeline: React.FC<OurStoryTimelineProps> = ({ currentLang 
           <img
             src={activeMilestone.imageUrl}
             alt={isTelugu ? activeMilestone.titleTe : activeMilestone.titleEn}
+            onError={(e) => {
+              if (!e.currentTarget.src.endsWith(COUPLE_PORTRAIT_FALLBACK_URL)) {
+                e.currentTarget.src = COUPLE_PORTRAIT_FALLBACK_URL;
+              }
+            }}
             className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex flex-col justify-end p-3 text-white">

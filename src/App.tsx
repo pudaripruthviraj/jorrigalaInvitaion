@@ -11,7 +11,8 @@ import { translations } from './data/translations';
 import { 
   INITIAL_EVENTS, INITIAL_GALLERY, INITIAL_GUESTBOOK, 
   INITIAL_RSVPS, INITIAL_REGISTRY, INITIAL_BUDGET, INITIAL_TABLES, WEDDING_DATE_ISO,
-  HALDI_PELLIKODUKU_MAP_URL, HALDI_PELLIKODUKU_COORDS, WEDDING_MAP_URL, WEDDING_COORDS
+  HALDI_PELLIKODUKU_MAP_URL, HALDI_PELLIKODUKU_COORDS, WEDDING_MAP_URL, WEDDING_COORDS,
+  COUPLE_PORTRAIT_URL, COUPLE_PORTRAIT_FALLBACK_URL
 } from './data/weddingData';
 import { weddingMusic } from './utils/audioPlayer';
 import { triggerAkshinthaluShower } from './utils/confetti';
@@ -47,7 +48,19 @@ export default function App() {
   });
   const [gallery, setGallery] = useState<GalleryPhoto[]>(() => {
     const s = localStorage.getItem('wedding_gallery');
-    return s ? JSON.parse(s) : INITIAL_GALLERY;
+    if (s) {
+      try {
+        const parsed = JSON.parse(s) as GalleryPhoto[];
+        return parsed.map((photo) =>
+          photo.id === 'photo-2' && photo.url.includes('deepika_pruthvi_caricature')
+            ? { ...photo, url: COUPLE_PORTRAIT_URL }
+            : photo
+        );
+      } catch {
+        return INITIAL_GALLERY;
+      }
+    }
+    return INITIAL_GALLERY;
   });
   const [registry, setRegistry] = useState<RegistryItem[]>(() => {
     const s = localStorage.getItem('wedding_registry');
@@ -520,9 +533,14 @@ export default function App() {
             <div className="relative mx-auto max-w-[280px] mt-2">
               <div className="w-56 h-72 mx-auto rounded-t-full rounded-b-3xl overflow-hidden border-4 border-[#C89B3C] ring-2 ring-rose-300/40 shadow-xl bg-gradient-to-b from-[#FFFDF9] to-[#FEF5E7] relative group p-1 flex items-center justify-center">
                 <img
-                  src="/images/deepika_pruthvi_caricature_1791601211737.jpeg"
+                  src={COUPLE_PORTRAIT_URL}
                   alt="Keerthi & Hariprasad Cartoon Caricature"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    if (!e.currentTarget.src.endsWith(COUPLE_PORTRAIT_FALLBACK_URL)) {
+                      e.currentTarget.src = COUPLE_PORTRAIT_FALLBACK_URL;
+                    }
+                  }}
                   className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105 rounded-t-full rounded-b-2xl shadow-inner"
                 />
               </div>
@@ -1056,6 +1074,11 @@ export default function App() {
                   src={p.url}
                   alt={currentLang === 'te' ? p.captionTe : p.captionEn}
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    if (p.id === 'photo-2' && !e.currentTarget.src.endsWith(COUPLE_PORTRAIT_FALLBACK_URL)) {
+                      e.currentTarget.src = COUPLE_PORTRAIT_FALLBACK_URL;
+                    }
+                  }}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-2">
