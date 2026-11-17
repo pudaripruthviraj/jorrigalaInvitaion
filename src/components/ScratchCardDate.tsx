@@ -197,28 +197,28 @@ export const ScratchCardDate: React.FC<ScratchCardDateProps> = ({ currentLang })
             {/* Wedding Muhurtham Details */}
             <div className="pt-0.5">
               <h3 className="text-sm sm:text-base font-display font-bold text-[#54121E]">
-                {currentLang === 'te' ? '💍 వివాహం: శుక్రవారం, అక్టోబర్ 30, 2026' : '💍 Wedding: Friday, October 30, 2026'}
+                {currentLang === 'te' ? '💍 వివాహం: ఆదివారం, నవంబర్ 22, 2026' : '💍 Wedding: Sunday, November 22, 2026'}
               </h3>
               <p className="text-xs font-bold text-[#781B10]">
                 {currentLang === 'te' 
-                  ? 'శుభ ముహూర్తం: ఉదయం 5:30 గంటలకు' 
-                  : 'Subha Muhurtham: 5:30 AM'}
+                  ? 'శుభ ముహూర్తం: ఉదయం 9:46 గంటలకు' 
+                  : 'Subha Muhurtham: 9:46 AM'}
               </p>
               <p className="text-[10px] font-serif text-amber-950/85">
                 {currentLang === 'te' 
-                  ? 'విజయదుర్గ కళ్యాణ మండపం, వెల్లూరు రోడ్డు, చిత్తూరు' 
-                  : 'Vijayadurga Kalyana Mandapam, Vellore Road, Chittoor'}
+                  ? 'సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్' 
+                  : 'Sai Baba Temple, Madhav Nagar, Nizamabad'}
               </p>
             </div>
           </div>
 
-          {/* Reception Footer */}
+          {/* Pre-wedding Footer */}
           <div className="pt-1.5 border-t border-[#C89B3C]/40 text-[10px] text-amber-950 flex items-center justify-between font-serif">
             <span className="font-bold text-[#781B10]">
-              {currentLang === 'te' ? '✨ రిసెప్షన్: నవంబర్ 4 (సాయంత్రం)' : '✨ Reception: Nov 4 (Evening)'}
+              {currentLang === 'te' ? '🌼 హల్దీ: నవంబర్ 20' : '🌼 Haldi: Nov 20'}
             </span>
             <span className="font-bold text-[#54121E]">
-              {currentLang === 'te' ? 'మున్నూరు కాపు మండపం, నిజామాబాద్' : 'Munnuru Kapu Mandapam, Nizamabad'}
+              {currentLang === 'te' ? '🌸 పెళ్ళికొడుకు & పందిరి: నవంబర్ 21' : '🌸 Pelli Koduku & Pandiri: Nov 21'}
             </span>
           </div>
         </div>

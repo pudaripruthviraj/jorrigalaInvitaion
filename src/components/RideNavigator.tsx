@@ -15,10 +15,10 @@ interface RideNavigatorProps {
 
 export const RideNavigator: React.FC<RideNavigatorProps> = ({
   currentLang,
-  venueName = 'Vijayadurga Kalyana Mandapam',
-  venueAddress = 'Near Durgamma Temple, Vellore Road, Greamspet, Chittoor, Andhra Pradesh 517002',
-  latitude = 13.2172,
-  longitude = 79.1003,
+  venueName = 'Sai Baba Temple',
+  venueAddress = 'Madhav Nagar, Nizamabad, Telangana 503001',
+  latitude = 18.6725,
+  longitude = 78.0941,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [copied, setCopied] = useState(false);

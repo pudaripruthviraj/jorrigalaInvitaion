@@ -74,9 +74,9 @@ export default function App() {
   const [viewMode, setViewMode] = useState<'storybook' | 'scroll'>('storybook');
 
   const CHAPTERS = [
-    { id: 1, titleTe: 'శుభ ఆహ్వానం', titleEn: 'Invitation', subTe: 'ముహూర్తం & రిసెప్షన్లు', subEn: 'Muhurtham & Receptions' },
-    { id: 2, titleTe: 'వేడుకల వివరాలు', titleEn: 'Ceremonies', subTe: 'పందిరి, హల్దీ, వివాహం & రిసెప్షన్లు', subEn: 'Pandiri, Haldi, Wedding & Receptions' },
-    { id: 3, titleTe: 'వేదిక & RSVP', titleEn: 'Venues & RSVP', subTe: 'చిత్తూరు & నిజామాబాద్ వేదికలు', subEn: 'Chittoor & Nizamabad Venues' },
+    { id: 1, titleTe: 'శుభ ఆహ్వానం', titleEn: 'Invitation', subTe: 'హల్దీ, పెళ్ళికొడుకు & వివాహం', subEn: 'Haldi, Pelli Koduku & Wedding' },
+    { id: 2, titleTe: 'వేడుకల వివరాలు', titleEn: 'Ceremonies', subTe: 'హల్దీ, పెళ్ళికొడుకు, పందిరి & వివాహం', subEn: 'Haldi, Pelli Koduku, Pandiri & Wedding' },
+    { id: 3, titleTe: 'వేదిక & RSVP', titleEn: 'Venue & RSVP', subTe: 'సాయి బాబా దేవాలయం, నిజామాబాద్', subEn: 'Sai Baba Temple, Nizamabad' },
     { id: 4, titleTe: 'ఆశీస్సులు', titleEn: 'Blessings', subTe: 'చిత్రమాలిక & శుభాకాంక్షలు', subEn: 'Gallery & Guestbook' },
   ];
 
@@ -186,7 +186,7 @@ export default function App() {
       email: `${rsvpName.toLowerCase().replace(/\s+/g, '')}@weddinginvitee.com`,
       phone: rsvpPhone.trim(),
       guestCount: Number(rsvpCount),
-      attendingEvents: ['subha-muhurtham', 'reception-vindu'],
+      attendingEvents: ['haldi-mangala-snanam', 'pellikoduku-pandiri', 'subha-muhurtham'],
       dietaryPreference: rsvpDiet,
       accommodationNeeded: rsvpStay,
       transportAssistance: false,
@@ -202,8 +202,8 @@ export default function App() {
   const handleWhatsAppRsvp = () => {
     const msg =
       currentLang === 'te'
-        ? `|| శ్రీరస్తు శుభమస్తు || దీపిక & పృథ్వీరాజ్ వివాహ ఆహ్వానానికి నమస్కారములు. మేము (${rsvpName || 'మా కుటుంబం'}, ${rsvpCount} మంది) శుభ ముహూర్తానికి విచ్చేసి వధూవరులను ఆశీర్వదిస్తాము. - ${rsvpPhone}`
-        : `Namaskaram! Delighted to accept the wedding invitation of Keerthi & HariPrasad. We (${rsvpName || 'Our family'}, ${rsvpCount} guests) look forward to gracing the Subha Muhurtham on Oct 30, 2026. Warmest blessings!`;
+        ? `|| శ్రీరస్తు శుభమస్తు || కీర్తి & హరిప్రసాద్ వివాహ ఆహ్వానానికి నమస్కారములు. మేము (${rsvpName || 'మా కుటుంబం'}, ${rsvpCount} మంది) నవంబర్ 22, 2026 ఉదయం 9:46 గంటలకు సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్‌లో జరుగు శుభ ముహూర్తానికి విచ్చేసి వధూవరులను ఆశీర్వదిస్తాము. - ${rsvpPhone}`
+        : `Namaskaram! Delighted to accept the wedding invitation of Keerthi & HariPrasad. We (${rsvpName || 'Our family'}, ${rsvpCount} guests) look forward to gracing the Subha Muhurtham on Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad. Warmest blessings!`;
     window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`, '_blank');
   };
 
@@ -249,13 +249,15 @@ export default function App() {
     triggerAkshinthaluShower();
   };
 
-  const shareText = `Wedding Invitation: Keerthi & HariPrasad | ✨ Grand Celebration Reception on Thursday, Oct 29, 2026 (6:30 PM) at Sai baba temple, Nizamabad | 💍 Subha Muhurtham on Friday, Oct 30, 2026 (5:30 AM) at Sai baba temple, Nizamabad | ✨ Grand Wedding Reception on Wednesday, Nov 4, 2026 (6:30 PM) at Munnuru Kapu Kalyana Mandapam, Nizamabad. View full invitation: ${window.location.href}`;
+  const shareText = currentLang === 'te'
+    ? `శుభ వివాహ ఆహ్వానం: కీర్తి & హరిప్రసాద్ | 🌼 హల్దీ: శుక్రవారం, నవంబర్ 20, 2026 | 🌸 పెళ్ళికొడుకు & పందిరి: శనివారం, నవంబర్ 21, 2026 | 💍 శుభ వివాహం (ముహూర్తం): ఆదివారం, నవంబర్ 22, 2026 ఉదయం 9:46 గంటలకు — సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్. పూర్తి ఆహ్వాన పత్రిక: ${window.location.href}`
+    : `Wedding Invitation: Keerthi & HariPrasad | 🌼 Haldi: Friday, Nov 20, 2026 | 🌸 Pelli Koduku & Pandiri: Saturday, Nov 21, 2026 | 💍 Wedding (Subha Muhurtham): Sunday, Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad. View full invitation: ${window.location.href}`;
 
   const handleCalendar = () => {
-    const title = encodeURIComponent('Keerthi & HariPrasad Wedding & Receptions (Oct 29, Oct 30 & Nov 4)');
-    const details = encodeURIComponent('Celebrations Schedule:\n1. Grand Celebration Reception: Thursday, Oct 29, 2026 (6:30 PM) at Vijayadurga Kalyana Mandapam, Near Durgamma Temple, Vellore Road, Greamspet, Chittoor.\n2. Subha Muhurtham: Friday, Oct 30, 2026 (5:30 AM) at Sai baba temple, Nizamabad.\n3. Grand Wedding Reception: Wednesday, Nov 4, 2026 (6:30 PM) at Munnuru Kapu Kalyana Mandapam, Shivaji Nagar, Nizamabad.');
-    const location = encodeURIComponent('Vijayadurga Kalyana Mandapam, Near Durgamma Temple, Vellore Road, Greamspet, Chittoor, Andhra Pradesh 517002');
-    window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=20261029T130000Z/20261104T180000Z&details=${details}&location=${location}`, '_blank');
+    const title = encodeURIComponent('Keerthi & HariPrasad Wedding (Nov 20 - 22, 2026)');
+    const details = encodeURIComponent('Celebrations Schedule:\n1. Haldi: Friday, Nov 20, 2026 (Madhav Nagar, Nizamabad).\n2. Pelli Koduku & Pandiri Event: Saturday, Nov 21, 2026 (Madhav Nagar, Nizamabad).\n3. Wedding (Subha Muhurtham): Sunday, Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad.');
+    const location = encodeURIComponent('Sai Baba Temple, Madhav Nagar, Nizamabad, Telangana 503001');
+    window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=20261122T041600Z/20261122T073000Z&details=${details}&location=${location}`, '_blank');
   };
 
   const scrollToId = (id: string) => {
@@ -482,11 +484,11 @@ export default function App() {
               {/* Bride Keerthi */}
               <div>
                 <h1 className="text-2xl sm:text-3xl font-display font-bold text-[#54121E] tracking-tight drop-shadow-xs">
-                  {currentLang === 'te' ? 'చి||ల||సౌ|| దీపిక' : 'Keerthi'}
+                  {currentLang === 'te' ? 'చి||ల||సౌ|| కీర్తి' : 'Keerthi'}
                 </h1>
                 <p className="text-xs text-amber-900 font-serif mt-0.5">
                   {currentLang === 'te' 
-                    ? 'శ్రీమతి ఎన్. ఉష & శ్రీ ఎన్. నాగరాజులు గార్ల సుపుత్రిక' 
+                    ? 'శ్రీమతి ఓ. భాగ్యలక్ష్మి & శ్రీ ఓ. కిషన్ గార్ల సుపుత్రిక' 
                     : 'D/o Smt. O. Bhagyalaxmi & Sri O. Kishan'}
                 </p>
               </div>
@@ -502,11 +504,11 @@ export default function App() {
               {/* Groom HariPrasad */}
               <div>
                 <h1 className="text-2xl sm:text-3xl font-display font-bold text-[#54121E] tracking-tight drop-shadow-xs">
-                  {currentLang === 'te' ? 'చి|| పృథ్వీరాజ్' : 'HariPrasad'}
+                  {currentLang === 'te' ? 'చి|| హరిప్రసాద్' : 'HariPrasad'}
                 </h1>
                 <p className="text-xs text-amber-900 font-serif mt-0.5">
                   {currentLang === 'te' 
-                    ? 'శ్రీమతి పి. గంగామణి & శ్రీ పి. సాయన్న గార్ల సుపుత్రుడు' 
+                    ? 'శ్రీమతి జె. లక్ష్మి & శ్రీ జె. నారాయణ గార్ల సుపుత్రుడు' 
                     : 'S/o Smt. J. Laxmi & Sri J. Narayana'}
                 </p>
               </div>
@@ -516,7 +518,7 @@ export default function App() {
             <div className="relative mx-auto max-w-[280px] mt-2">
               <div className="w-56 h-72 mx-auto rounded-t-full rounded-b-3xl overflow-hidden border-4 border-[#C89B3C] ring-2 ring-rose-300/40 shadow-xl bg-gradient-to-b from-[#FFFDF9] to-[#FEF5E7] relative group p-1 flex items-center justify-center">
                 <img
-                  src="/images/Keerthi_pruthvi_caricature_1791601211737.jpeg"
+                  src="/images/deepika_pruthvi_caricature_1791601211737.jpeg"
                   alt="Keerthi & HariPrasad Cartoon Caricature"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105 rounded-t-full rounded-b-2xl shadow-inner"
@@ -613,7 +615,7 @@ export default function App() {
           {/* Top Auspicious Lord Ganesh Emblem */}
           <LordGaneshHeader 
             currentLang={currentLang} 
-            subtitle={currentLang === 'te' ? 'పందిరి, హల్దీ, వివాహం & రిసెప్షన్లు' : 'Pandiri, Haldi, Wedding & Receptions'} 
+            subtitle={currentLang === 'te' ? 'హల్దీ, పెళ్ళికొడుకు, పందిరి & వివాహం' : 'Haldi, Pelli Koduku, Pandiri & Wedding'} 
           />
 
           <div className="text-center space-y-1">
@@ -621,7 +623,7 @@ export default function App() {
               {currentLang === 'te' ? 'శుభ కార్యాల వివరాలు' : 'SACRED CEREMONIES & SCHEDULE'}
             </span>
             <h2 className="text-xl font-display font-bold text-[#4A0E17]">
-              {currentLang === 'te' ? 'పెళ్ళి పందిరి నుండి రిసెప్షన్ల దాకా' : 'Wedding Ceremonies'}
+              {currentLang === 'te' ? 'హల్దీ నుండి శుభ వివాహం దాకా' : 'Wedding Ceremonies'}
             </h2>
           </div>
 
@@ -629,10 +631,8 @@ export default function App() {
           <div className="space-y-3.5">
             {INITIAL_EVENTS.map((evt) => {
               const isMuhurtham = evt.id === 'subha-muhurtham';
-              const isOctReception = evt.id === 'oct-reception' || evt.id === 'april-reception';
               const isHaldi = evt.id === 'haldi-mangala-snanam';
-              const isPandiri = evt.id === 'pandiri-raata';
-              const isPellikoduku = evt.id === 'pellikoduku-cheyadam';
+              const isPellikoduku = evt.id === 'pellikoduku-pandiri';
 
               let cardBg = 'bg-white border-amber-200/90';
               let badgeColor = 'bg-amber-100 text-[#4A0E17] border-amber-300';
@@ -642,18 +642,10 @@ export default function App() {
                 cardBg = 'bg-gradient-to-br from-rose-50/95 via-amber-50/80 to-white border-[#C89B3C] ring-2 ring-[#C89B3C]/50 shadow-md';
                 badgeColor = 'bg-[#4A0E17] text-[#F3D27C] border-[#C89B3C]';
                 iconSymbol = '👑';
-              } else if (isOctReception) {
-                cardBg = 'bg-gradient-to-br from-amber-50/90 via-rose-50/60 to-white border-[#C89B3C] ring-1 ring-[#C89B3C]/40 shadow-xs';
-                badgeColor = 'bg-amber-600/15 text-amber-950 border-[#C89B3C]';
-                iconSymbol = '✨';
               } else if (isHaldi) {
                 cardBg = 'bg-gradient-to-br from-amber-50/90 via-yellow-50/60 to-white border-amber-300 shadow-xs';
                 badgeColor = 'bg-amber-500/15 text-amber-950 border-amber-400';
                 iconSymbol = '🌼';
-              } else if (isPandiri) {
-                cardBg = 'bg-gradient-to-br from-emerald-50/85 via-teal-50/50 to-white border-emerald-300 shadow-xs';
-                badgeColor = 'bg-emerald-600/15 text-emerald-950 border-emerald-400';
-                iconSymbol = '🌿';
               } else if (isPellikoduku) {
                 cardBg = 'bg-gradient-to-br from-rose-50/85 via-amber-50/50 to-white border-rose-300 shadow-xs';
                 badgeColor = 'bg-rose-600/15 text-rose-950 border-rose-400';
@@ -674,7 +666,13 @@ export default function App() {
                     </span>
                     <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold border flex items-center gap-1 ${badgeColor}`}>
                       <span>{iconSymbol}</span>
-                      <span>{isMuhurtham ? (currentLang === 'te' ? 'ప్రధాన ముహూర్తం' : 'Main Muhurtham') : isOctReception ? (currentLang === 'te' ? 'అక్టోబర్ 29 రిసెప్షన్' : 'October 29 Reception') : isHaldi ? (currentLang === 'te' ? 'మంగళ స్నానం' : 'Haldi') : isPandiri ? (currentLang === 'te' ? 'పందిరి రాట' : 'Pandiri') : isPellikoduku ? (currentLang === 'te' ? 'నలుగు' : 'Nalugu') : (currentLang === 'te' ? 'వివాహ రిసెప్షన్' : 'Wedding Reception')}</span>
+                      <span>
+                        {isMuhurtham
+                          ? (currentLang === 'te' ? 'శుభ వివాహం' : 'Wedding')
+                          : isHaldi
+                          ? (currentLang === 'te' ? 'హల్దీ' : 'Haldi')
+                          : (currentLang === 'te' ? 'పెళ్ళికొడుకు & పందిరి' : 'Pelli Koduku & Pandiri')}
+                      </span>
                     </span>
                   </div>
 
@@ -686,12 +684,17 @@ export default function App() {
                     {currentLang === 'te' ? evt.descriptionTe : evt.descriptionEn}
                   </p>
 
-                  <div className="mt-3 pt-2 border-t border-amber-200/60 flex items-center justify-between text-[10px] text-amber-900">
+                  <div className="mt-2.5 flex items-center gap-1 text-[10px] text-[#781B10] font-medium">
+                    <MapPin className="w-3 h-3 text-[#C89B3C] shrink-0" />
+                    <span>{currentLang === 'te' ? evt.venueTe : evt.venueEn}</span>
+                  </div>
+
+                  <div className="mt-2 pt-2 border-t border-amber-200/60 flex items-center justify-between gap-2 text-[10px] text-amber-900">
                     <span className="flex items-center gap-1 font-semibold">
-                      <Clock className="w-3 h-3 text-amber-700" />
+                      <Clock className="w-3 h-3 text-amber-700 shrink-0" />
                       <span>{currentLang === 'te' ? evt.timeTe : evt.timeEn}</span>
                     </span>
-                    <span className="text-amber-800 italic font-serif">
+                    <span className="text-amber-800 italic font-serif text-right">
                       👗 {currentLang === 'te' ? evt.attireTe : evt.attireEn}
                     </span>
                   </div>
@@ -713,50 +716,56 @@ export default function App() {
           {/* Top Auspicious Lord Ganesh Emblem */}
           <LordGaneshHeader 
             currentLang={currentLang} 
-            subtitle={currentLang === 'te' ? 'చిత్తూరు & నిజామాబాద్ వేదికలు' : 'Chittoor & Nizamabad Venues'} 
+            subtitle={currentLang === 'te' ? 'సాయి బాబా దేవాలయం, నిజామాబాద్' : 'Sai Baba Temple, Nizamabad'} 
           />
           <div className="space-y-1">
             <span className="text-xs font-bold text-[#4A0E17] uppercase tracking-widest font-serif">
-              {currentLang === 'te' ? 'కళ్యాణ వేదికలు & మార్గదర్శిని' : 'CELEBRATION VENUES & LOCATIONS'}
+              {currentLang === 'te' ? 'కళ్యాణ వేదిక & మార్గదర్శిని' : 'CELEBRATION VENUE & LOCATION'}
             </span>
             <h2 className="text-xl font-display font-bold text-[#4A0E17]">
-              {currentLang === 'te' ? 'కళ్యాణ & రిసెప్షన్ వేదికలు' : 'Celebration Venues'}
+              {currentLang === 'te' ? 'కళ్యాణ వేదిక' : 'Wedding Venue'}
             </h2>
             <p className="text-xs text-amber-950/80">
               {currentLang === 'te' 
-                ? 'అక్టోబర్ 29 రిసెప్షన్ & అక్టోబర్ 30 వివాహం (చిత్తూరు), నవంబర్ 4 రిసెప్షన్ (నిజామాబాద్)' 
-                : 'Oct 29 Reception & Oct 30 Wedding (Chittoor) · Nov 4 Reception (Nizamabad)'}
+                ? 'నవంబర్ 20 హల్దీ · నవంబర్ 21 పెళ్ళికొడుకు & పందిరి · నవంబర్ 22 వివాహం (ఉదయం 9:46)' 
+                : 'Nov 20 Haldi · Nov 21 Pelli Koduku & Pandiri · Nov 22 Wedding (9:46 AM)'}
             </p>
           </div>
 
-          {/* Venue 1: Chittoor Vijayadurga Kalyana Mandapam (Hosts Oct 29 Reception & Oct 30 Wedding) */}
+          {/* Main Venue: Sai Baba Temple, Madhav Nagar, Nizamabad */}
           <div className="p-4 rounded-2xl bg-white border-2 border-[#C89B3C] shadow-md text-left space-y-3">
             <div className="flex flex-wrap items-center gap-1.5">
               <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-[#8C5D0D] text-[10px] font-bold uppercase border border-amber-300">
-                {currentLang === 'te' ? '✨ అక్టోబర్ 29 రిసెప్షన్' : '✨ Oct 29 Reception (6:30 PM)'}
+                {currentLang === 'te' ? '🌼 నవంబర్ 20: హల్దీ' : '🌼 Nov 20: Haldi'}
+              </span>
+              <span className="px-2.5 py-0.5 rounded-full bg-rose-50 text-[#6B1D2F] text-[10px] font-bold uppercase border border-rose-200">
+                {currentLang === 'te' ? '🌸 నవంబర్ 21: పెళ్ళికొడుకు & పందిరి' : '🌸 Nov 21: Pelli Koduku & Pandiri'}
               </span>
               <span className="px-2.5 py-0.5 rounded-full bg-rose-100 text-[#54121E] text-[10px] font-bold uppercase border border-rose-300">
-                {currentLang === 'te' ? '💍 అక్టోబర్ 30 వివాహం' : '💍 Oct 30 Wedding (5:30 AM)'}
+                {currentLang === 'te' ? '💍 నవంబర్ 22: వివాహం (9:46 AM)' : '💍 Nov 22: Wedding (9:46 AM)'}
               </span>
             </div>
 
             <div>
               <h3 className="font-display font-bold text-base text-[#54121E]">
-                Vijayadurga Kalyana Mandapam
+                {currentLang === 'te' ? 'సాయి బాబా దేవాలయం' : 'Sai Baba Temple'}
               </h3>
               <p className="text-xs text-amber-950/85 mt-0.5">
-                Near Durgamma Temple, Vellore Road, Greamspet, Chittoor, Andhra Pradesh 517002
+                {currentLang === 'te' 
+                  ? 'మాధవ్ నగర్, నిజామాబాద్, తెలంగాణ 503001' 
+                  : 'Madhav Nagar, Nizamabad, Telangana 503001'}
               </p>
-              <div className="mt-2 text-[11px] font-serif text-[#781B10] bg-amber-50/70 p-2 rounded-xl border border-amber-200/70 space-y-0.5">
-                <p>• <strong>{currentLang === 'te' ? 'అక్టోబర్ 29 రిసెప్షన్:' : 'Oct 29 Reception:'}</strong> {currentLang === 'te' ? 'గురువారం సాయంత్రం 06:30 గంటల నుండి' : 'Thursday · 06:30 PM Onwards'}</p>
-                <p>• <strong>{currentLang === 'te' ? 'అక్టోబర్ 30 ముహూర్తం:' : 'Oct 30 Muhurtham:'}</strong> {currentLang === 'te' ? 'శుక్రవారం ఉదయం 05:30 గంటలకు' : 'Friday · 05:30 AM (Subha Muhurtham)'}</p>
+              <div className="mt-2 text-[11px] font-serif text-[#781B10] bg-amber-50/70 p-2.5 rounded-xl border border-amber-200/70 space-y-1">
+                <p>• <strong>{currentLang === 'te' ? 'హల్దీ:' : 'Haldi:'}</strong> {currentLang === 'te' ? 'శుక్రవారం, నవంబర్ 20, 2026' : 'Friday, November 20, 2026'}</p>
+                <p>• <strong>{currentLang === 'te' ? 'పెళ్ళికొడుకు & పందిరి:' : 'Pelli Koduku & Pandiri:'}</strong> {currentLang === 'te' ? 'శనివారం, నవంబర్ 21, 2026' : 'Saturday, November 21, 2026'}</p>
+                <p>• <strong>{currentLang === 'te' ? 'శుభ ముహూర్తం (వివాహం):' : 'Wedding Muhurtham:'}</strong> {currentLang === 'te' ? 'ఆదివారం, నవంబర్ 22, 2026 · ఉదయం 09:46 గంటలకు' : 'Sunday, November 22, 2026 · 09:46 AM'}</p>
               </div>
             </div>
 
             <div className="pt-1 flex items-center gap-2">
               <button
                 onClick={() => {
-                  window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Vijayadurga Kalyana Mandapam Near Durgamma Temple Vellore Road Greamspet Chittoor')}`, '_blank');
+                  window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Sai Baba Temple Madhav Nagar Nizamabad Telangana')}`, '_blank');
                 }}
                 className="flex-1 py-2 px-3 bg-[#54121E] text-white text-xs font-bold rounded-xl shadow-xs hover:bg-[#781B10] transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
               >
@@ -765,49 +774,7 @@ export default function App() {
               </button>
               <button
                 onClick={() => {
-                  navigator.clipboard.writeText('Vijayadurga Kalyana Mandapam, Near Durgamma Temple, Vellore Road, Greamspet, Chittoor, Andhra Pradesh 517002');
-                  triggerAkshinthaluShower();
-                }}
-                className="py-2 px-3 bg-amber-100/80 hover:bg-amber-200/80 text-amber-950 text-xs font-semibold rounded-xl transition-colors cursor-pointer"
-              >
-                {currentLang === 'te' ? 'చిరునామా కాపీ' : 'Copy'}
-              </button>
-            </div>
-          </div>
-
-          {/* Venue 2: Nizamabad Reception Mandapam */}
-          <div className="p-4 rounded-2xl bg-white border-2 border-amber-300 shadow-md text-left space-y-3">
-            <div className="flex items-center gap-2">
-              <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-[#781B10] text-[10px] font-bold uppercase">
-                {currentLang === 'te' ? '✨ నవంబర్ 4 రిసెప్షన్' : '✨ Nov 4 Reception'}
-              </span>
-              <span className="text-[11px] font-bold text-[#781B10]">
-                {currentLang === 'te' ? 'నవంబర్ 4, 2026 · సాయంత్రం 6:30' : 'Nov 4, 2026 · Evening'}
-              </span>
-            </div>
-
-            <div>
-              <h3 className="font-display font-bold text-base text-[#781B10]">
-                Munnuru Kapu Kalyana Mandapam
-              </h3>
-              <p className="text-xs text-amber-950/85 mt-0.5">
-                Shivaji Nagar, Nizamabad, Telangana 503001
-              </p>
-            </div>
-
-            <div className="pt-1 flex items-center gap-2">
-              <button
-                onClick={() => {
-                  window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Munnuru Kapu Kalyana Mandapam Shivaji Nagar Nizamabad Telangana')}`, '_blank');
-                }}
-                className="flex-1 py-2 px-3 bg-[#781B10] text-white text-xs font-bold rounded-xl shadow-xs hover:bg-[#991B1B] transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
-              >
-                <Navigation className="w-3.5 h-3.5" />
-                <span>{currentLang === 'te' ? 'గూగుల్ మ్యాప్స్' : 'Google Maps'}</span>
-              </button>
-              <button
-                onClick={() => {
-                  navigator.clipboard.writeText('Munnuru Kapu Kalyana Mandapam, Shivaji Nagar, Nizamabad, Telangana 503001');
+                  navigator.clipboard.writeText('Sai Baba Temple, Madhav Nagar, Nizamabad, Telangana 503001');
                   triggerAkshinthaluShower();
                 }}
                 className="py-2 px-3 bg-amber-100/80 hover:bg-amber-200/80 text-amber-950 text-xs font-semibold rounded-xl transition-colors cursor-pointer"
@@ -821,10 +788,10 @@ export default function App() {
           <div className="pt-1">
             <RideNavigator 
               currentLang={currentLang} 
-              venueName="Vijayadurga Kalyana Mandapam"
-              venueAddress="Near Durgamma Temple, Vellore Road, Greamspet, Chittoor"
-              latitude={13.2172}
-              longitude={79.1003}
+              venueName="Sai Baba Temple"
+              venueAddress="Madhav Nagar, Nizamabad, Telangana 503001"
+              latitude={18.6725}
+              longitude={78.0941}
             />
           </div>
         </section>
@@ -841,7 +808,7 @@ export default function App() {
               {t.rsvpTitle}
             </h2>
             <p className="text-xs text-amber-900/80">
-              {currentLang === 'te' ? 'మీ రాకను తెలియజేసి మమ్మల్ని ఆశీర్వదించండి' : 'Kindly confirm your attendance by Nov 10, 2026'}
+              {currentLang === 'te' ? 'నవంబర్ 18లోగా మీ రాకను తెలియజేసి మమ్మల్ని ఆశీర్వదించండి' : 'Kindly confirm your attendance by Nov 18, 2026'}
             </p>
           </div>
 
@@ -857,7 +824,9 @@ export default function App() {
 
           <div className="flex items-center gap-3 py-1">
             <div className="h-px flex-1 bg-amber-200" />
-            <span className="text-[10px] text-amber-700 font-semibold uppercase font-serif">Or Generate Digital Pass</span>
+            <span className="text-[10px] text-amber-700 font-semibold uppercase font-serif">
+              {currentLang === 'te' ? 'లేదా డిజిటల్ పాస్ పొందండి' : 'Or Generate Digital Pass'}
+            </span>
             <div className="h-px flex-1 bg-amber-200" />
           </div>
 
@@ -866,17 +835,17 @@ export default function App() {
               <div className="inline-flex p-2 bg-emerald-100 rounded-full text-emerald-700">
                 <Check className="w-5 h-5" />
               </div>
-              <p className="text-xs font-bold text-emerald-950">RSVP Confirmed with Gratitude!</p>
+              <p className="text-xs font-bold text-emerald-950">{t.rsvpSuccessTitle}</p>
               <div className="p-2.5 bg-white rounded-xl border border-emerald-200 text-left text-xs space-y-0.5">
-                <p><strong>Guest:</strong> {confirmedPass.fullName}</p>
-                <p><strong>Digital Pass ID:</strong> <span className="font-mono text-[#4A0E17]">{confirmedPass.id}</span></p>
-                <p><strong>Attendees:</strong> {confirmedPass.guestCount} Member(s)</p>
+                <p><strong>{currentLang === 'te' ? 'అతిథి:' : 'Guest:'}</strong> {confirmedPass.fullName}</p>
+                <p><strong>{currentLang === 'te' ? 'డిజిటల్ పాస్ ID:' : 'Digital Pass ID:'}</strong> <span className="font-mono text-[#4A0E17]">{confirmedPass.id}</span></p>
+                <p><strong>{currentLang === 'te' ? 'హాజరయ్యేవారు:' : 'Attendees:'}</strong> {confirmedPass.guestCount} {currentLang === 'te' ? 'మంది' : 'Member(s)'}</p>
               </div>
               <button
                 onClick={() => setConfirmedPass(null)}
                 className="text-[11px] text-emerald-800 underline font-semibold cursor-pointer block pt-1"
               >
-                Submit another RSVP
+                {currentLang === 'te' ? 'మరొక RSVP నమోదు చేయండి' : 'Submit another RSVP'}
               </button>
             </div>
           ) : (
@@ -888,7 +857,7 @@ export default function App() {
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Ramesh Vangala & Family"
+                  placeholder={currentLang === 'te' ? 'ఉదా: రమేష్ వంగాల & కుటుంబం' : 'e.g. Ramesh Vangala & Family'}
                   value={rsvpName}
                   onChange={(e) => setRsvpName(e.target.value)}
                   className="w-full px-3 py-2 bg-white border border-amber-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#4A0E17]"
@@ -919,7 +888,9 @@ export default function App() {
                     className="w-full px-2 py-2 bg-white border border-amber-200 rounded-xl"
                   >
                     {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
-                      <option key={n} value={n}>{n} {n === 1 ? 'Guest' : 'Guests'}</option>
+                      <option key={n} value={n}>
+                        {currentLang === 'te' ? `${n} ${n === 1 ? 'అతిథి' : 'మంది అతిథులు'}` : `${n} ${n === 1 ? 'Guest' : 'Guests'}`}
+                      </option>
                     ))}
                   </select>
                 </div>
@@ -934,9 +905,9 @@ export default function App() {
                   onChange={(e) => setRsvpDiet(e.target.value as GuestRsvp['dietaryPreference'])}
                   className="w-full px-3 py-2 bg-white border border-amber-200 rounded-xl"
                 >
-                  <option value="pure-veg">Pure Veg Telangana Bhojanam (Banana Leaf)</option>
-                  <option value="telangana-traditional">Traditional Feast & Sweets</option>
-                  <option value="jain">Jain Meal</option>
+                  <option value="pure-veg">{t.dietVeg}</option>
+                  <option value="telangana-traditional">{t.dietTraditional}</option>
+                  <option value="jain">{t.dietJain}</option>
                 </select>
               </div>
 
@@ -1000,13 +971,15 @@ export default function App() {
               <div key={p.id} className="relative rounded-2xl overflow-hidden aspect-square border-2 border-[#C89B3C]/40 shadow-xs bg-amber-50">
                 <img
                   src={p.url}
-                  alt={p.captionEn}
+                  alt={currentLang === 'te' ? p.captionTe : p.captionEn}
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-2">
                   <span className="text-[10px] text-white font-medium truncate">
-                    {p.uploaderName ? `By ${p.uploaderName}` : p.captionEn}
+                    {p.uploaderName
+                      ? (currentLang === 'te' ? `${p.uploaderName} ద్వారా` : `By ${p.uploaderName}`)
+                      : (currentLang === 'te' ? p.captionTe : p.captionEn)}
                   </span>
                 </div>
               </div>
@@ -1048,7 +1021,7 @@ export default function App() {
             <input
               type="text"
               required
-              placeholder="Your Name (e.g. Ramesh Babai)"
+              placeholder={t.yourName}
               value={wishName}
               onChange={(e) => setWishName(e.target.value)}
               className="w-full px-3 py-2 bg-white border border-amber-200 rounded-xl"
@@ -1056,7 +1029,7 @@ export default function App() {
             <input
               type="text"
               required
-              placeholder="Your blessing or wish..."
+              placeholder={t.yourBlessing}
               value={wishMsg}
               onChange={(e) => setWishMsg(e.target.value)}
               className="w-full px-3 py-2 bg-white border border-amber-200 rounded-xl"
@@ -1065,7 +1038,7 @@ export default function App() {
               type="submit"
               className="w-full py-2 bg-[#4A0E17] text-white text-xs font-bold rounded-xl cursor-pointer hover:bg-[#781B10] shadow-xs"
             >
-              Post Blessing
+              {t.postBlessingBtn}
             </button>
           </form>
 
@@ -1079,7 +1052,7 @@ export default function App() {
                 </p>
                 <p className="text-[11px] text-amber-900/80 italic">
                   {currentLang === 'te' 
-                    ? 'దీపిక & పృథ్వీరాజ్ లకు మీ అమూల్యమైన శుభాకాంక్షలు తెలియజేసే తొలి గౌరవ అతిథి అవ్వండి!' 
+                    ? 'కీర్తి & హరిప్రసాద్ లకు మీ అమూల్యమైన శుభాకాంక్షలు తెలియజేసే తొలి గౌరవ అతిథి అవ్వండి!' 
                     : 'Be the first honored guest to post your heartfelt blessing for Keerthi & HariPrasad!'}
                 </p>
               </div>
@@ -1105,7 +1078,7 @@ export default function App() {
             <Crown className="w-4 h-4" />
           </div>
           <p className="text-[10px] text-amber-800">
-            October & November 2026
+            {currentLang === 'te' ? 'నవంబర్ 20 – 22, 2026' : 'November 20 – 22, 2026'}
           </p>
         </footer>
       </div>
@@ -1254,7 +1227,7 @@ export default function App() {
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xs flex items-center justify-center p-4">
           <div className="bg-[#FFFDF8] border-2 border-[#C89B3C] rounded-3xl max-w-xs w-full p-5 space-y-4 shadow-2xl">
             <div className="flex justify-between items-center border-b border-amber-200 pb-2">
-              <h3 className="font-display font-bold text-sm text-[#4A0E17]">Share Wedding Moments</h3>
+              <h3 className="font-display font-bold text-sm text-[#4A0E17]">{t.uploadTitle}</h3>
               <button onClick={() => setShowPhotoUploadModal(false)}><X className="w-4 h-4" /></button>
             </div>
             <form onSubmit={handleUploadPhotoSubmit} className="space-y-3 text-xs">
@@ -1280,14 +1253,14 @@ export default function App() {
               <input
                 type="text"
                 required
-                placeholder="Your Name (e.g. Ramesh Uncle)"
+                placeholder={t.guestNamePlaceholder}
                 value={uploadGuestName}
                 onChange={(e) => setUploadGuestName(e.target.value)}
                 className="w-full px-3 py-2 bg-white border border-amber-200 rounded-xl"
               />
               <input
                 type="text"
-                placeholder="Caption or blessing"
+                placeholder={t.captionPlaceholder}
                 value={uploadCaption}
                 onChange={(e) => setUploadCaption(e.target.value)}
                 className="w-full px-3 py-2 bg-white border border-amber-200 rounded-xl"
@@ -1297,7 +1270,7 @@ export default function App() {
                 disabled={!uploadFilePreview || !uploadGuestName}
                 className="w-full py-2.5 bg-[#4A0E17] text-white font-bold rounded-xl cursor-pointer disabled:opacity-50 shadow-xs"
               >
-                Post to Live Wall
+                {currentLang === 'te' ? 'లైవ్ వాల్‌కు పోస్ట్ చేయండి' : 'Post to Live Wall'}
               </button>
             </form>
           </div>
@@ -1336,7 +1309,7 @@ export default function App() {
               className="w-full py-2 bg-amber-100 text-[#4A0E17] text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 cursor-pointer border border-[#C89B3C]/40"
             >
               {copiedLink ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
-              <span>{copiedLink ? 'Copied Link!' : t.copyLink}</span>
+              <span>{copiedLink ? t.copiedText : t.copyLink}</span>
             </button>
           </div>
         </div>

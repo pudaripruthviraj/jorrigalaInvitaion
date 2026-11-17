@@ -32,7 +32,9 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
             {t.appTitle}
           </h3>
           <p className="text-xs sm:text-sm text-amber-300/80">
-            Wedding: Friday, Oct 30, 2026 (Chittoor) · Reception: Wednesday, Nov 4, 2026 (Nizamabad)
+            {currentLang === 'te'
+              ? 'హల్దీ: నవంబర్ 20 · పెళ్ళికొడుకు & పందిరి: నవంబర్ 21 · వివాహం: ఆదివారం, నవంబర్ 22, 2026 · సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్'
+              : 'Haldi: Nov 20 · Pelli Koduku & Pandiri: Nov 21 · Wedding: Sunday, Nov 22, 2026 (9:46 AM) at Sai Baba Temple, Madhav Nagar, Nizamabad'}
           </p>
         </div>
 

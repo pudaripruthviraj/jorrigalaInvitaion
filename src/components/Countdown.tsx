@@ -40,20 +40,20 @@ export const Countdown: React.FC<CountdownProps> = ({ currentLang }) => {
   }, []);
 
   const handleGoogleCalendar = () => {
-    // Oct 30, 2026, 05:30 AM IST (00:00 UTC)
+    // Nov 22, 2026, 09:46 AM IST (04:16 UTC)
     const title = encodeURIComponent(
       currentLang === 'te'
-        ? 'దీపిక & పృథ్వీరాజ్ కళ్యాణ మహోత్సవం (వివాహం)'
+        ? 'కీర్తి & హరిప్రసాద్ కళ్యాణ మహోత్సవం (వివాహం)'
         : 'Keerthi & HariPrasad Wedding Muhurtham'
     );
     const details = encodeURIComponent(
       currentLang === 'te'
-        ? 'శుభ ముహూర్తం: ఉదయం 5:30 గంటలకు, విజయదుర్గ కళ్యాణ మండపం, చిత్తూరు. ఘన వివాహ రిసెప్షన్: నవంబర్ 4 సాయంత్రం, మున్నూరు కాపు మండపం, నిజామాబాద్.'
-        : 'Subha Muhurtham: 5:30 AM at Vijayadurga Kalyana Mandapam, Near Durgamma Temple, Vellore Road, Greamspet, Chittoor. Grand Reception on Nov 4 at Munnuru Kapu Kalyana Mandapam, Shivaji Nagar, Nizamabad.'
+        ? 'హల్దీ: నవంబర్ 20, 2026 · పెళ్ళికొడుకు & పందిరి: నవంబర్ 21, 2026 · శుభ ముహూర్తం: నవంబర్ 22, 2026 ఉదయం 9:46 గంటలకు, సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్.'
+        : 'Haldi: Nov 20, 2026 · Pelli Koduku & Pandiri: Nov 21, 2026 · Subha Muhurtham: Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad.'
     );
-    const location = encodeURIComponent('Vijayadurga Kalyana Mandapam, Near Durgamma Temple, Vellore Road, Greamspet, Chittoor');
-    const startIso = '20261030T000000Z';
-    const endIso = '20261030T060000Z';
+    const location = encodeURIComponent('Sai Baba Temple, Madhav Nagar, Nizamabad, Telangana 503001');
+    const startIso = '20261122T041600Z';
+    const endIso = '20261122T073000Z';
     const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startIso}/${endIso}&details=${details}&location=${location}`;
     window.open(url, '_blank');
   };
@@ -61,7 +61,7 @@ export const Countdown: React.FC<CountdownProps> = ({ currentLang }) => {
   const handleDownloadIcs = () => {
     const summaryText =
       currentLang === 'te'
-        ? 'దీపిక & పృథ్వీరాజ్ కళ్యాణ మహోత్సవం'
+        ? 'కీర్తి & హరిప్రసాద్ కళ్యాణ మహోత్సవం'
         : 'Keerthi & HariPrasad Wedding Ceremony';
     const icsData = [
       'BEGIN:VCALENDAR',
@@ -69,12 +69,12 @@ export const Countdown: React.FC<CountdownProps> = ({ currentLang }) => {
       'PRODID:-//Keerthi & HariPrasad Wedding//EN',
       'BEGIN:VEVENT',
       'UID:Keerthi-HariPrasad-wedding-2026',
-      'DTSTAMP:20261001T000000Z',
-      'DTSTART:20261030T000000Z',
-      'DTEND:20261030T060000Z',
+      'DTSTAMP:20261101T000000Z',
+      'DTSTART:20261122T041600Z',
+      'DTEND:20261122T073000Z',
       `SUMMARY:${summaryText}`,
-      'DESCRIPTION:Subha Muhurtham: 5:30 AM at Sai baba temple, Nizamabad. Grand Reception: Nov 4 at Munnuru Kapu Kalyana Mandapam, Nizamabad.',
-      'LOCATION:Vijayadurga Kalyana Mandapam, Near Durgamma Temple, Vellore Road, Greamspet, Chittoor',
+      'DESCRIPTION:Haldi: Nov 20, 2026. Pelli Koduku & Pandiri: Nov 21, 2026. Subha Muhurtham: Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad.',
+      'LOCATION:Sai Baba Temple, Madhav Nagar, Nizamabad, Telangana 503001',
       'STATUS:CONFIRMED',
       'END:VEVENT',
       'END:VCALENDAR',

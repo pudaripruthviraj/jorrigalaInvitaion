@@ -32,7 +32,7 @@ const MILESTONES: Milestone[] = [
     locationTe: 'పరిచయం - అనుబంధం',
     descriptionEn: 'Back in 2020, our paths crossed. What began with simple conversations, genuine smiles, and heartfelt conversations gradually laid the foundation for an unbreakable companionship.',
     descriptionTe: '2020 లో మొదలైన పరిచయం. ఒకరి ఆలోచనలు మరొకరు పంచుకుంటూ, కష్టసుఖాలలో తోడుగా నిలుస్తూ ఒక గాఢమైన స్నేహ బంధం ఏర్పడింది.',
-    imageUrl: '/images/Keerthi_pruthvi_caricature_1791601211737.jpeg',
+    imageUrl: '/images/deepika_pruthvi_caricature_1791601211737.jpeg',
     icon: '🌸',
   },
   {
@@ -66,34 +66,34 @@ const MILESTONES: Milestone[] = [
     icon: '💍',
   },
   {
-    id: 'wedding-oct-2026',
-    yearEn: '30 OCT 2026',
-    yearTe: '30 అక్టోబర్ 2026',
-    dateEn: 'Friday, October 30, 2026 · 5:30 AM',
-    dateTe: 'శుక్రవారం, అక్టోబర్ 30, 2026 · ఉదయం 5:30',
+    id: 'haldi-pellikoduku-nov-2026',
+    yearEn: '20-21 NOV 2026',
+    yearTe: '20-21 నవంబర్ 2026',
+    dateEn: 'Nov 20 Haldi · Nov 21 Pelli Koduku & Pandiri',
+    dateTe: 'నవంబర్ 20 హల్దీ · నవంబర్ 21 పెళ్ళికొడుకు & పందిరి',
+    titleEn: 'Haldi, Pelli Koduku & Pandiri Celebrations',
+    titleTe: 'హల్దీ, పెళ్ళికొడుకు & పందిరి వేడుకలు',
+    locationEn: 'Madhav Nagar, Nizamabad',
+    locationTe: 'మాధవ్ నగర్, నిజామాబాద్',
+    descriptionEn: 'Two joyful pre-wedding days filled with turmeric blessings, sacred mango-leaf pandiri rituals, and traditional nalugu.',
+    descriptionTe: 'పసుపు వేడుకలు, మామిడాకుల పందిరి రాట పూజ మరియు పెళ్ళికొడుకు నలుగు వేడుకలతో నిండిన ఆనంద క్షణాలు.',
+    imageUrl: '/images/telangana_haldi_celebration_1791062787214.jpg',
+    icon: '🌼',
+  },
+  {
+    id: 'wedding-nov-2026',
+    yearEn: '22 NOV 2026',
+    yearTe: '22 నవంబర్ 2026',
+    dateEn: 'Sunday, November 22, 2026 · 9:46 AM',
+    dateTe: 'ఆదివారం, నవంబర్ 22, 2026 · ఉదయం 9:46',
     titleEn: 'Subha Muhurtham: Sacred Wedding Ceremony',
     titleTe: 'శుభ ముహూర్తం - కళ్యాణ వైభవం',
-    locationEn: 'Sai baba temple, Nizamabad',
-    locationTe: 'విజయదుర్గ కళ్యాణ మండపం, చిత్తూరు',
-    descriptionEn: 'The sacred dawn when we tie the Mangalasutra, shower fragrant Talambralu, and take seven holy vows around the sacred fire at Chittoor.',
+    locationEn: 'Sai Baba Temple, Madhav Nagar, Nizamabad',
+    locationTe: 'సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్',
+    descriptionEn: 'The sacred morning when we tie the Mangalasutra, shower fragrant Talambralu, and take seven holy vows at Sai Baba Temple, Madhav Nagar, Nizamabad.',
     descriptionTe: 'జీలకర్ర-బెల్లం, మాంగళ్యధారణ, ముత్యాల తాళంబ్రాలు మరియు సప్తపది ఏడడుగులతో ఒక్కటయ్యే పవిత్ర శుభ ముహూర్తం.',
     imageUrl: '/images/hero_telangana_wedding_1791062758055.jpg',
     icon: '👑',
-  },
-  {
-    id: 'reception-nov-2026',
-    yearEn: '4 NOV 2026',
-    yearTe: '4 నవంబర్ 2026',
-    dateEn: 'Wednesday, November 4, 2026 · Evening',
-    dateTe: 'బుధవారం, నవంబర్ 4, 2026 · సాయంత్రం',
-    titleEn: 'Grand Reception & Community Feast',
-    titleTe: 'ఘన వివాహ రిసెప్షన్ & విందు భోజనం',
-    locationEn: 'Munnuru Kapu Kalyana Mandapam, Nizamabad',
-    locationTe: 'మున్నూరు కాపు కళ్యాణ మండపం, నిజామాబాద్',
-    descriptionEn: 'Celebrating our new chapter with music, warm felicitations, and an authentic festive banquet welcoming all our loved ones in Nizamabad.',
-    descriptionTe: 'నిజామాబాద్‌లో బంధుమిత్రుల సమక్షంలో ప్రత్యక్ష సంగీత విభావరి, విందు భోజనంతో జరుపుకునే ఘన వివాహ రిసెప్షన్.',
-    imageUrl: '/images/telangana_haldi_celebration_1791062787214.jpg',
-    icon: '✨',
   },
 ];
 
@@ -123,8 +123,8 @@ export const OurStoryTimeline: React.FC<OurStoryTimelineProps> = ({ currentLang 
         </h2>
         <p className="text-xs text-amber-950/80 max-w-md mx-auto">
           {isTelugu 
-            ? '2020 లో మిత్రులుగా కలిసి, అమర ప్రేమికులుగా మారి, ఈ ఏడాది మార్చిలో నిశ్చితార్థంతో ఒక్కటైన దీపిక & పృథ్వీరాజ్ కథ' 
-            : "From best friends in 2020 to forever soulmates, sealed with our March engagement and October wedding"}
+            ? '2020 లో మిత్రులుగా కలిసి, అమర ప్రేమికులుగా మారి, నవంబర్ 22, 2026 న పెళ్ళితో ఒక్కటవుతున్న కీర్తి & హరిప్రసాద్ కథ' 
+            : "From best friends in 2020 to forever soulmates, uniting in marriage on November 22, 2026"}
         </p>
       </div>
 

@@ -44,7 +44,7 @@ export const CoupleStory: React.FC<CoupleStoryProps> = ({ currentLang }) => {
           <div className="md:col-span-4 relative flex justify-center">
             <div className="w-64 h-80 sm:w-72 sm:h-92 rounded-2xl overflow-hidden shadow-lg border-4 border-amber-200 bg-amber-50 relative">
               <img
-                src="/images/Keerthi_pruthvi_caricature_1791601211737.jpeg"
+                src="/images/deepika_pruthvi_caricature_1791601211737.jpeg"
                 alt="Keerthi and HariPrasad"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover object-top"
@@ -70,7 +70,7 @@ export const CoupleStory: React.FC<CoupleStoryProps> = ({ currentLang }) => {
               {t.brideBio}
             </p>
             <div className="pt-2 text-xs text-amber-800 font-medium">
-              D/o Sri Vangala Rammohan & Smt. Padmavathi
+              {t.brideParents}
             </div>
           </div>
         </div>

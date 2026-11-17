@@ -95,12 +95,12 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onOpenRsvp }) => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
             <div className="absolute bottom-3 left-4 right-4 text-white">
               <p className="text-xs uppercase tracking-wider font-semibold text-amber-300">
-                {currentLang === 'te' ? '|| శుభ వివాహం & రిసెప్షన్ ||' : '|| Sacred Wedding & Reception ||'}
+                {currentLang === 'te' ? '|| శుభ వివాహం ||' : '|| Sacred Wedding ||'}
               </p>
               <p className="text-xs sm:text-sm font-medium drop-shadow-sm">
                 {currentLang === 'te' 
-                  ? 'విజయదుర్గ కళ్యాణ మండపం (చిత్తూరు) · మున్నూరు కాపు మండపం (నిజామాబాద్)' 
-                  : 'Vijayadurga Mandapam (Chittoor) · Munnuru Kapu Mandapam (Nizamabad)'}
+                  ? 'సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్' 
+                  : 'Sai Baba Temple, Madhav Nagar, Nizamabad'}
               </p>
             </div>
           </div>

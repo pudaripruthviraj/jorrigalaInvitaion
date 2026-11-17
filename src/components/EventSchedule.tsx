@@ -20,7 +20,7 @@ export const EventSchedule: React.FC<EventScheduleProps> = ({ currentLang }) => 
 
   const handleAddEventToCalendar = (evt: EventItem) => {
     const title = encodeURIComponent(
-      currentLang === 'te' ? `${evt.titleTe} - పృథ్వీరాజ్ & స్రవంతి వివాహం` : `${evt.titleEn} - HariPrasad & Sravanthi Wedding`
+      currentLang === 'te' ? `${evt.titleTe} - కీర్తి & హరిప్రసాద్ వివాహం` : `${evt.titleEn} - Keerthi & HariPrasad Wedding`
     );
     const details = encodeURIComponent(
       currentLang === 'te'
@@ -29,21 +29,15 @@ export const EventSchedule: React.FC<EventScheduleProps> = ({ currentLang }) => 
     );
     const location = encodeURIComponent(currentLang === 'te' ? evt.venueTe : evt.venueEn);
 
-    // Approximate ISO strings based on event date
-    let startIso = '20261126T045400Z';
-    let endIso = '20261126T083000Z';
-    if (evt.id === 'pasupu-danchudu') {
-      startIso = '20261124T020000Z';
-      endIso = '20261124T050000Z';
-    } else if (evt.id === 'pellikoduku-cheyadam') {
-      startIso = '20261124T103000Z';
-      endIso = '20261124T133000Z';
-    } else if (evt.id === 'sangeet-mehendi') {
-      startIso = '20261125T130000Z';
-      endIso = '20261125T173000Z';
-    } else if (evt.id === 'reception-vindu') {
-      startIso = '20261126T133000Z';
-      endIso = '20261126T180000Z';
+    // ISO strings in UTC (IST - 5:30)
+    let startIso = '20261122T041600Z';
+    let endIso = '20261122T073000Z';
+    if (evt.id === 'haldi-mangala-snanam') {
+      startIso = '20261120T033000Z';
+      endIso = '20261120T063000Z';
+    } else if (evt.id === 'pellikoduku-pandiri') {
+      startIso = '20261121T033000Z';
+      endIso = '20261121T133000Z';
     }
 
     const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startIso}/${endIso}&details=${details}&location=${location}`;

@@ -90,10 +90,10 @@ export const OpeningEnvelope: React.FC<OpeningEnvelopeProps> = ({ onOpen, curren
                 {/* Bride Keerthi */}
                 <div>
                   <h1 className="text-xl sm:text-2xl font-display font-bold text-[#54121E] tracking-tight drop-shadow-xs">
-                    {isTelugu ? 'దీపిక' : 'Keerthi'}
+                    {isTelugu ? 'కీర్తి' : 'Keerthi'}
                   </h1>
                   <p className="text-[8.5px] sm:text-[9px] text-amber-900 font-serif leading-tight">
-                    {isTelugu ? 'శ్రీమతి ఎన్. ఉష & శ్రీ ఎన్. నాగరాజులు గార్ల సుపుత్రిక' : 'D/o Smt. O. Bhagyalaxmi & Sri O. Kishan'}
+                    {isTelugu ? 'శ్రీమతి ఓ. భాగ్యలక్ష్మి & శ్రీ ఓ. కిషన్ గార్ల సుపుత్రిక' : 'D/o Smt. O. Bhagyalaxmi & Sri O. Kishan'}
                   </p>
                 </div>
                 
@@ -108,49 +108,49 @@ export const OpeningEnvelope: React.FC<OpeningEnvelopeProps> = ({ onOpen, curren
                 {/* Groom HariPrasad */}
                 <div>
                   <h1 className="text-xl sm:text-2xl font-display font-bold text-[#54121E] tracking-tight drop-shadow-xs">
-                    {isTelugu ? 'పృథ్వీరాజ్' : 'HariPrasad'}
+                    {isTelugu ? 'హరిప్రసాద్' : 'HariPrasad'}
                   </h1>
                   <p className="text-[8.5px] sm:text-[9px] text-amber-900 font-serif leading-tight">
-                    {isTelugu ? 'శ్రీమతి పి. గంగామణి & శ్రీ పి. సాయన్న గార్ల సుపుత్రుడు' : 'S/o Smt. J. Laxmi & Sri J. Narayana'}
+                    {isTelugu ? 'శ్రీమతి జె. లక్ష్మి & శ్రీ జె. నారాయణ గార్ల సుపుత్రుడు' : 'S/o Smt. J. Laxmi & Sri J. Narayana'}
                   </p>
                 </div>
               </div>
 
-              {/* Muhurtham & Reception Dates & Venues */}
+              {/* Haldi, Pelli Koduku & Pandiri, and Wedding Dates & Venue */}
               <div className="pt-1 space-y-1 border-t border-[#C89B3C]/40 mt-1">
-                {/* Oct 29 Reception in Chittoor */}
+                {/* Haldi - Nov 20 */}
                 <div className="space-y-0.2">
                   <p className="text-[9.5px] sm:text-[10.5px] font-serif font-bold text-[#6B1D2F]">
-                    {isTelugu ? '✨ వేడుక రిసెప్షన్: అక్టోబర్ 29, 2026 - సాయంత్రం 6:30' : '✨ Reception: 29 October 2026 · 6:30 PM'}
+                    {isTelugu ? '🌼 హల్దీ: నవంబర్ 20, 2026' : '🌼 Haldi: 20 November 2026'}
                   </p>
                   <p className="text-[8.5px] font-serif text-amber-950/85 leading-tight">
                     {isTelugu 
-                      ? 'విజయదుర్గ కళ్యాణ మండపం, వెల్లూరు రోడ్డు, చిత్తూరు' 
-                      : 'Sai baba temple, Nizamabad'}
+                      ? 'మాధవ్ నగర్, నిజామాబాద్' 
+                      : 'Madhav Nagar, Nizamabad'}
                   </p>
                 </div>
 
-                {/* Wedding in Chittoor */}
+                {/* Pelli Koduku & Pandiri - Nov 21 */}
                 <div className="space-y-0.2 pt-0.5 border-t border-[#C89B3C]/20">
                   <p className="text-[9.5px] sm:text-[10.5px] font-serif font-bold text-[#6B1D2F]">
-                    {isTelugu ? '💍 వివాహం: అక్టోబర్ 30, 2026 - ఉదయం 5:30' : '💍 Wedding: 22 November 2026 · 5:30 AM'}
+                    {isTelugu ? '🌸 పెళ్ళికొడుకు & పందిరి: నవంబర్ 21, 2026' : '🌸 Pelli Koduku & Pandiri: 21 November 2026'}
                   </p>
                   <p className="text-[8.5px] font-serif text-amber-950/85 leading-tight">
                     {isTelugu 
-                      ? 'విజయదుర్గ కళ్యాణ మండపం, వెల్లూరు రోడ్డు, చిత్తూరు' 
-                      : 'Sai baba temple, Nizamabad'}
+                      ? 'మాధవ్ నగర్, నిజామాబాద్' 
+                      : 'Madhav Nagar, Nizamabad'}
                   </p>
                 </div>
 
-                {/* Reception in Nizamabad */}
+                {/* Wedding - Nov 22 at 9:46 AM */}
                 <div className="space-y-0.2 pt-0.5 border-t border-[#C89B3C]/20">
                   <p className="text-[9.5px] sm:text-[10.5px] font-serif font-bold text-[#6B1D2F]">
-                    {isTelugu ? '✨ రిసెప్షన్: నవంబర్ 4, 2026 - సాయంత్రం' : '✨ Reception: 4 November 2026 · Evening'}
+                    {isTelugu ? '💍 వివాహం: నవంబర్ 22, 2026 · ఉదయం 9:46' : '💍 Wedding: 22 November 2026 · 9:46 AM'}
                   </p>
                   <p className="text-[8.5px] font-serif text-amber-950/85 leading-tight">
                     {isTelugu 
-                      ? 'మున్నూరు కాపు కళ్యాణ మండపం, శివాజీ నగర్, నిజామాబాద్' 
-                      : 'Munnuru Kapu Kalyana Mandapam, Nizamabad'}
+                      ? 'సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్' 
+                      : 'Sai Baba Temple, Madhav Nagar, Nizamabad'}
                   </p>
                 </div>
               </div>

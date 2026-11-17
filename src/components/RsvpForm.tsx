@@ -74,7 +74,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
 
   const handleCopyPass = () => {
     if (!confirmedRsvp) return;
-    const text = `Kalyana Mahotsavam Wedding Pass\nGuest: ${confirmedRsvp.fullName}\nPass ID: ${confirmedRsvp.id}\nAttendees: ${confirmedRsvp.guestCount}\nWedding: Oct 30, 2026 (5:30 AM) - Sai baba temple, Nizamabad\nReception: Nov 4, 2026 (Evening) - Munnuru Kapu Kalyana Mandapam, Nizamabad`;
+    const text = `Kalyana Mahotsavam Wedding Pass\nGuest: ${confirmedRsvp.fullName}\nPass ID: ${confirmedRsvp.id}\nAttendees: ${confirmedRsvp.guestCount}\nHaldi: Nov 20, 2026 | Pelli Koduku & Pandiri: Nov 21, 2026\nWedding: Nov 22, 2026 (9:46 AM) - Sai Baba Temple, Madhav Nagar, Nizamabad`;
     navigator.clipboard.writeText(text);
     setCopiedPass(true);
     setTimeout(() => setCopiedPass(false), 2500);
@@ -136,11 +136,11 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
                 </div>
                 <div>
                   <span className="text-amber-800 block">Auspicious Dates:</span>
-                  <span className="font-bold">Oct 29-30 (Chittoor) · Nov 4 (Nizamabad)</span>
+                  <span className="font-bold">Nov 20 Haldi · Nov 21 Pelli Koduku · Nov 22 Wedding (9:46 AM)</span>
                 </div>
                 <div>
                   <span className="text-amber-800 block">Primary Venue:</span>
-                  <span className="font-bold">Sai baba temple, Nizamabad</span>
+                  <span className="font-bold">Sai Baba Temple, Madhav Nagar, Nizamabad</span>
                 </div>
               </div>
 
@@ -328,7 +328,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
                 />
                 <div>
                   <span className="font-semibold block">{t.accommodationLabel}</span>
-                  <span className="text-[11px] text-amber-800">We have reserved guest accommodations in Chittoor & Nizamabad.</span>
+                  <span className="text-[11px] text-amber-800">We have reserved guest accommodations in Nizamabad.</span>
                 </div>
               </label>
 
@@ -341,7 +341,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
                 />
                 <div>
                   <span className="font-semibold block">{t.transportLabel}</span>
-                  <span className="text-[11px] text-amber-800">Airport & Secunderabad station pick-up shuttles available.</span>
+                  <span className="text-[11px] text-amber-800">Railway station & bus stand pick-up shuttles available.</span>
                 </div>
               </label>
             </div>
@@ -354,7 +354,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
                 </label>
                 <input
                   type="text"
-                  placeholder="e.g. Flight 6E-241 arriving RGIA at 2:30 PM on Nov 25"
+                  placeholder="e.g. Train arriving Nizamabad Junction at 8:00 AM on Nov 20"
                   value={travelDetails}
                   onChange={(e) => setTravelDetails(e.target.value)}
                   className="w-full px-3 py-2 text-sm bg-white border border-amber-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#781B10]"
@@ -369,7 +369,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
               </label>
               <textarea
                 rows={2}
-                placeholder="Share your prayers or a message for Pruthvi & Sravanthi..."
+                placeholder="Share your prayers or a message for Keerthi & HariPrasad..."
                 value={personalNote}
                 onChange={(e) => setPersonalNote(e.target.value)}
                 className="w-full px-3 py-2 text-sm bg-white border border-amber-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#781B10]"
@@ -414,7 +414,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
             <div className="p-6 space-y-4 text-xs text-slate-800 bg-[#FFFDF9] max-h-[70vh] overflow-y-auto">
               <div className="border-b border-amber-100 pb-3 space-y-1">
                 <p><span className="font-semibold text-amber-950">To:</span> {confirmedRsvp.fullName} &lt;{confirmedRsvp.email}&gt;</p>
-                <p><span className="font-semibold text-amber-950">Subject:</span> RSVP Confirmed: HariPrasad & Sravanthi Kalyana Mahotsavam (Pass #{confirmedRsvp.id})</p>
+                <p><span className="font-semibold text-amber-950">Subject:</span> RSVP Confirmed: Keerthi & HariPrasad Kalyana Mahotsavam (Pass #{confirmedRsvp.id})</p>
                 <p><span className="font-semibold text-amber-950">Date:</span> {new Date().toLocaleDateString()}</p>
               </div>
 
@@ -441,8 +441,9 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
                   </div>
                 </div>
                 <p className="text-xs font-sans text-amber-900 leading-relaxed">
-                  <strong>💍 Wedding:</strong> Vijayadurga Kalyana Mandapam, Near Durgamma Temple, Vellore Road, Greamspet, Chittoor (Friday, Oct 30, 2026 at 5:30 AM)<br />
-                  <strong>✨ Grand Reception:</strong> Munnuru Kapu Kalyana Mandapam, Shivaji Nagar, Nizamabad (Wednesday, Nov 4, 2026, Evening)
+                  <strong>🌼 Haldi:</strong> Friday, Nov 20, 2026 (Madhav Nagar, Nizamabad)<br />
+                  <strong>🌸 Pelli Koduku & Pandiri:</strong> Saturday, Nov 21, 2026 (Madhav Nagar, Nizamabad)<br />
+                  <strong>💍 Wedding:</strong> Sai Baba Temple, Madhav Nagar, Nizamabad (Sunday, Nov 22, 2026 at 9:46 AM)
                 </p>
                 <p className="text-xs font-sans text-amber-900">
                   Looking forward to welcoming you with traditional poornakumbham and fragrant talambralu.

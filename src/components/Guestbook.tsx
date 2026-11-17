@@ -158,7 +158,7 @@ export const Guestbook: React.FC<GuestbookProps> = ({
                 </h4>
                 <p className="text-xs sm:text-sm text-amber-900/80 font-serif max-w-sm mx-auto">
                   {currentLang === 'te' 
-                    ? 'దీపిక & పృథ్వీరాజ్ లకు మీ అమూల్యమైన శుభాకాంక్షలు మరియు ఆశీస్సులు తెలియజేసే తొలి గౌరవ అతిథి అవ్వండి!' 
+                    ? 'కీర్తి & హరిప్రసాద్ లకు మీ అమూల్యమైన శుభాకాంక్షలు మరియు ఆశీస్సులు తెలియజేసే తొలి గౌరవ అతిథి అవ్వండి!' 
                     : 'Be the first honored guest to post your heartfelt blessing for Keerthi & HariPrasad!'}
                 </p>
               </div>
