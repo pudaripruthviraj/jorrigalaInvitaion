@@ -24,7 +24,7 @@ export const COUPLE_PORTRAIT_URL =
   assetImages['../assets/images/hari.png'] || '/images/hari.png';
 
 export const COUPLE_PORTRAIT_FALLBACK_URL =
-  '/images/deepika_pruthvi_caricature_1791601211737.jpeg';
+  '/images/hari.png';
 
 export const INITIAL_EVENTS: EventItem[] = [
   {
