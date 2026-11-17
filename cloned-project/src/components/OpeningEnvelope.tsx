@@ -117,23 +117,11 @@ export const OpeningEnvelope: React.FC<OpeningEnvelopeProps> = ({ onOpen, curren
               </div>
 
               {/* Muhurtham & Reception Dates & Venues */}
-              <div className="pt-1 space-y-1 border-t border-[#C89B3C]/40 mt-1">
-                {/* Oct 29 Reception in Chittoor */}
-                <div className="space-y-0.2">
-                  <p className="text-[9.5px] sm:text-[10.5px] font-serif font-bold text-[#6B1D2F]">
-                    {isTelugu ? '✨ వేడుక రిసెప్షన్: అక్టోబర్ 29, 2026 - సాయంత్రం 6:30' : '✨ Reception: 29 October 2026 · 6:30 PM'}
-                  </p>
-                  <p className="text-[8.5px] font-serif text-amber-950/85 leading-tight">
-                    {isTelugu 
-                      ? 'విజయదుర్గ కళ్యాణ మండపం, వెల్లూరు రోడ్డు, చిత్తూరు' 
-                      : 'Sai baba temple, Nizamabad'}
-                  </p>
-                </div>
 
                 {/* Wedding in Chittoor */}
                 <div className="space-y-0.2 pt-0.5 border-t border-[#C89B3C]/20">
                   <p className="text-[9.5px] sm:text-[10.5px] font-serif font-bold text-[#6B1D2F]">
-                    {isTelugu ? '💍 వివాహం: అక్టోబర్ 30, 2026 - ఉదయం 5:30' : '💍 Wedding: 22 November 2026 · 5:30 AM'}
+                    {isTelugu ? '💍 వివాహం: అక్టోబర్ 30, 2026 - ఉదయం 5:30' : '💍 Wedding: 22 November 2026 · 9:46 AM'}
                   </p>
                   <p className="text-[8.5px] font-serif text-amber-950/85 leading-tight">
                     {isTelugu 
@@ -142,17 +130,6 @@ export const OpeningEnvelope: React.FC<OpeningEnvelopeProps> = ({ onOpen, curren
                   </p>
                 </div>
 
-                {/* Reception in Nizamabad */}
-                <div className="space-y-0.2 pt-0.5 border-t border-[#C89B3C]/20">
-                  <p className="text-[9.5px] sm:text-[10.5px] font-serif font-bold text-[#6B1D2F]">
-                    {isTelugu ? '✨ రిసెప్షన్: నవంబర్ 4, 2026 - సాయంత్రం' : '✨ Reception: 4 November 2026 · Evening'}
-                  </p>
-                  <p className="text-[8.5px] font-serif text-amber-950/85 leading-tight">
-                    {isTelugu 
-                      ? 'మున్నూరు కాపు కళ్యాణ మండపం, శివాజీ నగర్, నిజామాబాద్' 
-                      : 'Munnuru Kapu Kalyana Mandapam, Nizamabad'}
-                  </p>
-                </div>
               </div>
             </div>
 
