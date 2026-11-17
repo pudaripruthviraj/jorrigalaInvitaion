@@ -74,7 +74,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
 
   const handleCopyPass = () => {
     if (!confirmedRsvp) return;
-    const text = `Kalyana Mahotsavam Wedding Pass\nGuest: ${confirmedRsvp.fullName}\nPass ID: ${confirmedRsvp.id}\nAttendees: ${confirmedRsvp.guestCount}\nWedding: Oct 30, 2026 (5:30 AM) - Vijayadurga Kalyana Mandapam, Chittoor\nReception: Nov 4, 2026 (Evening) - Munnuru Kapu Kalyana Mandapam, Nizamabad`;
+    const text = `Kalyana Mahotsavam Wedding Pass\nGuest: ${confirmedRsvp.fullName}\nPass ID: ${confirmedRsvp.id}\nAttendees: ${confirmedRsvp.guestCount}\nWedding: Oct 30, 2026 (5:30 AM) - Sai baba temple, Nizamabad\nReception: Nov 4, 2026 (Evening) - Munnuru Kapu Kalyana Mandapam, Nizamabad`;
     navigator.clipboard.writeText(text);
     setCopiedPass(true);
     setTimeout(() => setCopiedPass(false), 2500);
@@ -140,7 +140,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
                 </div>
                 <div>
                   <span className="text-amber-800 block">Primary Venue:</span>
-                  <span className="font-bold">Vijayadurga Kalyana Mandapam, Chittoor</span>
+                  <span className="font-bold">Sai baba temple, Nizamabad</span>
                 </div>
               </div>
 

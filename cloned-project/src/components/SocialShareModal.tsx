@@ -16,7 +16,7 @@ export const SocialShareModal: React.FC<SocialShareModalProps> = ({ currentLang,
   const shareMessage =
     currentLang === 'te'
       ? `|| శ్రీరస్తు శుభమస్తు || దీపిక & పృథ్వీరాజ్ ల వివాహ మహోత్సవ ఆహ్వాన పత్రిక. 💍 వివాహం: అక్టోబర్ 30, 2026 (ఉదయం 5:30) - విజయదుర్గ కళ్యాణ మండపం, చిత్తూరు. ✨ రిసెప్షన్: నవంబర్ 4, 2026 (సాయంత్రం) - మున్నూరు కాపు కళ్యాణ మండపం, నిజామాబాద్. ఆహ్వానాన్ని చూడండి: ${siteUrl}`
-      : `|| Sri Rastuva Subhamastu || Wedding Invitation of Keerthi & HariPrasad. 💍 Wedding: Oct 30, 2026 (5:30 AM) at Vijayadurga Kalyana Mandapam, Chittoor. ✨ Reception: Nov 4, 2026 (Evening) at Munnuru Kapu Kalyana Mandapam, Nizamabad. View full invitation: ${siteUrl}`;
+      : `|| Sri Rastuva Subhamastu || Wedding Invitation of Keerthi & HariPrasad. 💍 Wedding: Oct 30, 2026 (5:30 AM) at Sai baba temple, Nizamabad. ✨ Reception: Nov 4, 2026 (Evening) at Munnuru Kapu Kalyana Mandapam, Nizamabad. View full invitation: ${siteUrl}`;
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(siteUrl);

@@ -73,7 +73,7 @@ const MILESTONES: Milestone[] = [
     dateTe: 'శుక్రవారం, అక్టోబర్ 30, 2026 · ఉదయం 5:30',
     titleEn: 'Subha Muhurtham: Sacred Wedding Ceremony',
     titleTe: 'శుభ ముహూర్తం - కళ్యాణ వైభవం',
-    locationEn: 'Vijayadurga Kalyana Mandapam, Chittoor',
+    locationEn: 'Sai baba temple, Nizamabad',
     locationTe: 'విజయదుర్గ కళ్యాణ మండపం, చిత్తూరు',
     descriptionEn: 'The sacred dawn when we tie the Mangalasutra, shower fragrant Talambralu, and take seven holy vows around the sacred fire at Chittoor.',
     descriptionTe: 'జీలకర్ర-బెల్లం, మాంగళ్యధారణ, ముత్యాల తాళంబ్రాలు మరియు సప్తపది ఏడడుగులతో ఒక్కటయ్యే పవిత్ర శుభ ముహూర్తం.',

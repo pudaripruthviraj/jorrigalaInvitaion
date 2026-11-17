@@ -249,11 +249,11 @@ export default function App() {
     triggerAkshinthaluShower();
   };
 
-  const shareText = `Wedding Invitation: Keerthi & HariPrasad | ✨ Grand Celebration Reception on Thursday, Oct 29, 2026 (6:30 PM) at Vijayadurga Kalyana Mandapam, Chittoor | 💍 Subha Muhurtham on Friday, Oct 30, 2026 (5:30 AM) at Vijayadurga Kalyana Mandapam, Chittoor | ✨ Grand Wedding Reception on Wednesday, Nov 4, 2026 (6:30 PM) at Munnuru Kapu Kalyana Mandapam, Nizamabad. View full invitation: ${window.location.href}`;
+  const shareText = `Wedding Invitation: Keerthi & HariPrasad | ✨ Grand Celebration Reception on Thursday, Oct 29, 2026 (6:30 PM) at Sai baba temple, Nizamabad | 💍 Subha Muhurtham on Friday, Oct 30, 2026 (5:30 AM) at Sai baba temple, Nizamabad | ✨ Grand Wedding Reception on Wednesday, Nov 4, 2026 (6:30 PM) at Munnuru Kapu Kalyana Mandapam, Nizamabad. View full invitation: ${window.location.href}`;
 
   const handleCalendar = () => {
     const title = encodeURIComponent('Keerthi & HariPrasad Wedding & Receptions (Oct 29, Oct 30 & Nov 4)');
-    const details = encodeURIComponent('Celebrations Schedule:\n1. Grand Celebration Reception: Thursday, Oct 29, 2026 (6:30 PM) at Vijayadurga Kalyana Mandapam, Near Durgamma Temple, Vellore Road, Greamspet, Chittoor.\n2. Subha Muhurtham: Friday, Oct 30, 2026 (5:30 AM) at Vijayadurga Kalyana Mandapam, Chittoor.\n3. Grand Wedding Reception: Wednesday, Nov 4, 2026 (6:30 PM) at Munnuru Kapu Kalyana Mandapam, Shivaji Nagar, Nizamabad.');
+    const details = encodeURIComponent('Celebrations Schedule:\n1. Grand Celebration Reception: Thursday, Oct 29, 2026 (6:30 PM) at Vijayadurga Kalyana Mandapam, Near Durgamma Temple, Vellore Road, Greamspet, Chittoor.\n2. Subha Muhurtham: Friday, Oct 30, 2026 (5:30 AM) at Sai baba temple, Nizamabad.\n3. Grand Wedding Reception: Wednesday, Nov 4, 2026 (6:30 PM) at Munnuru Kapu Kalyana Mandapam, Shivaji Nagar, Nizamabad.');
     const location = encodeURIComponent('Vijayadurga Kalyana Mandapam, Near Durgamma Temple, Vellore Road, Greamspet, Chittoor, Andhra Pradesh 517002');
     window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=20261029T130000Z/20261104T180000Z&details=${details}&location=${location}`, '_blank');
   };
@@ -280,7 +280,7 @@ export default function App() {
         <div className="sticky top-0 z-40 bg-[#FFF7F5]/95 backdrop-blur-md px-3 py-2 flex items-center justify-between border-b border-[#C89B3C]/40 shadow-xs">
           <div className="flex items-center gap-1.5">
             <span className="font-display font-bold text-sm tracking-widest text-[#54121E]">
-              D & P
+              K & H
             </span>
           </div>
 

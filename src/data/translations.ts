@@ -25,7 +25,7 @@ export const translations = {
     andSymbol: '&',
     weddingDateFull: 'Friday, October 30, 2026',
     muhurthamTime: 'Subha Muhurtham: 5:30 AM (Chittoor) | Reception: Nov 4 Evening (Nizamabad)',
-    venueLocationHero: 'Wedding: Vijayadurga Kalyana Mandapam, Chittoor | Reception: Munnuru Kapu Kalyana Mandapam, Nizamabad',
+    venueLocationHero: 'Wedding: Sai baba temple, Nizamabad | Reception: Munnuru Kapu Kalyana Mandapam, Nizamabad',
     blessTheCouple: 'Shower Akshinthalu',
     rsvpNowBtn: 'Confirm Your RSVP',
     addToCalBtn: 'Add to Calendar',
@@ -126,7 +126,7 @@ export const translations = {
     // Venue & Map
     venueTitle: 'Shubha Vedika - Venues & Directions',
     venueSub: 'Join our celebrations at two grand venues: Wedding in Chittoor and Grand Reception in Nizamabad.',
-    mainHall: 'Marriage: Vijayadurga Kalyana Mandapam, Chittoor',
+    mainHall: 'Marriage: Sai baba temple, Nizamabad',
     addressLine: 'Near Durgamma Temple, Vellore Road, Greamspet, Chittoor, Andhra Pradesh',
     receptionHall: 'Reception: Munnuru Kapu Kalyana Mandapam, Nizamabad',
     receptionAddressLine: 'Shivaji Nagar, Nizamabad, Telangana',

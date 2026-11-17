@@ -126,19 +126,19 @@ export const OpeningEnvelope: React.FC<OpeningEnvelopeProps> = ({ onOpen, curren
                   <p className="text-[8.5px] font-serif text-amber-950/85 leading-tight">
                     {isTelugu 
                       ? 'విజయదుర్గ కళ్యాణ మండపం, వెల్లూరు రోడ్డు, చిత్తూరు' 
-                      : 'Vijayadurga Kalyana Mandapam, Chittoor'}
+                      : 'Sai baba temple, Nizamabad'}
                   </p>
                 </div>
 
                 {/* Wedding in Chittoor */}
                 <div className="space-y-0.2 pt-0.5 border-t border-[#C89B3C]/20">
                   <p className="text-[9.5px] sm:text-[10.5px] font-serif font-bold text-[#6B1D2F]">
-                    {isTelugu ? '💍 వివాహం: అక్టోబర్ 30, 2026 - ఉదయం 5:30' : '💍 Wedding: 30 October 2026 · 5:30 AM'}
+                    {isTelugu ? '💍 వివాహం: అక్టోబర్ 30, 2026 - ఉదయం 5:30' : '💍 Wedding: 22 November 2026 · 5:30 AM'}
                   </p>
                   <p className="text-[8.5px] font-serif text-amber-950/85 leading-tight">
                     {isTelugu 
                       ? 'విజయదుర్గ కళ్యాణ మండపం, వెల్లూరు రోడ్డు, చిత్తూరు' 
-                      : 'Vijayadurga Kalyana Mandapam, Chittoor'}
+                      : 'Sai baba temple, Nizamabad'}
                   </p>
                 </div>
 
@@ -170,7 +170,7 @@ export const OpeningEnvelope: React.FC<OpeningEnvelopeProps> = ({ onOpen, curren
                 title="Tap to Open Invitation"
               >
                 <div className="w-full h-full rounded-full bg-gradient-to-b from-[#54121E] to-[#3B0B14] border-2 border-[#FFE89E] flex flex-col items-center justify-center text-white shadow-inner">
-                  <span className="text-amber-200 text-xs sm:text-sm font-bold font-serif">D & P</span>
+                  <span className="text-amber-200 text-xs sm:text-sm font-bold font-serif">K & H</span>
                   <span className="text-[8px] sm:text-[9px] font-bold tracking-widest uppercase text-amber-200 mt-0.5 font-serif">
                     {isTelugu ? 'ముద్ర' : 'SEAL'}
                   </span>

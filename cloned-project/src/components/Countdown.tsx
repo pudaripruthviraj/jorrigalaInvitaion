@@ -73,7 +73,7 @@ export const Countdown: React.FC<CountdownProps> = ({ currentLang }) => {
       'DTSTART:20261030T000000Z',
       'DTEND:20261030T060000Z',
       `SUMMARY:${summaryText}`,
-      'DESCRIPTION:Subha Muhurtham: 5:30 AM at Vijayadurga Kalyana Mandapam, Chittoor. Grand Reception: Nov 4 at Munnuru Kapu Kalyana Mandapam, Nizamabad.',
+      'DESCRIPTION:Subha Muhurtham: 5:30 AM at Sai baba temple, Nizamabad. Grand Reception: Nov 4 at Munnuru Kapu Kalyana Mandapam, Nizamabad.',
       'LOCATION:Vijayadurga Kalyana Mandapam, Near Durgamma Temple, Vellore Road, Greamspet, Chittoor',
       'STATUS:CONFIRMED',
       'END:VEVENT',
