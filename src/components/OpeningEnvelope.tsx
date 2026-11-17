@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Sparkles, Heart } from 'lucide-react';
 import { Language } from '../types/wedding';
 import { weddingMusic } from '../utils/audioPlayer';
+import { HALDI_VENUE } from '../data/weddingData';
 
 interface OpeningEnvelopeProps {
   onOpen: () => void;
@@ -124,15 +125,15 @@ export const OpeningEnvelope: React.FC<OpeningEnvelopeProps> = ({ onOpen, curren
                     {isTelugu ? '🌼 హల్దీ: నవంబర్ 20, 2026' : '🌼 Haldi: 20 November 2026'}
                   </p>
                   <a
-                    href="https://www.google.com/maps/search/?api=1&query=18.6628516,78.0911954"
+                    href={HALDI_VENUE.mapUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
                     className="text-[8.5px] font-serif text-[#781B10] underline hover:text-[#54121E] leading-tight inline-block"
                   >
                     {isTelugu 
-                      ? 'సీతారాం నగర్ కాలనీ, నిజామాబాద్ · గూగుల్ మ్యాప్స్ ↗' 
-                      : 'Seetharam Nagar Colony, Nizamabad · Maps ↗'}
+                      ? HALDI_VENUE.envelopeLabelTe
+                      : HALDI_VENUE.envelopeLabelEn}
                   </a>
                 </div>
 

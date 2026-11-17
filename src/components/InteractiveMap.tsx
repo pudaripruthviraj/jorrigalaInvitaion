@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MapPin, Navigation, Car, Plane, Train, Compass, ExternalLink, Check, Copy, Calendar, Clock, Bike } from 'lucide-react';
 import { Language } from '../types/wedding';
 import { translations } from '../data/translations';
-import { SIDE_CEREMONY } from '../data/weddingData';
+import { SIDE_CEREMONY, HALDI_VENUE } from '../data/weddingData';
 
 interface InteractiveMapProps {
   currentLang: Language;
@@ -17,19 +17,19 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ currentLang }) =
   const venues = {
     haldi: {
       key: 'haldi',
-      nameEn: 'Seetharam Nagar Colony (Haldi Venue)',
-      nameTe: 'సీతారాం నగర్ కాలనీ (హల్దీ వేదిక)',
+      nameEn: HALDI_VENUE.nameEn,
+      nameTe: HALDI_VENUE.nameTe,
       tagEn: '🌼 Haldi & Mangala Snanam',
       tagTe: '🌼 హల్దీ వేడుక & మంగళస్నానం',
       dateEn: 'Friday, November 20, 2026',
       dateTe: 'శుక్రవారం, నవంబర్ 20, 2026',
       timeEn: 'Morning 09:00 AM onwards',
       timeTe: 'ఉదయం 09:00 గంటల నుండి',
-      addressEn: 'Seetharam Nagar Colony, Anand Nagar, Nizamabad, Telangana 503001',
-      addressTe: 'సీతారాం నగర్ కాలనీ, ఆనంద్ నగర్, నిజామాబాద్, తెలంగాణ 503001',
-      coords: '18.6628516,78.0911954',
-      mapsQuery: '18.6628516,78.0911954',
-      mapUrl: 'https://www.google.com/maps/search/?api=1&query=18.6628516,78.0911954',
+      addressEn: HALDI_VENUE.addressEn,
+      addressTe: HALDI_VENUE.addressTe,
+      coords: HALDI_VENUE.coordsStr,
+      mapsQuery: HALDI_VENUE.coordsStr,
+      mapUrl: HALDI_VENUE.mapUrl,
       transitInfoEn: [
         { icon: Train, text: 'Nizamabad Junction Railway Station (NZB): ~10 mins' },
         { icon: Car, text: 'Nizamabad Central Bus Station (TSRTC): ~8 mins' },
@@ -144,7 +144,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ currentLang }) =
               <span>🌼</span>
               <div className="text-left">
                 <span className="block leading-tight text-[11px] sm:text-xs">{isTelugu ? 'హల్దీ' : 'Nov 20 Haldi'}</span>
-                <span className="text-[9px] opacity-80 block">{isTelugu ? 'సీతారాం నగర్ · నిజామాబాద్' : 'Seetharam Nagar · 9:00 AM'}</span>
+                <span className="text-[9px] opacity-80 block">{isTelugu ? HALDI_VENUE.tabSubTe : HALDI_VENUE.tabSubEn}</span>
               </div>
             </button>
 

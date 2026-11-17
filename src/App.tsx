@@ -12,7 +12,7 @@ import {
   INITIAL_EVENTS, INITIAL_GALLERY, INITIAL_GUESTBOOK, 
   INITIAL_RSVPS, INITIAL_REGISTRY, INITIAL_BUDGET, INITIAL_TABLES, WEDDING_DATE_ISO,
   HALDI_MAP_URL, HALDI_COORDS, PELLIKODUKU_MAP_URL, PELLIKODUKU_COORDS, WEDDING_MAP_URL, WEDDING_COORDS,
-  COUPLE_PORTRAIT_URL, COUPLE_PORTRAIT_FALLBACK_URL, SIDE_CEREMONY
+  COUPLE_PORTRAIT_URL, COUPLE_PORTRAIT_FALLBACK_URL, SIDE_CEREMONY, HALDI_VENUE
 } from './data/weddingData';
 import { weddingMusic } from './utils/audioPlayer';
 import { triggerAkshinthaluShower } from './utils/confetti';
@@ -266,12 +266,12 @@ export default function App() {
   };
 
   const shareText = currentLang === 'te'
-    ? `శుభ వివాహ ఆహ్వానం: కీర్తి & హరిప్రసాద్ | 🌼 హల్దీ (నవంబర్ 20, 2026): సీతారాం నగర్ కాలనీ, ఆనంద్ నగర్, నిజామాబాద్ (${HALDI_MAP_URL}) | 🌸 ${SIDE_CEREMONY.shortAndPandiriTe} (${SIDE_CEREMONY.dateFullTe}): నిజామాబాద్ (${PELLIKODUKU_MAP_URL}) | 💍 శుభ వివాహం (నవంబర్ 22, 2026, ఉదయం 9:46): సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్ (${WEDDING_MAP_URL}). పూర్తి ఆహ్వాన పత్రిక: ${window.location.href}`
-    : `Wedding Invitation: Keerthi & Hariprasad | 🌼 Haldi (Nov 20, 2026): Seetharam Nagar Colony, Anand Nagar, Nizamabad (${HALDI_MAP_URL}) | 🌸 ${SIDE_CEREMONY.shortAndPandiriEn} (${SIDE_CEREMONY.dateMedEn}): Nizamabad (${PELLIKODUKU_MAP_URL}) | 💍 Wedding (Subha Muhurtham, Nov 22, 2026 at 9:46 AM): Sai Baba Temple, Madhav Nagar, Nizamabad (${WEDDING_MAP_URL}). View full invitation: ${window.location.href}`;
+    ? `శుభ వివాహ ఆహ్వానం: కీర్తి & హరిప్రసాద్ | 🌼 హల్దీ (నవంబర్ 20, 2026): ${HALDI_VENUE.shortLabelTe} (${HALDI_MAP_URL}) | 🌸 ${SIDE_CEREMONY.shortAndPandiriTe} (${SIDE_CEREMONY.dateFullTe}): నిజామాబాద్ (${PELLIKODUKU_MAP_URL}) | 💍 శుభ వివాహం (నవంబర్ 22, 2026, ఉదయం 9:46): సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్ (${WEDDING_MAP_URL}). పూర్తి ఆహ్వాన పత్రిక: ${window.location.href}`
+    : `Wedding Invitation: Keerthi & Hariprasad | 🌼 Haldi (Nov 20, 2026): ${HALDI_VENUE.shortLabelEn} (${HALDI_MAP_URL}) | 🌸 ${SIDE_CEREMONY.shortAndPandiriEn} (${SIDE_CEREMONY.dateMedEn}): Nizamabad (${PELLIKODUKU_MAP_URL}) | 💍 Wedding (Subha Muhurtham, Nov 22, 2026 at 9:46 AM): Sai Baba Temple, Madhav Nagar, Nizamabad (${WEDDING_MAP_URL}). View full invitation: ${window.location.href}`;
 
   const handleCalendar = () => {
     const title = encodeURIComponent(`Keerthi & Hariprasad Wedding & ${SIDE_CEREMONY.shortEn} (Nov 20 - 22, 2026)`);
-    const details = encodeURIComponent(`Celebrations Schedule:\n1. Haldi: Friday, Nov 20, 2026 at Seetharam Nagar Colony, Anand Nagar, Nizamabad (Map: ${HALDI_MAP_URL}).\n2. ${SIDE_CEREMONY.titleEn}: ${SIDE_CEREMONY.dateFullEn} at Nizamabad (Map: ${PELLIKODUKU_MAP_URL}).\n3. Wedding (Subha Muhurtham): Sunday, Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad (Map: ${WEDDING_MAP_URL}).`);
+    const details = encodeURIComponent(`Celebrations Schedule:\n1. Haldi: Friday, Nov 20, 2026 at ${HALDI_VENUE.shortLabelEn} (Map: ${HALDI_MAP_URL}).\n2. ${SIDE_CEREMONY.titleEn}: ${SIDE_CEREMONY.dateFullEn} at Nizamabad (Map: ${PELLIKODUKU_MAP_URL}).\n3. Wedding (Subha Muhurtham): Sunday, Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad (Map: ${WEDDING_MAP_URL}).`);
     const location = encodeURIComponent('Sai Baba Temple, Madhav Nagar, Nizamabad, Telangana 503001');
     window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=20261122T041600Z/20261122T073000Z&details=${details}&location=${location}`, '_blank');
   };
@@ -780,12 +780,10 @@ export default function App() {
 
             <div>
               <h3 className="font-display font-bold text-base text-[#54121E]">
-                {currentLang === 'te' ? 'హల్దీ వేదిక · సీతారాం నగర్ కాలనీ' : 'Haldi Venue · Seetharam Nagar Colony'}
+                {currentLang === 'te' ? HALDI_VENUE.nameTe : HALDI_VENUE.nameEn}
               </h3>
               <p className="text-xs text-amber-950/85 mt-0.5">
-                {currentLang === 'te' 
-                  ? 'సీతారాం నగర్ కాలనీ, ఆనంద్ నగర్, నిజామాబాద్, తెలంగాణ 503001' 
-                  : 'Seetharam Nagar Colony, Anand Nagar, Nizamabad, Telangana 503001'}
+                {currentLang === 'te' ? HALDI_VENUE.addressTe : HALDI_VENUE.addressEn}
               </p>
               <div className="mt-2 text-[11px] font-serif text-[#781B10] bg-white/90 p-2.5 rounded-xl border border-amber-200/80 space-y-1">
                 <p>• <strong>{currentLang === 'te' ? 'హల్దీ & మంగళస్నానం:' : 'Haldi & Mangala Snanam:'}</strong> {currentLang === 'te' ? 'శుక్రవారం, నవంబర్ 20, 2026 · ఉదయం 9:00 నుండి' : 'Friday, November 20, 2026 · 9:00 AM onwards'}</p>
@@ -943,14 +941,14 @@ export default function App() {
               currentLang={currentLang} 
               venueName={
                 activeRideVenue === 'haldi'
-                  ? 'Haldi Venue (Seetharam Nagar Colony)'
+                  ? HALDI_VENUE.nameEn
                   : activeRideVenue === 'pellikoduku'
                   ? `${SIDE_CEREMONY.shortAndPandiriEn} Venue`
                   : 'Sai Baba Temple'
               }
               venueAddress={
                 activeRideVenue === 'haldi'
-                  ? 'Seetharam Nagar Colony, Anand Nagar, Nizamabad, Telangana 503001'
+                  ? HALDI_VENUE.addressEn
                   : activeRideVenue === 'pellikoduku'
                   ? 'Nizamabad, Telangana 503001 (18.654689, 78.106245)'
                   : 'Madhav Nagar, Nizamabad, Telangana 503001'

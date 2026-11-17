@@ -98,9 +98,43 @@ export const PELLIKODUKU_DATE_ISO = SIDE_CEREMONY.dateIso;
 // Haldi date: November 20, 2026 IST
 export const HALDI_DATE_ISO = '2026-11-20T09:00:00+05:30';
 
+export const HALDI_VENUE = IS_KEERTHI_SIDE
+  ? {
+      nameEn: 'Haldi Venue · Seetharam Nagar Colony',
+      nameTe: 'హల్దీ వేదిక · సీతారాం నగర్ కాలనీ',
+      shortLabelEn: 'Seetharam Nagar Colony, Anand Nagar, Nizamabad',
+      shortLabelTe: 'సీతారాం నగర్ కాలనీ, ఆనంద్ నగర్, నిజామాబాద్',
+      addressEn: 'Seetharam Nagar Colony, Anand Nagar, Nizamabad, Telangana 503001',
+      addressTe: 'సీతారాం నగర్ కాలనీ, ఆనంద్ నగర్, నిజామాబాద్, తెలంగాణ 503001',
+      envelopeLabelEn: 'Seetharam Nagar Colony, Nizamabad · Maps ↗',
+      envelopeLabelTe: 'సీతారాం నగర్ కాలనీ, నిజామాబాద్ · గూగుల్ మ్యాప్స్ ↗',
+      tabSubEn: 'Seetharam Nagar · 9:00 AM',
+      tabSubTe: 'సీతారాం నగర్ · నిజామాబాద్',
+      coordsStr: '18.6628516,78.0911954',
+      coordsDisplay: '18.6628516, 78.0911954',
+      coords: { lat: 18.6628516, lng: 78.0911954 },
+      mapUrl: 'https://www.google.com/maps/search/?api=1&query=18.6628516,78.0911954',
+    }
+  : {
+      nameEn: 'Haldi Venue (Nizamabad)',
+      nameTe: 'హల్దీ వేదిక (నిజామాబాద్)',
+      shortLabelEn: 'Nizamabad, Telangana',
+      shortLabelTe: 'నిజామాబాద్, తెలంగాణ',
+      addressEn: 'Nizamabad, Telangana 503001 (Google Maps Pin)',
+      addressTe: 'నిజామాబాద్, తెలంగాణ 503001 (గూగుల్ మ్యాప్స్ పిన్)',
+      envelopeLabelEn: 'Nizamabad, Telangana · Maps ↗',
+      envelopeLabelTe: 'నిజామాబాద్, తెలంగాణ · గూగుల్ మ్యాప్స్ ↗',
+      tabSubEn: 'Nizamabad · 9:00 AM',
+      tabSubTe: 'నవంబర్ 20 · నిజామాబాద్',
+      coordsStr: '18.654689,78.106245',
+      coordsDisplay: '18.654689, 78.106245',
+      coords: { lat: 18.654689, lng: 78.106245 },
+      mapUrl: 'https://www.google.com/maps/search/?api=1&query=18.654689,78.106245',
+    };
+
 // Venue Map Links & Coordinates
-export const HALDI_MAP_URL = 'https://www.google.com/maps/search/?api=1&query=18.6628516,78.0911954';
-export const HALDI_COORDS = { lat: 18.6628516, lng: 78.0911954 };
+export const HALDI_MAP_URL = HALDI_VENUE.mapUrl;
+export const HALDI_COORDS = HALDI_VENUE.coords;
 export const PELLIKODUKU_MAP_URL = 'https://www.google.com/maps/search/?api=1&query=18.654689,78.106245';
 export const PELLIKODUKU_COORDS = { lat: 18.654689, lng: 78.106245 };
 export const HALDI_PELLIKODUKU_MAP_URL = PELLIKODUKU_MAP_URL;
@@ -128,8 +162,8 @@ export const INITIAL_EVENTS: EventItem[] = [
     dateStrTe: 'శుక్రవారం, నవంబర్ 20, 2026',
     timeEn: '09:00 AM onwards',
     timeTe: 'ఉదయం 09:00 గంటల నుండి',
-    venueEn: 'Seetharam Nagar Colony, Anand Nagar, Nizamabad, Telangana 503001',
-    venueTe: 'సీతారాం నగర్ కాలనీ, ఆనంద్ నగర్, నిజామాబాద్, తెలంగాణ 503001',
+    venueEn: HALDI_VENUE.addressEn,
+    venueTe: HALDI_VENUE.addressTe,
     mapUrl: HALDI_MAP_URL,
     descriptionEn: 'Joyous haldi ceremony with pure turmeric paste, fragrant rose petals, auspicious folk songs, and sacred herbal mangala snanam.',
     descriptionTe: 'ముత్తైదువలు కలిసి పచ్చి పసుపు, సుగంధ పరిమళాలు మరియు పూల వర్షంతో జరిపే ఆహ్లాదకరమైన హల్దీ & మంగళస్నానం.',

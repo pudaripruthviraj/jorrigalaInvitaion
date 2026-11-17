@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Heart, Sparkles, Calendar, MapPin, ChevronRight } from 'lucide-react';
 import { Language } from '../types/wedding';
 import { LordGaneshHeader } from './LordGaneshHeader';
-import { COUPLE_PORTRAIT_URL, COUPLE_PORTRAIT_FALLBACK_URL, HALDI_MAP_URL, WEDDING_MAP_URL, SIDE_CEREMONY } from '../data/weddingData';
+import { COUPLE_PORTRAIT_URL, COUPLE_PORTRAIT_FALLBACK_URL, HALDI_MAP_URL, WEDDING_MAP_URL, SIDE_CEREMONY, HALDI_VENUE } from '../data/weddingData';
 
 interface Milestone {
   id: string;
@@ -75,8 +75,8 @@ const MILESTONES: Milestone[] = [
     dateTe: 'శుక్రవారం, నవంబర్ 20, 2026 · ఉదయం 9:00',
     titleEn: 'Haldi & Mangala Snanam',
     titleTe: 'హల్దీ వేడుక & మంగళస్నానం',
-    locationEn: 'Seetharam Nagar Colony, Anand Nagar, Nizamabad',
-    locationTe: 'సీతారాం నగర్ కాలనీ, ఆనంద్ నగర్, నిజామాబాద్',
+    locationEn: HALDI_VENUE.shortLabelEn,
+    locationTe: HALDI_VENUE.shortLabelTe,
     mapUrl: HALDI_MAP_URL,
     descriptionEn: 'Joyful pre-wedding morning filled with auspicious turmeric blessings, fragrant rose petals, and herbal mangala snanam.',
     descriptionTe: 'పచ్చి పసుపు, సుగంధ పరిమళాలు మరియు పూల వర్షంతో జరిగే మంగళకరమైన హల్దీ & మంగళస్నానం వేడుక.',

@@ -1,4 +1,4 @@
-import { SIDE_CEREMONY } from './weddingData';
+import { HALDI_VENUE, SIDE_CEREMONY } from './weddingData';
 
 export const translations = {
   en: {
@@ -127,11 +127,11 @@ export const translations = {
 
     // Venue & Map
     venueTitle: 'Shubha Vedika - Venue & Directions',
-    venueSub: `Join Haldi at Seetharam Nagar Colony (Anand Nagar), ${SIDE_CEREMONY.shortEn} in Nizamabad, and the Sacred Wedding at Sai Baba Temple, Madhav Nagar, Nizamabad.`,
+    venueSub: `Join Haldi at ${HALDI_VENUE.shortLabelEn}, ${SIDE_CEREMONY.shortEn} in Nizamabad, and the Sacred Wedding at Sai Baba Temple, Madhav Nagar, Nizamabad.`,
     mainHall: 'Wedding Venue: Sai Baba Temple, Madhav Nagar, Nizamabad',
     addressLine: 'Madhav Nagar, Nizamabad, Telangana 503001',
-    receptionHall: `Haldi (Seetharam Nagar Colony) & ${SIDE_CEREMONY.shortEn} Venues, Nizamabad`,
-    receptionAddressLine: `Haldi: Seetharam Nagar Colony, Anand Nagar, Nizamabad · ${SIDE_CEREMONY.shortEn}: Nizamabad 503001`,
+    receptionHall: `Haldi & ${SIDE_CEREMONY.shortEn} Venues, Nizamabad`,
+    receptionAddressLine: `Haldi: ${HALDI_VENUE.shortLabelEn} · ${SIDE_CEREMONY.shortEn}: Nizamabad 503001`,
     openGoogleMaps: 'Open in Google Maps',
     openAppleMaps: 'Open in Apple Maps',
     bookRapido: 'Book Rapido Ride to Venue',
@@ -316,11 +316,11 @@ export const translations = {
 
     // Venue & Map
     venueTitle: 'శుభ వేదిక & మార్గదర్శిని',
-    venueSub: `సీతారాం నగర్ కాలనీ (ఆనంద్ నగర్)లో హల్దీ, నిజామాబాద్‌లో ${SIDE_CEREMONY.shortTe}, మరియు సాయి బాబా దేవాలయం, మాధవ్ నగర్‌లో శుభ వివాహానికి విచ్చేయండి.`,
+    venueSub: `${HALDI_VENUE.shortLabelTe} లో హల్దీ, నిజామాబాద్‌లో ${SIDE_CEREMONY.shortTe}, మరియు సాయి బాబా దేవాలయం, మాధవ్ నగర్‌లో శుభ వివాహానికి విచ్చేయండి.`,
     mainHall: 'వివాహ వేదిక: సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్',
     addressLine: 'మాధవ్ నగర్, నిజామాబాద్, తెలంగాణ 503001',
-    receptionHall: `హల్దీ (సీతారాం నగర్ కాలనీ) & ${SIDE_CEREMONY.shortTe} వేదికలు, నిజామాబాద్`,
-    receptionAddressLine: `హల్దీ: సీతారాం నగర్ కాలనీ, ఆనంద్ నగర్ · ${SIDE_CEREMONY.shortTe}: నిజామాబాద్ 503001`,
+    receptionHall: `హల్దీ & ${SIDE_CEREMONY.shortTe} వేదికలు, నిజామాబాద్`,
+    receptionAddressLine: `హల్దీ: ${HALDI_VENUE.shortLabelTe} · ${SIDE_CEREMONY.shortTe}: నిజామాబాద్ 503001`,
     openGoogleMaps: 'గూగుల్ మ్యాప్స్ లో తెరవండి',
     openAppleMaps: 'యాపిల్ మ్యాప్స్ లో తెరవండి',
     bookRapido: 'రాపిడో రైడ్ బుక్ చేయండి',

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { X, Copy, Check, MessageCircle, Send, QrCode, Share2 } from 'lucide-react';
 import { Language } from '../types/wedding';
 import { translations } from '../data/translations';
-import { HALDI_MAP_URL, PELLIKODUKU_MAP_URL, WEDDING_MAP_URL, SIDE_CEREMONY } from '../data/weddingData';
+import { HALDI_MAP_URL, PELLIKODUKU_MAP_URL, WEDDING_MAP_URL, SIDE_CEREMONY, HALDI_VENUE } from '../data/weddingData';
 
 interface SocialShareModalProps {
   currentLang: Language;
@@ -16,8 +16,8 @@ export const SocialShareModal: React.FC<SocialShareModalProps> = ({ currentLang,
   const siteUrl = window.location.href;
   const shareMessage =
     currentLang === 'te'
-      ? `|| శ్రీరస్తు శుభమస్తు || కీర్తి & హరిప్రసాద్ ల వివాహ మహోత్సవ ఆహ్వాన పత్రిక. 🌼 హల్దీ (నవంబర్ 20): సీతారాం నగర్ కాలనీ, ఆనంద్ నగర్, నిజామాబాద్ (${HALDI_MAP_URL}) | 🌸 ${SIDE_CEREMONY.shortAndPandiriTe} (${SIDE_CEREMONY.dateShortTe}): నిజామాబాద్ (${PELLIKODUKU_MAP_URL}) | 💍 వివాహం: ఆదివారం, నవంబర్ 22, 2026 (ఉదయం 9:46) - సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్ (${WEDDING_MAP_URL}). ఆహ్వానాన్ని చూడండి: ${siteUrl}`
-      : `|| Sri Rastuva Subhamastu || Wedding Invitation of Keerthi & Hariprasad. 🌼 Haldi (Nov 20): Seetharam Nagar Colony, Anand Nagar, Nizamabad (${HALDI_MAP_URL}) | 🌸 ${SIDE_CEREMONY.shortAndPandiriEn} (${SIDE_CEREMONY.dateMedEn}): Nizamabad (${PELLIKODUKU_MAP_URL}) | 💍 Wedding: Sunday, Nov 22, 2026 (9:46 AM) at Sai Baba Temple, Madhav Nagar, Nizamabad (${WEDDING_MAP_URL}). View full invitation: ${siteUrl}`;
+      ? `|| శ్రీరస్తు శుభమస్తు || కీర్తి & హరిప్రసాద్ ల వివాహ మహోత్సవ ఆహ్వాన పత్రిక. 🌼 హల్దీ (నవంబర్ 20): ${HALDI_VENUE.shortLabelTe} (${HALDI_MAP_URL}) | 🌸 ${SIDE_CEREMONY.shortAndPandiriTe} (${SIDE_CEREMONY.dateShortTe}): నిజామాబాద్ (${PELLIKODUKU_MAP_URL}) | 💍 వివాహం: ఆదివారం, నవంబర్ 22, 2026 (ఉదయం 9:46) - సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్ (${WEDDING_MAP_URL}). ఆహ్వానాన్ని చూడండి: ${siteUrl}`
+      : `|| Sri Rastuva Subhamastu || Wedding Invitation of Keerthi & Hariprasad. 🌼 Haldi (Nov 20): ${HALDI_VENUE.shortLabelEn} (${HALDI_MAP_URL}) | 🌸 ${SIDE_CEREMONY.shortAndPandiriEn} (${SIDE_CEREMONY.dateMedEn}): Nizamabad (${PELLIKODUKU_MAP_URL}) | 💍 Wedding: Sunday, Nov 22, 2026 (9:46 AM) at Sai Baba Temple, Madhav Nagar, Nizamabad (${WEDDING_MAP_URL}). View full invitation: ${siteUrl}`;
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(siteUrl);

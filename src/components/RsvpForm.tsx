@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Check, Mail, Phone, User, Users, Heart, Sparkles, QrCode, Copy, Send, Calendar, Download } from 'lucide-react';
 import { Language, GuestRsvp } from '../types/wedding';
 import { translations } from '../data/translations';
-import { INITIAL_EVENTS, SIDE_CEREMONY } from '../data/weddingData';
+import { INITIAL_EVENTS, SIDE_CEREMONY, HALDI_VENUE } from '../data/weddingData';
 import { triggerAkshinthaluShower } from '../utils/confetti';
 
 interface RsvpFormProps {
@@ -442,7 +442,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
                   </div>
                 </div>
                 <p className="text-xs font-sans text-amber-900 leading-relaxed">
-                  <strong>🌼 Haldi:</strong> Friday, Nov 20, 2026 (Seetharam Nagar Colony, Anand Nagar, Nizamabad · 18.6628516, 78.0911954)<br />
+                  <strong>🌼 Haldi:</strong> Friday, Nov 20, 2026 ({HALDI_VENUE.shortLabelEn} · {HALDI_VENUE.coordsDisplay})<br />
                   <strong>🌸 {SIDE_CEREMONY.shortAndPandiriEn}:</strong> {SIDE_CEREMONY.dateMedEn} (Nizamabad · 18.654689, 78.106245)<br />
                   <strong>💍 Wedding:</strong> Sai Baba Temple, Madhav Nagar, Nizamabad (Sunday, Nov 22, 2026 at 9:46 AM)
                 </p>
