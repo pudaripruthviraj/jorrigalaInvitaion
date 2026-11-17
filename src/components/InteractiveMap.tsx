@@ -16,18 +16,19 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ currentLang }) =
   const venues = {
     haldi: {
       key: 'haldi',
-      nameEn: 'Madhav Nagar Residence',
-      nameTe: 'మాధవ్ నగర్, నిజామాబాద్',
+      nameEn: 'Haldi Venue (Nizamabad)',
+      nameTe: 'హల్దీ వేదిక (నిజామాబాద్)',
       tagEn: '🌼 Haldi & Mangala Snanam',
       tagTe: '🌼 హల్దీ వేడుక & మంగళస్నానం',
       dateEn: 'Friday, November 20, 2026',
       dateTe: 'శుక్రవారం, నవంబర్ 20, 2026',
       timeEn: 'Morning 09:00 AM onwards',
       timeTe: 'ఉదయం 09:00 గంటల నుండి',
-      addressEn: 'Madhav Nagar, Nizamabad, Telangana 503001',
-      addressTe: 'మాధవ్ నగర్, నిజామాబాద్, తెలంగాణ 503001',
-      coords: '18.6725,78.0941',
-      mapsQuery: 'Madhav Nagar Nizamabad Telangana',
+      addressEn: 'Nizamabad, Telangana 503001 (Google Maps Pin)',
+      addressTe: 'నిజామాబాద్, తెలంగాణ 503001 (గూగుల్ మ్యాప్స్ పిన్)',
+      coords: '18.654689,78.106245',
+      mapsQuery: '18.654689,78.106245',
+      mapUrl: 'https://goo.gl/maps/PVJN4G3JLKHTQAb99',
       transitInfoEn: [
         { icon: Train, text: 'Nizamabad Junction Railway Station (NZB): ~10 mins' },
         { icon: Car, text: 'Nizamabad Central Bus Station (TSRTC): ~8 mins' },
@@ -43,18 +44,19 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ currentLang }) =
     },
     pellikoduku: {
       key: 'pellikoduku',
-      nameEn: 'Madhav Nagar Residence',
-      nameTe: 'మాధవ్ నగర్, నిజామాబాద్',
+      nameEn: 'Pelli Koduku & Pandiri Venue (Nizamabad)',
+      nameTe: 'పెళ్ళికొడుకు & పందిరి వేదిక (నిజామాబాద్)',
       tagEn: '🌸 Pelli Koduku & Pandiri Event',
       tagTe: '🌸 పెళ్ళికొడుకు & పందిరి వేడుక',
       dateEn: 'Saturday, November 21, 2026',
       dateTe: 'శనివారం, నవంబర్ 21, 2026',
       timeEn: 'Morning Pandiri & Evening Pelli Koduku',
       timeTe: 'ఉదయం పందిరి & సాయంత్రం పెళ్ళికొడుకు వేడుక',
-      addressEn: 'Madhav Nagar, Nizamabad, Telangana 503001',
-      addressTe: 'మాధవ్ నగర్, నిజామాబాద్, తెలంగాణ 503001',
-      coords: '18.6725,78.0941',
-      mapsQuery: 'Madhav Nagar Nizamabad Telangana',
+      addressEn: 'Nizamabad, Telangana 503001 (Google Maps Pin)',
+      addressTe: 'నిజామాబాద్, తెలంగాణ 503001 (గూగుల్ మ్యాప్స్ పిన్)',
+      coords: '18.654689,78.106245',
+      mapsQuery: '18.654689,78.106245',
+      mapUrl: 'https://goo.gl/maps/PVJN4G3JLKHTQAb99',
       transitInfoEn: [
         { icon: Train, text: 'Nizamabad Junction Railway Station (NZB): ~10 mins' },
         { icon: Car, text: 'Nizamabad Central Bus Station (TSRTC): ~8 mins' },
@@ -82,6 +84,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ currentLang }) =
       addressTe: 'మాధవ్ నగర్, నిజామాబాద్, తెలంగాణ 503001',
       coords: '18.6725,78.0941',
       mapsQuery: 'Sai Baba Temple Madhav Nagar Nizamabad Telangana',
+      mapUrl: 'https://www.google.com/maps/search/?api=1&query=Sai+Baba+Temple+Madhav+Nagar+Nizamabad+Telangana',
       transitInfoEn: [
         { icon: Train, text: 'Nizamabad Junction Railway Station (NZB): ~10 mins' },
         { icon: Car, text: 'Nizamabad Central Bus Station (TSRTC): ~8 mins' },
@@ -107,8 +110,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ currentLang }) =
   };
 
   const handleGoogleMaps = () => {
-    const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(currentVenue.mapsQuery)}`;
-    window.open(url, '_blank');
+    window.open(currentVenue.mapUrl, '_blank');
   };
 
   const handleAppleMaps = () => {
@@ -117,14 +119,16 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ currentLang }) =
   };
 
   const handleUber = () => {
-    const url = `https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[nickname]=${encodeURIComponent(
+    const [lat, lng] = currentVenue.coords.split(',');
+    const url = `https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[latitude]=${lat}&dropoff[longitude]=${lng}&dropoff[nickname]=${encodeURIComponent(
       isTelugu ? currentVenue.nameTe : currentVenue.nameEn
     )}`;
     window.open(url, '_blank');
   };
 
   const handleOla = () => {
-    const url = `https://www.olacabs.com/`;
+    const [lat, lng] = currentVenue.coords.split(',');
+    const url = `https://book.olacabs.com/?lat=${lat}&lng=${lng}&drop_name=${encodeURIComponent(currentVenue.nameEn)}`;
     window.open(url, '_blank');
   };
 
@@ -339,9 +343,9 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ currentLang }) =
                   <circle cx="0" cy="0" r="11" fill="#991B1B" />
                   <circle cx="0" cy="0" r="4" fill="#FFFFFF" />
                   <path d="M 0,-26 L 7,-10 L -7,-10 Z" fill="#991B1B" />
-                  <rect x="-125" y="-60" width="250" height="28" rx="8" fill="#54121E" />
+                  <rect x="-140" y="-60" width="280" height="28" rx="8" fill="#54121E" />
                   <text x="0" y="-42" fill="#FFF" fontSize="10" fontWeight="bold" textAnchor="middle">
-                    Sai Baba Temple, Madhav Nagar
+                    {currentVenue.nameEn}
                   </text>
                 </g>
               </svg>

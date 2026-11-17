@@ -24,10 +24,10 @@ export const EventSchedule: React.FC<EventScheduleProps> = ({ currentLang }) => 
     );
     const details = encodeURIComponent(
       currentLang === 'te'
-        ? `${evt.descriptionTe}\nసమయం: ${evt.timeTe}\nవేదిక: ${evt.venueTe}\nదుస్తులు: ${evt.attireTe}`
-        : `${evt.descriptionEn}\nTime: ${evt.timeEn}\nVenue: ${evt.venueEn}\nAttire: ${evt.attireEn}`
+        ? `${evt.descriptionTe}\nసమయం: ${evt.timeTe}\nవేదిక: ${evt.venueTe}${evt.mapUrl ? `\nమ్యాప్: ${evt.mapUrl}` : ''}\nదుస్తులు: ${evt.attireTe}`
+        : `${evt.descriptionEn}\nTime: ${evt.timeEn}\nVenue: ${evt.venueEn}${evt.mapUrl ? `\nMap: ${evt.mapUrl}` : ''}\nAttire: ${evt.attireEn}`
     );
-    const location = encodeURIComponent(currentLang === 'te' ? evt.venueTe : evt.venueEn);
+    const location = encodeURIComponent(evt.mapUrl || (currentLang === 'te' ? evt.venueTe : evt.venueEn));
 
     // ISO strings in UTC (IST - 5:30)
     let startIso = '20261122T041600Z';
@@ -161,8 +161,19 @@ export const EventSchedule: React.FC<EventScheduleProps> = ({ currentLang }) => 
                   </div>
                 </div>
 
-                {/* Add to Calendar Action */}
-                <div className="mt-4 flex items-center justify-end">
+                {/* Add to Calendar & Map Actions */}
+                <div className="mt-4 flex flex-wrap items-center justify-end gap-2">
+                  {evt.mapUrl && (
+                    <a
+                      href={evt.mapUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3 py-1.5 text-xs font-semibold text-[#54121E] bg-rose-50 hover:bg-rose-100 border border-rose-200 rounded-lg transition-colors flex items-center gap-1.5"
+                    >
+                      <MapPin className="w-3.5 h-3.5" />
+                      <span>{currentLang === 'te' ? 'గూగుల్ మ్యాప్స్' : 'Open Map'}</span>
+                    </a>
+                  )}
                   <button
                     onClick={() => handleAddEventToCalendar(evt)}
                     className="px-3 py-1.5 text-xs font-semibold text-[#781B10] bg-amber-100 hover:bg-amber-200 rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer"

@@ -48,8 +48,8 @@ export const Countdown: React.FC<CountdownProps> = ({ currentLang }) => {
     );
     const details = encodeURIComponent(
       currentLang === 'te'
-        ? 'హల్దీ: నవంబర్ 20, 2026 · పెళ్ళికొడుకు & పందిరి: నవంబర్ 21, 2026 · శుభ ముహూర్తం: నవంబర్ 22, 2026 ఉదయం 9:46 గంటలకు, సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్.'
-        : 'Haldi: Nov 20, 2026 · Pelli Koduku & Pandiri: Nov 21, 2026 · Subha Muhurtham: Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad.'
+        ? 'హల్దీ: నవంబర్ 20, 2026 & పెళ్ళికొడుకు & పందిరి: నవంబర్ 21, 2026 (మ్యాప్: https://goo.gl/maps/PVJN4G3JLKHTQAb99) · శుభ ముహూర్తం: నవంబర్ 22, 2026 ఉదయం 9:46 గంటలకు, సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్.'
+        : 'Haldi: Nov 20, 2026 & Pelli Koduku & Pandiri: Nov 21, 2026 (Map: https://goo.gl/maps/PVJN4G3JLKHTQAb99) · Subha Muhurtham: Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad.'
     );
     const location = encodeURIComponent('Sai Baba Temple, Madhav Nagar, Nizamabad, Telangana 503001');
     const startIso = '20261122T041600Z';
@@ -73,7 +73,7 @@ export const Countdown: React.FC<CountdownProps> = ({ currentLang }) => {
       'DTSTART:20261122T041600Z',
       'DTEND:20261122T073000Z',
       `SUMMARY:${summaryText}`,
-      'DESCRIPTION:Haldi: Nov 20, 2026. Pelli Koduku & Pandiri: Nov 21, 2026. Subha Muhurtham: Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad.',
+      'DESCRIPTION:Haldi: Nov 20, 2026 & Pelli Koduku & Pandiri: Nov 21, 2026 (https://goo.gl/maps/PVJN4G3JLKHTQAb99). Subha Muhurtham: Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad.',
       'LOCATION:Sai Baba Temple, Madhav Nagar, Nizamabad, Telangana 503001',
       'STATUS:CONFIRMED',
       'END:VEVENT',

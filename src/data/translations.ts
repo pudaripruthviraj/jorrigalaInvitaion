@@ -125,11 +125,11 @@ export const translations = {
 
     // Venue & Map
     venueTitle: 'Shubha Vedika - Venue & Directions',
-    venueSub: 'Join our wedding celebrations at Sai Baba Temple, Madhav Nagar, Nizamabad.',
+    venueSub: 'Join Haldi & Pelli Koduku celebrations in Nizamabad and the Sacred Wedding at Sai Baba Temple, Madhav Nagar, Nizamabad.',
     mainHall: 'Wedding Venue: Sai Baba Temple, Madhav Nagar, Nizamabad',
     addressLine: 'Madhav Nagar, Nizamabad, Telangana 503001',
-    receptionHall: 'Haldi & Pelli Koduku Celebrations: Madhav Nagar, Nizamabad',
-    receptionAddressLine: 'Madhav Nagar, Nizamabad, Telangana 503001',
+    receptionHall: 'Haldi & Pelli Koduku Venue: Nizamabad (Google Maps Pin)',
+    receptionAddressLine: 'Nizamabad, Telangana 503001 · https://goo.gl/maps/PVJN4G3JLKHTQAb99',
     openGoogleMaps: 'Open in Google Maps',
     openAppleMaps: 'Open in Apple Maps',
     bookUber: 'Book Uber Ride to Venue',
@@ -315,11 +315,11 @@ export const translations = {
 
     // Venue & Map
     venueTitle: 'శుభ వేదిక & మార్గదర్శిని',
-    venueSub: 'సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్‌లో జరిగే మా వివాహ వేడుకలకు విచ్చేయండి.',
+    venueSub: 'నిజామాబాద్‌లో హల్దీ & పెళ్ళికొడుకు వేడుకలకు మరియు సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్‌లో జరిగే శుభ వివాహానికి విచ్చేయండి.',
     mainHall: 'వివాహ వేదిక: సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్',
     addressLine: 'మాధవ్ నగర్, నిజామాబాద్, తెలంగాణ 503001',
-    receptionHall: 'హల్దీ & పెళ్ళికొడుకు వేడుకలు: మాధవ్ నగర్, నిజామాబాద్',
-    receptionAddressLine: 'మాధవ్ నగర్, నిజామాబాద్, తెలంగాణ 503001',
+    receptionHall: 'హల్దీ & పెళ్ళికొడుకు వేదిక: నిజామాబాద్ (గూగుల్ మ్యాప్స్ పిన్)',
+    receptionAddressLine: 'నిజామాబాద్, తెలంగాణ 503001 · https://goo.gl/maps/PVJN4G3JLKHTQAb99',
     openGoogleMaps: 'గూగుల్ మ్యాప్స్ లో తెరవండి',
     openAppleMaps: 'యాపిల్ మ్యాప్స్ లో తెరవండి',
     bookUber: 'ఉబెర్ క్యాబ్ బుక్ చేయండి',

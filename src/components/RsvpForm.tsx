@@ -18,8 +18,9 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
   const [phone, setPhone] = useState('');
   const [guestCount, setGuestCount] = useState<number>(2);
   const [attendingEvents, setAttendingEvents] = useState<string[]>([
+    'haldi-mangala-snanam',
+    'pellikoduku-pandiri',
     'subha-muhurtham',
-    'reception-vindu',
   ]);
   const [dietaryPreference, setDietaryPreference] = useState<GuestRsvp['dietaryPreference']>('pure-veg');
   const [accommodationNeeded, setAccommodationNeeded] = useState(false);
@@ -441,8 +442,8 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
                   </div>
                 </div>
                 <p className="text-xs font-sans text-amber-900 leading-relaxed">
-                  <strong>🌼 Haldi:</strong> Friday, Nov 20, 2026 (Madhav Nagar, Nizamabad)<br />
-                  <strong>🌸 Pelli Koduku & Pandiri:</strong> Saturday, Nov 21, 2026 (Madhav Nagar, Nizamabad)<br />
+                  <strong>🌼 Haldi:</strong> Friday, Nov 20, 2026 (Nizamabad · https://goo.gl/maps/PVJN4G3JLKHTQAb99)<br />
+                  <strong>🌸 Pelli Koduku & Pandiri:</strong> Saturday, Nov 21, 2026 (Nizamabad · https://goo.gl/maps/PVJN4G3JLKHTQAb99)<br />
                   <strong>💍 Wedding:</strong> Sai Baba Temple, Madhav Nagar, Nizamabad (Sunday, Nov 22, 2026 at 9:46 AM)
                 </p>
                 <p className="text-xs font-sans text-amber-900">

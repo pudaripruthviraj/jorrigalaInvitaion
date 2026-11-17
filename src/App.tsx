@@ -10,7 +10,8 @@ import { Language, GuestRsvp, GuestbookEntry, GalleryPhoto, RegistryItem, Budget
 import { translations } from './data/translations';
 import { 
   INITIAL_EVENTS, INITIAL_GALLERY, INITIAL_GUESTBOOK, 
-  INITIAL_RSVPS, INITIAL_REGISTRY, INITIAL_BUDGET, INITIAL_TABLES, WEDDING_DATE_ISO 
+  INITIAL_RSVPS, INITIAL_REGISTRY, INITIAL_BUDGET, INITIAL_TABLES, WEDDING_DATE_ISO,
+  HALDI_PELLIKODUKU_MAP_URL, HALDI_PELLIKODUKU_COORDS, WEDDING_COORDS
 } from './data/weddingData';
 import { weddingMusic } from './utils/audioPlayer';
 import { triggerAkshinthaluShower } from './utils/confetti';
@@ -72,6 +73,7 @@ export default function App() {
   const [hasOpenedInvite, setHasOpenedInvite] = useState(false);
   const [activeChapter, setActiveChapter] = useState<number>(1);
   const [viewMode, setViewMode] = useState<'storybook' | 'scroll'>('storybook');
+  const [activeRideVenue, setActiveRideVenue] = useState<'wedding' | 'haldi-pellikoduku'>('wedding');
 
   const CHAPTERS = [
     { id: 1, titleTe: 'శుభ ఆహ్వానం', titleEn: 'Invitation', subTe: 'హల్దీ, పెళ్ళికొడుకు & వివాహం', subEn: 'Haldi, Pelli Koduku & Wedding' },
@@ -250,12 +252,12 @@ export default function App() {
   };
 
   const shareText = currentLang === 'te'
-    ? `శుభ వివాహ ఆహ్వానం: కీర్తి & హరిప్రసాద్ | 🌼 హల్దీ: శుక్రవారం, నవంబర్ 20, 2026 | 🌸 పెళ్ళికొడుకు & పందిరి: శనివారం, నవంబర్ 21, 2026 | 💍 శుభ వివాహం (ముహూర్తం): ఆదివారం, నవంబర్ 22, 2026 ఉదయం 9:46 గంటలకు — సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్. పూర్తి ఆహ్వాన పత్రిక: ${window.location.href}`
-    : `Wedding Invitation: Keerthi & HariPrasad | 🌼 Haldi: Friday, Nov 20, 2026 | 🌸 Pelli Koduku & Pandiri: Saturday, Nov 21, 2026 | 💍 Wedding (Subha Muhurtham): Sunday, Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad. View full invitation: ${window.location.href}`;
+    ? `శుభ వివాహ ఆహ్వానం: కీర్తి & హరిప్రసాద్ | 🌼 హల్దీ: శుక్రవారం, నవంబర్ 20, 2026 & 🌸 పెళ్ళికొడుకు & పందిరి: శనివారం, నవంబర్ 21, 2026 (నిజామాబాద్ మ్యాప్: ${HALDI_PELLIKODUKU_MAP_URL}) | 💍 శుభ వివాహం: ఆదివారం, నవంబర్ 22, 2026 ఉదయం 9:46 గంటలకు — సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్. పూర్తి ఆహ్వాన పత్రిక: ${window.location.href}`
+    : `Wedding Invitation: Keerthi & HariPrasad | 🌼 Haldi (Nov 20) & 🌸 Pelli Koduku & Pandiri (Nov 21): Nizamabad (${HALDI_PELLIKODUKU_MAP_URL}) | 💍 Wedding (Subha Muhurtham): Sunday, Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad. View full invitation: ${window.location.href}`;
 
   const handleCalendar = () => {
     const title = encodeURIComponent('Keerthi & HariPrasad Wedding (Nov 20 - 22, 2026)');
-    const details = encodeURIComponent('Celebrations Schedule:\n1. Haldi: Friday, Nov 20, 2026 (Madhav Nagar, Nizamabad).\n2. Pelli Koduku & Pandiri Event: Saturday, Nov 21, 2026 (Madhav Nagar, Nizamabad).\n3. Wedding (Subha Muhurtham): Sunday, Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad.');
+    const details = encodeURIComponent(`Celebrations Schedule:\n1. Haldi: Friday, Nov 20, 2026 (Map: ${HALDI_PELLIKODUKU_MAP_URL}).\n2. Pelli Koduku & Pandiri Event: Saturday, Nov 21, 2026 (Map: ${HALDI_PELLIKODUKU_MAP_URL}).\n3. Wedding (Subha Muhurtham): Sunday, Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad.`);
     const location = encodeURIComponent('Sai Baba Temple, Madhav Nagar, Nizamabad, Telangana 503001');
     window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=20261122T041600Z/20261122T073000Z&details=${details}&location=${location}`, '_blank');
   };
@@ -684,9 +686,22 @@ export default function App() {
                     {currentLang === 'te' ? evt.descriptionTe : evt.descriptionEn}
                   </p>
 
-                  <div className="mt-2.5 flex items-center gap-1 text-[10px] text-[#781B10] font-medium">
-                    <MapPin className="w-3 h-3 text-[#C89B3C] shrink-0" />
-                    <span>{currentLang === 'te' ? evt.venueTe : evt.venueEn}</span>
+                  <div className="mt-2.5 flex items-center justify-between gap-2 text-[10px] text-[#781B10] font-medium">
+                    <div className="flex items-center gap-1 min-w-0">
+                      <MapPin className="w-3 h-3 text-[#C89B3C] shrink-0" />
+                      <span className="truncate">{currentLang === 'te' ? evt.venueTe : evt.venueEn}</span>
+                    </div>
+                    {evt.mapUrl && (
+                      <a
+                        href={evt.mapUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="shrink-0 px-2 py-0.5 rounded-full bg-rose-50 hover:bg-rose-100 border border-rose-200 text-[#54121E] font-bold flex items-center gap-1 transition-colors"
+                      >
+                        <ExternalLink className="w-2.5 h-2.5" />
+                        <span>{currentLang === 'te' ? 'మ్యాప్' : 'Map'}</span>
+                      </a>
+                    )}
                   </div>
 
                   <div className="mt-2 pt-2 border-t border-amber-200/60 flex items-center justify-between gap-2 text-[10px] text-amber-900">
@@ -720,10 +735,10 @@ export default function App() {
           />
           <div className="space-y-1">
             <span className="text-xs font-bold text-[#4A0E17] uppercase tracking-widest font-serif">
-              {currentLang === 'te' ? 'కళ్యాణ వేదిక & మార్గదర్శిని' : 'CELEBRATION VENUE & LOCATION'}
+              {currentLang === 'te' ? 'కళ్యాణ వేదికలు & మార్గదర్శిని' : 'CELEBRATION VENUES & DIRECTIONS'}
             </span>
             <h2 className="text-xl font-display font-bold text-[#4A0E17]">
-              {currentLang === 'te' ? 'కళ్యాణ వేదిక' : 'Wedding Venue'}
+              {currentLang === 'te' ? 'వేడుకల వేదికలు' : 'Celebration Venues'}
             </h2>
             <p className="text-xs text-amber-950/80">
               {currentLang === 'te' 
@@ -732,8 +747,8 @@ export default function App() {
             </p>
           </div>
 
-          {/* Main Venue: Sai Baba Temple, Madhav Nagar, Nizamabad */}
-          <div className="p-4 rounded-2xl bg-white border-2 border-[#C89B3C] shadow-md text-left space-y-3">
+          {/* Venue 1: Haldi & Pelli Koduku & Pandiri Venue */}
+          <div className="p-4 rounded-2xl bg-gradient-to-br from-amber-50/80 to-white border-2 border-amber-300 shadow-sm text-left space-y-3">
             <div className="flex flex-wrap items-center gap-1.5">
               <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-[#8C5D0D] text-[10px] font-bold uppercase border border-amber-300">
                 {currentLang === 'te' ? '🌼 నవంబర్ 20: హల్దీ' : '🌼 Nov 20: Haldi'}
@@ -741,14 +756,54 @@ export default function App() {
               <span className="px-2.5 py-0.5 rounded-full bg-rose-50 text-[#6B1D2F] text-[10px] font-bold uppercase border border-rose-200">
                 {currentLang === 'te' ? '🌸 నవంబర్ 21: పెళ్ళికొడుకు & పందిరి' : '🌸 Nov 21: Pelli Koduku & Pandiri'}
               </span>
+            </div>
+
+            <div>
+              <h3 className="font-display font-bold text-base text-[#54121E]">
+                {currentLang === 'te' ? 'హల్దీ, పెళ్ళికొడుకు & పందిరి వేదిక' : 'Haldi, Pelli Koduku & Pandiri Venue'}
+              </h3>
+              <p className="text-xs text-amber-950/85 mt-0.5">
+                {currentLang === 'te' 
+                  ? 'నిజామాబాద్, తెలంగాణ 503001' 
+                  : 'Nizamabad, Telangana 503001'}
+              </p>
+              <div className="mt-2 text-[11px] font-serif text-[#781B10] bg-white/90 p-2.5 rounded-xl border border-amber-200/80 space-y-1">
+                <p>• <strong>{currentLang === 'te' ? 'హల్దీ:' : 'Haldi:'}</strong> {currentLang === 'te' ? 'శుక్రవారం, నవంబర్ 20, 2026' : 'Friday, November 20, 2026'}</p>
+                <p>• <strong>{currentLang === 'te' ? 'పెళ్ళికొడుకు & పందిరి:' : 'Pelli Koduku & Pandiri:'}</strong> {currentLang === 'te' ? 'శనివారం, నవంబర్ 21, 2026' : 'Saturday, November 21, 2026'}</p>
+              </div>
+            </div>
+
+            <div className="pt-1 flex items-center gap-2">
+              <button
+                onClick={() => window.open(HALDI_PELLIKODUKU_MAP_URL, '_blank')}
+                className="flex-1 py-2 px-3 bg-[#781B10] text-white text-xs font-bold rounded-xl shadow-xs hover:bg-[#54121E] transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+              >
+                <Navigation className="w-3.5 h-3.5" />
+                <span>{currentLang === 'te' ? 'గూగుల్ మ్యాప్స్ లో తెరవండి' : 'Open Google Maps'}</span>
+              </button>
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(HALDI_PELLIKODUKU_MAP_URL);
+                  triggerAkshinthaluShower();
+                }}
+                className="py-2 px-3 bg-amber-100/80 hover:bg-amber-200/80 text-amber-950 text-xs font-semibold rounded-xl transition-colors cursor-pointer"
+              >
+                {currentLang === 'te' ? 'లింక్ కాపీ' : 'Copy Pin'}
+              </button>
+            </div>
+          </div>
+
+          {/* Venue 2: Main Wedding Venue — Sai Baba Temple, Madhav Nagar, Nizamabad */}
+          <div className="p-4 rounded-2xl bg-white border-2 border-[#C89B3C] shadow-md text-left space-y-3">
+            <div className="flex flex-wrap items-center gap-1.5">
               <span className="px-2.5 py-0.5 rounded-full bg-rose-100 text-[#54121E] text-[10px] font-bold uppercase border border-rose-300">
-                {currentLang === 'te' ? '💍 నవంబర్ 22: వివాహం (9:46 AM)' : '💍 Nov 22: Wedding (9:46 AM)'}
+                {currentLang === 'te' ? '💍 నవంబర్ 22: శుభ వివాహం (9:46 AM)' : '💍 Nov 22: Wedding (9:46 AM)'}
               </span>
             </div>
 
             <div>
               <h3 className="font-display font-bold text-base text-[#54121E]">
-                {currentLang === 'te' ? 'సాయి బాబా దేవాలయం' : 'Sai Baba Temple'}
+                {currentLang === 'te' ? 'సాయి బాబా దేవాలయం (కళ్యాణ వేదిక)' : 'Sai Baba Temple (Wedding Venue)'}
               </h3>
               <p className="text-xs text-amber-950/85 mt-0.5">
                 {currentLang === 'te' 
@@ -756,8 +811,6 @@ export default function App() {
                   : 'Madhav Nagar, Nizamabad, Telangana 503001'}
               </p>
               <div className="mt-2 text-[11px] font-serif text-[#781B10] bg-amber-50/70 p-2.5 rounded-xl border border-amber-200/70 space-y-1">
-                <p>• <strong>{currentLang === 'te' ? 'హల్దీ:' : 'Haldi:'}</strong> {currentLang === 'te' ? 'శుక్రవారం, నవంబర్ 20, 2026' : 'Friday, November 20, 2026'}</p>
-                <p>• <strong>{currentLang === 'te' ? 'పెళ్ళికొడుకు & పందిరి:' : 'Pelli Koduku & Pandiri:'}</strong> {currentLang === 'te' ? 'శనివారం, నవంబర్ 21, 2026' : 'Saturday, November 21, 2026'}</p>
                 <p>• <strong>{currentLang === 'te' ? 'శుభ ముహూర్తం (వివాహం):' : 'Wedding Muhurtham:'}</strong> {currentLang === 'te' ? 'ఆదివారం, నవంబర్ 22, 2026 · ఉదయం 09:46 గంటలకు' : 'Sunday, November 22, 2026 · 09:46 AM'}</p>
               </div>
             </div>
@@ -784,14 +837,42 @@ export default function App() {
             </div>
           </div>
 
-          {/* Interactive Navigate & Ride-Sharing Selector */}
-          <div className="pt-1">
+          {/* Interactive Navigate & Ride-Sharing Selector with Venue Toggle */}
+          <div className="pt-1 space-y-2">
+            <div className="grid grid-cols-2 gap-1.5 p-1 bg-amber-50 border border-amber-200 rounded-xl text-[11px] font-bold">
+              <button
+                type="button"
+                onClick={() => setActiveRideVenue('haldi-pellikoduku')}
+                className={`py-1.5 px-2 rounded-lg transition-all cursor-pointer ${
+                  activeRideVenue === 'haldi-pellikoduku'
+                    ? 'bg-[#781B10] text-white shadow-xs'
+                    : 'text-amber-950 hover:bg-amber-100'
+                }`}
+              >
+                {currentLang === 'te' ? '🌼 హల్దీ & పెళ్ళికొడుకు' : '🌼 Haldi & Pelli Koduku'}
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveRideVenue('wedding')}
+                className={`py-1.5 px-2 rounded-lg transition-all cursor-pointer ${
+                  activeRideVenue === 'wedding'
+                    ? 'bg-[#54121E] text-white shadow-xs'
+                    : 'text-amber-950 hover:bg-amber-100'
+                }`}
+              >
+                {currentLang === 'te' ? '💍 వివాహ వేదిక' : '💍 Wedding Venue'}
+              </button>
+            </div>
             <RideNavigator 
               currentLang={currentLang} 
-              venueName="Sai Baba Temple"
-              venueAddress="Madhav Nagar, Nizamabad, Telangana 503001"
-              latitude={18.6725}
-              longitude={78.0941}
+              venueName={activeRideVenue === 'haldi-pellikoduku' ? 'Haldi & Pelli Koduku Venue' : 'Sai Baba Temple'}
+              venueAddress={
+                activeRideVenue === 'haldi-pellikoduku'
+                  ? 'Nizamabad, Telangana 503001 (goo.gl/maps/PVJN4G3JLKHTQAb99)'
+                  : 'Madhav Nagar, Nizamabad, Telangana 503001'
+              }
+              latitude={activeRideVenue === 'haldi-pellikoduku' ? HALDI_PELLIKODUKU_COORDS.lat : WEDDING_COORDS.lat}
+              longitude={activeRideVenue === 'haldi-pellikoduku' ? HALDI_PELLIKODUKU_COORDS.lng : WEDDING_COORDS.lng}
             />
           </div>
         </section>

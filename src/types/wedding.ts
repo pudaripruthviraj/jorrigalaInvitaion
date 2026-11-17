@@ -10,6 +10,7 @@ export interface EventItem {
   timeTe: string;
   venueEn: string;
   venueTe: string;
+  mapUrl?: string;
   descriptionEn: string;
   descriptionTe: string;
   significanceEn: string;

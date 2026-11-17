@@ -13,6 +13,7 @@ interface Milestone {
   titleTe: string;
   locationEn: string;
   locationTe: string;
+  mapUrl?: string;
   descriptionEn: string;
   descriptionTe: string;
   imageUrl: string;
@@ -73,8 +74,9 @@ const MILESTONES: Milestone[] = [
     dateTe: 'నవంబర్ 20 హల్దీ · నవంబర్ 21 పెళ్ళికొడుకు & పందిరి',
     titleEn: 'Haldi, Pelli Koduku & Pandiri Celebrations',
     titleTe: 'హల్దీ, పెళ్ళికొడుకు & పందిరి వేడుకలు',
-    locationEn: 'Madhav Nagar, Nizamabad',
-    locationTe: 'మాధవ్ నగర్, నిజామాబాద్',
+    locationEn: 'Nizamabad, Telangana (Google Maps Pin)',
+    locationTe: 'నిజామాబాద్, తెలంగాణ (గూగుల్ మ్యాప్స్ పిన్)',
+    mapUrl: 'https://goo.gl/maps/PVJN4G3JLKHTQAb99',
     descriptionEn: 'Two joyful pre-wedding days filled with turmeric blessings, sacred mango-leaf pandiri rituals, and traditional nalugu.',
     descriptionTe: 'పసుపు వేడుకలు, మామిడాకుల పందిరి రాట పూజ మరియు పెళ్ళికొడుకు నలుగు వేడుకలతో నిండిన ఆనంద క్షణాలు.',
     imageUrl: '/images/telangana_haldi_celebration_1791062787214.jpg',
@@ -171,9 +173,21 @@ export const OurStoryTimeline: React.FC<OurStoryTimelineProps> = ({ currentLang 
 
         {/* Content Details */}
         <div className="p-4 space-y-2.5">
-          <div className="flex items-center gap-1.5 text-xs text-[#781B10] font-semibold">
-            <MapPin className="w-3.5 h-3.5 shrink-0" />
-            <span>{isTelugu ? activeMilestone.locationTe : activeMilestone.locationEn}</span>
+          <div className="flex items-center justify-between gap-2 text-xs text-[#781B10] font-semibold">
+            <div className="flex items-center gap-1.5">
+              <MapPin className="w-3.5 h-3.5 shrink-0" />
+              <span>{isTelugu ? activeMilestone.locationTe : activeMilestone.locationEn}</span>
+            </div>
+            {activeMilestone.mapUrl && (
+              <a
+                href={activeMilestone.mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline font-bold text-[#54121E] shrink-0"
+              >
+                {isTelugu ? 'మ్యాప్ ↗' : 'Map ↗'}
+              </a>
+            )}
           </div>
 
           <p className="text-xs text-amber-950/90 leading-relaxed font-serif">

@@ -123,11 +123,17 @@ export const OpeningEnvelope: React.FC<OpeningEnvelopeProps> = ({ onOpen, curren
                   <p className="text-[9.5px] sm:text-[10.5px] font-serif font-bold text-[#6B1D2F]">
                     {isTelugu ? '🌼 హల్దీ: నవంబర్ 20, 2026' : '🌼 Haldi: 20 November 2026'}
                   </p>
-                  <p className="text-[8.5px] font-serif text-amber-950/85 leading-tight">
+                  <a
+                    href="https://goo.gl/maps/PVJN4G3JLKHTQAb99"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="text-[8.5px] font-serif text-[#781B10] underline hover:text-[#54121E] leading-tight inline-block"
+                  >
                     {isTelugu 
-                      ? 'మాధవ్ నగర్, నిజామాబాద్' 
-                      : 'Madhav Nagar, Nizamabad'}
-                  </p>
+                      ? 'నిజామాబాద్ · గూగుల్ మ్యాప్స్ ↗' 
+                      : 'Nizamabad · Google Maps ↗'}
+                  </a>
                 </div>
 
                 {/* Pelli Koduku & Pandiri - Nov 21 */}
@@ -135,11 +141,17 @@ export const OpeningEnvelope: React.FC<OpeningEnvelopeProps> = ({ onOpen, curren
                   <p className="text-[9.5px] sm:text-[10.5px] font-serif font-bold text-[#6B1D2F]">
                     {isTelugu ? '🌸 పెళ్ళికొడుకు & పందిరి: నవంబర్ 21, 2026' : '🌸 Pelli Koduku & Pandiri: 21 November 2026'}
                   </p>
-                  <p className="text-[8.5px] font-serif text-amber-950/85 leading-tight">
+                  <a
+                    href="https://goo.gl/maps/PVJN4G3JLKHTQAb99"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="text-[8.5px] font-serif text-[#781B10] underline hover:text-[#54121E] leading-tight inline-block"
+                  >
                     {isTelugu 
-                      ? 'మాధవ్ నగర్, నిజామాబాద్' 
-                      : 'Madhav Nagar, Nizamabad'}
-                  </p>
+                      ? 'నిజామాబాద్ · గూగుల్ మ్యాప్స్ ↗' 
+                      : 'Nizamabad · Google Maps ↗'}
+                  </a>
                 </div>
 
                 {/* Wedding - Nov 22 at 9:46 AM */}

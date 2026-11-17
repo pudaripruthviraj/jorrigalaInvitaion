@@ -9,6 +9,12 @@ export const PELLIKODUKU_DATE_ISO = '2026-11-21T09:00:00+05:30';
 // Haldi date: November 20, 2026 IST
 export const HALDI_DATE_ISO = '2026-11-20T09:00:00+05:30';
 
+// Venue Map Links & Coordinates
+export const HALDI_PELLIKODUKU_MAP_URL = 'https://goo.gl/maps/PVJN4G3JLKHTQAb99';
+export const HALDI_PELLIKODUKU_COORDS = { lat: 18.654689, lng: 78.106245 };
+export const WEDDING_MAP_URL = 'https://www.google.com/maps/search/?api=1&query=Sai+Baba+Temple+Madhav+Nagar+Nizamabad+Telangana';
+export const WEDDING_COORDS = { lat: 18.6725, lng: 78.0941 };
+
 export const INITIAL_EVENTS: EventItem[] = [
   {
     id: 'haldi-mangala-snanam',
@@ -18,8 +24,9 @@ export const INITIAL_EVENTS: EventItem[] = [
     dateStrTe: 'శుక్రవారం, నవంబర్ 20, 2026',
     timeEn: '09:00 AM onwards',
     timeTe: 'ఉదయం 09:00 గంటల నుండి',
-    venueEn: 'Madhav Nagar, Nizamabad, Telangana',
-    venueTe: 'మాధవ్ నగర్, నిజామాబాద్, తెలంగాణ',
+    venueEn: 'Nizamabad, Telangana 503001 (Google Maps Pin)',
+    venueTe: 'నిజామాబాద్, తెలంగాణ 503001 (గూగుల్ మ్యాప్స్ పిన్)',
+    mapUrl: HALDI_PELLIKODUKU_MAP_URL,
     descriptionEn: 'Joyous haldi ceremony with pure turmeric paste, fragrant rose petals, auspicious folk songs, and sacred herbal mangala snanam.',
     descriptionTe: 'ముత్తైదువలు కలిసి పచ్చి పసుపు, సుగంధ పరిమళాలు మరియు పూల వర్షంతో జరిపే ఆహ్లాదకరమైన హల్దీ & మంగళస్నానం.',
     significanceEn: 'Purifies the body and mind, symbolizes auspicious beginnings, prosperity, and family blessings.',
@@ -37,8 +44,9 @@ export const INITIAL_EVENTS: EventItem[] = [
     dateStrTe: 'శనివారం, నవంబర్ 21, 2026',
     timeEn: 'Morning Pandiri & Evening Pelli Koduku',
     timeTe: 'ఉదయం పందిరి రాట & సాయంత్రం పెళ్ళికొడుకు వేడుక',
-    venueEn: 'Madhav Nagar, Nizamabad, Telangana',
-    venueTe: 'మాధవ్ నగర్, నిజామాబాద్, తెలంగాణ',
+    venueEn: 'Nizamabad, Telangana 503001 (Google Maps Pin)',
+    venueTe: 'నిజామాబాద్, తెలంగాణ 503001 (గూగుల్ మ్యాప్స్ పిన్)',
+    mapUrl: HALDI_PELLIKODUKU_MAP_URL,
     descriptionEn: 'Auspicious installation of the sacred wedding pandiri with fresh mango leaves, followed by elders anointing the groom with fragrant sandalwood, nalugu, and blessing him with traditional silks.',
     descriptionTe: 'పచ్చి మామిడాకుల తోరణాలతో పవిత్ర పందిరి రాట వేసి, పెద్దలందరూ పెళ్ళికొడుకుకు గంధం, నలుగు పెట్టి, పట్టు వస్త్రాలతో అలంకరించి ఆశీర్వదించే శుభ వేడుక.',
     significanceEn: 'Invokes divine blessings on the home and formally prepares the groom for the sacred Grihastha Ashrama.',
@@ -58,6 +66,7 @@ export const INITIAL_EVENTS: EventItem[] = [
     timeTe: 'ఉదయం 09:46 గంటలకు (శుభ ముహూర్తం)',
     venueEn: 'Sai Baba Temple, Madhav Nagar, Nizamabad, Telangana',
     venueTe: 'సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్, తెలంగాణ',
+    mapUrl: WEDDING_MAP_URL,
     descriptionEn: 'The sacred Telugu wedding rituals of Keerthi & HariPrasad: holding cumin & jaggery paste over each other’s heads, tying the Mangalasutra with three sacred knots, and showering fragrant Talambralu.',
     descriptionTe: 'కీర్తి & హరిప్రసాద్‌ల శిరస్సులపై జీలకర్ర-బెల్లం ఉంచడం, ముల్లోకాల సాక్షిగా మూడు ముళ్ళు వేయడం, మరియు ఆనందోత్సాహాల నడుమ ముత్యాల తాళంబ్రాల మహోత్సవం.',
     significanceEn: 'Jeelakarra Bellam symbolizes eternal inseparability; Mangalasutra represents lifelong protection; Talambralu brings prosperity and joy.',
