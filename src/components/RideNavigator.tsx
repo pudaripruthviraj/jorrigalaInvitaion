@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { 
-  Navigation, Car, MapPin, ExternalLink, Check, Copy, Compass, 
-  Bike, ShieldCheck, ChevronRight, X
+import {
+  Navigation, MapPin, ExternalLink, Check, Copy, Compass,
+  Bike, ChevronRight, X
 } from 'lucide-react';
 import { Language } from '../types/wedding';
 
@@ -22,19 +22,12 @@ export const RideNavigator: React.FC<RideNavigatorProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [selectedApp, setSelectedApp] = useState<'uber' | 'ola' | 'rapido' | 'gmaps'>('uber');
 
-  // Deep links for ride-sharing apps
+  // Deep links for Rapido and maps navigation
   const encodedVenue = encodeURIComponent(venueName);
-  
-  const uberUrl = `https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[latitude]=${latitude}&dropoff[longitude]=${longitude}&dropoff[nickname]=${encodedVenue}`;
-  
-  const olaUrl = `https://book.olacabs.com/?lat=${latitude}&lng=${longitude}&drop_name=${encodedVenue}`;
-  
+
   const rapidoUrl = `https://m.rapido.bike/?dest_lat=${latitude}&dest_lng=${longitude}&dest_title=${encodedVenue}`;
-  
   const gmapsUrl = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
-  
   const appleMapsUrl = `https://maps.apple.com/?daddr=${latitude},${longitude}&dirflg=d`;
 
   const handleCopyAddress = () => {
@@ -60,56 +53,34 @@ export const RideNavigator: React.FC<RideNavigatorProps> = ({
               {currentLang === 'te' ? 'రైడ్ బుక్ చేయండి / నావిగేషన్' : 'Navigate & Book Ride'}
             </span>
             <span className="block text-[10px] text-amber-100/80 font-normal">
-              Uber · Ola · Rapido · Google Maps
+              {currentLang === 'te' ? 'రాపిడో · గూగుల్ మ్యాప్స్' : 'Rapido · Google Maps'}
             </span>
           </div>
         </div>
 
         <div className="flex items-center gap-1 text-[11px] font-semibold text-amber-300 bg-black/20 px-2.5 py-1 rounded-xl relative z-10 group-hover:translate-x-0.5 transition-transform">
-          <span>{currentLang === 'te' ? 'ఎంచుకోండి' : 'Choose App'}</span>
+          <span>{currentLang === 'te' ? 'ఎంచుకోండి' : 'Open'}</span>
           <ChevronRight className="w-3.5 h-3.5" />
         </div>
       </button>
 
       {/* Quick Launch Chips (Instant 1-Tap Trigger directly on card) */}
-      <div className="grid grid-cols-4 gap-1.5 pt-0.5">
-        {/* Uber */}
-        <a
-          href={uberUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-2 rounded-xl bg-black text-white hover:bg-neutral-800 transition-all flex flex-col items-center justify-center gap-1 shadow-xs cursor-pointer border border-neutral-700"
-          title="Book Uber to Venue"
-        >
-          <span className="text-[11px] font-black tracking-tight leading-none text-white">Uber</span>
-          <span className="text-[9px] text-neutral-300 font-medium">Cab</span>
-        </a>
-
-        {/* Ola */}
-        <a
-          href={olaUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-2 rounded-xl bg-[#000000] text-emerald-400 hover:bg-neutral-800 transition-all flex flex-col items-center justify-center gap-1 shadow-xs cursor-pointer border border-emerald-600/40"
-          title="Book Ola to Venue"
-        >
-          <span className="text-[11px] font-black tracking-tight leading-none text-emerald-400">Ola</span>
-          <span className="text-[9px] text-emerald-200 font-medium">Auto/Cab</span>
-        </a>
-
+      <div className="grid grid-cols-2 gap-2 pt-0.5">
         {/* Rapido */}
         <a
           href={rapidoUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="p-2 rounded-xl bg-[#FFDD00] text-neutral-950 hover:bg-[#F0D000] transition-all flex flex-col items-center justify-center gap-1 shadow-xs cursor-pointer border border-amber-500/40"
+          className="p-2.5 rounded-xl bg-[#FFDD00] text-neutral-950 hover:bg-[#F0D000] transition-all flex flex-col items-center justify-center gap-1 shadow-xs cursor-pointer border border-amber-500/40"
           title="Book Rapido to Venue"
         >
-          <div className="flex items-center gap-0.5">
-            <Bike className="w-3 h-3 text-neutral-950" />
-            <span className="text-[11px] font-black tracking-tight leading-none">Rapido</span>
+          <div className="flex items-center gap-1">
+            <Bike className="w-3.5 h-3.5 text-neutral-950" />
+            <span className="text-xs font-black tracking-tight leading-none">Rapido</span>
           </div>
-          <span className="text-[9px] text-neutral-800 font-bold">Auto/Bike</span>
+          <span className="text-[10px] text-neutral-800 font-bold">
+            {currentLang === 'te' ? 'ఆటో / బైక్ / క్యాబ్' : 'Auto / Bike / Cab'}
+          </span>
         </a>
 
         {/* Maps GPS */}
@@ -117,11 +88,13 @@ export const RideNavigator: React.FC<RideNavigatorProps> = ({
           href={gmapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="p-2 rounded-xl bg-white text-[#4A0E17] hover:bg-amber-50 transition-all flex flex-col items-center justify-center gap-1 shadow-xs cursor-pointer border border-[#C89B3C]/70"
+          className="p-2.5 rounded-xl bg-white text-[#4A0E17] hover:bg-amber-50 transition-all flex flex-col items-center justify-center gap-1 shadow-xs cursor-pointer border border-[#C89B3C]/70"
           title="Google Maps GPS"
         >
-          <Compass className="w-3.5 h-3.5 text-blue-600" />
-          <span className="text-[9px] text-neutral-900 font-bold">Directions</span>
+          <Compass className="w-4 h-4 text-blue-600" />
+          <span className="text-[10px] text-neutral-900 font-bold">
+            {currentLang === 'te' ? 'గూగుల్ మ్యాప్స్' : 'Directions'}
+          </span>
         </a>
       </div>
 
@@ -139,13 +112,13 @@ export const RideNavigator: React.FC<RideNavigatorProps> = ({
         </button>
       </div>
 
-      {/* Ride-Sharing Selector Bottom Sheet / Modal */}
+      {/* Ride-Sharing & Navigation Bottom Sheet / Modal */}
       {isOpen && (
-        <div 
+        <div
           className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4"
           onClick={() => setIsOpen(false)}
         >
-          <div 
+          <div
             className="bg-[#FFFDF8] border-t-2 sm:border-2 border-[#C89B3C] rounded-t-3xl sm:rounded-3xl max-w-sm w-full p-5 space-y-4 shadow-2xl animate-in slide-in-from-bottom duration-200"
             onClick={(e) => e.stopPropagation()}
           >
@@ -157,14 +130,14 @@ export const RideNavigator: React.FC<RideNavigatorProps> = ({
                 </div>
                 <div>
                   <h3 className="font-display font-bold text-sm text-[#4A0E17]">
-                    {currentLang === 'te' ? 'రైడ్ ఎంచుకోండి' : 'Choose Your Ride'}
+                    {currentLang === 'te' ? 'రాపిడో & నావిగేషన్' : 'Rapido & Navigation'}
                   </h3>
                   <p className="text-[10px] text-amber-800">
                     Direct dropoff at {venueName}
                   </p>
                 </div>
               </div>
-              <button 
+              <button
                 onClick={() => setIsOpen(false)}
                 className="p-1.5 rounded-full hover:bg-amber-100 text-amber-900 cursor-pointer"
               >
@@ -186,61 +159,9 @@ export const RideNavigator: React.FC<RideNavigatorProps> = ({
               </div>
             </div>
 
-            {/* Ride App Options */}
+            {/* Ride & Navigation Options */}
             <div className="space-y-2">
-              {/* Option 1: Uber */}
-              <a
-                href={uberUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full p-3 rounded-2xl border border-neutral-300 bg-white hover:bg-neutral-50 transition-all flex items-center justify-between cursor-pointer group shadow-xs"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-black text-white flex items-center justify-center font-black text-xs">
-                    Uber
-                  </div>
-                  <div className="text-left">
-                    <span className="font-bold text-xs text-neutral-900 block group-hover:text-[#4A0E17]">
-                      Uber Cab (Go / Premier / XL)
-                    </span>
-                    <span className="text-[10px] text-neutral-500 block">
-                      Direct dropoff to venue
-                    </span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-1 text-xs font-bold text-[#4A0E17]">
-                  <span>Book</span>
-                  <ExternalLink className="w-3 h-3 text-neutral-400" />
-                </div>
-              </a>
-
-              {/* Option 2: Ola */}
-              <a
-                href={olaUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full p-3 rounded-2xl border border-emerald-200 bg-white hover:bg-emerald-50/40 transition-all flex items-center justify-between cursor-pointer group shadow-xs"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-neutral-950 text-emerald-400 flex items-center justify-center font-black text-xs">
-                    Ola
-                  </div>
-                  <div className="text-left">
-                    <span className="font-bold text-xs text-neutral-900 block group-hover:text-[#4A0E17]">
-                      Ola Cabs (Mini / Prime / Auto)
-                    </span>
-                    <span className="text-[10px] text-neutral-500 block">
-                      Instant or scheduled ride
-                    </span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-1 text-xs font-bold text-[#4A0E17]">
-                  <span>Book</span>
-                  <ExternalLink className="w-3 h-3 text-neutral-400" />
-                </div>
-              </a>
-
-              {/* Option 3: Rapido */}
+              {/* Rapido */}
               <a
                 href={rapidoUrl}
                 target="_blank"
@@ -256,17 +177,17 @@ export const RideNavigator: React.FC<RideNavigatorProps> = ({
                       Rapido (Auto / Cab / Bike)
                     </span>
                     <span className="text-[10px] text-neutral-500 block">
-                      Fast local city connectivity
+                      {currentLang === 'te' ? 'వేదిక వద్దకు నేరుగా రైడ్ బుక్ చేయండి' : 'Fast local city connectivity to venue'}
                     </span>
                   </div>
                 </div>
                 <div className="flex items-center gap-1 text-xs font-bold text-[#4A0E17]">
-                  <span>Book</span>
+                  <span>{currentLang === 'te' ? 'బుక్' : 'Book'}</span>
                   <ExternalLink className="w-3 h-3 text-neutral-400" />
                 </div>
               </a>
 
-              {/* Option 4: Google Maps GPS Navigation */}
+              {/* Google Maps GPS Navigation */}
               <a
                 href={gmapsUrl}
                 target="_blank"
@@ -292,7 +213,7 @@ export const RideNavigator: React.FC<RideNavigatorProps> = ({
                 </div>
               </a>
 
-              {/* Option 5: Apple Maps */}
+              {/* Apple Maps */}
               <a
                 href={appleMapsUrl}
                 target="_blank"
@@ -306,8 +227,8 @@ export const RideNavigator: React.FC<RideNavigatorProps> = ({
 
             {/* Parking & Proximity Info */}
             <div className="pt-1 border-t border-amber-200/80 flex items-center justify-between text-[10px] text-amber-900">
-              <span>✈️ ~12 Mins to Airport (RGIA)</span>
-              <span>🅿️ Valet for 450+ Cars</span>
+              <span>🚆 ~10 Mins from Nizamabad Station</span>
+              <span>🅿️ Guest Parking Available</span>
             </div>
           </div>
         </div>

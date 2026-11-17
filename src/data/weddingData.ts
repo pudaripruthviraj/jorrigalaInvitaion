@@ -10,8 +10,12 @@ export const PELLIKODUKU_DATE_ISO = '2026-11-21T09:00:00+05:30';
 export const HALDI_DATE_ISO = '2026-11-20T09:00:00+05:30';
 
 // Venue Map Links & Coordinates
-export const HALDI_PELLIKODUKU_MAP_URL = 'https://www.google.com/maps/search/?api=1&query=18.654689,78.106245';
-export const HALDI_PELLIKODUKU_COORDS = { lat: 18.654689, lng: 78.106245 };
+export const HALDI_MAP_URL = 'https://www.google.com/maps/search/?api=1&query=18.6628516,78.0911954';
+export const HALDI_COORDS = { lat: 18.6628516, lng: 78.0911954 };
+export const PELLIKODUKU_MAP_URL = 'https://www.google.com/maps/search/?api=1&query=18.654689,78.106245';
+export const PELLIKODUKU_COORDS = { lat: 18.654689, lng: 78.106245 };
+export const HALDI_PELLIKODUKU_MAP_URL = PELLIKODUKU_MAP_URL;
+export const HALDI_PELLIKODUKU_COORDS = PELLIKODUKU_COORDS;
 export const WEDDING_MAP_URL = 'https://www.google.com/maps/search/?api=1&query=Sai+Baba+Temple+Madhav+Nagar+Nizamabad+Telangana';
 export const WEDDING_COORDS = { lat: 18.6725, lng: 78.0941 };
 
@@ -35,9 +39,9 @@ export const INITIAL_EVENTS: EventItem[] = [
     dateStrTe: 'శుక్రవారం, నవంబర్ 20, 2026',
     timeEn: '09:00 AM onwards',
     timeTe: 'ఉదయం 09:00 గంటల నుండి',
-    venueEn: 'Nizamabad, Telangana 503001 (Google Maps Pin)',
-    venueTe: 'నిజామాబాద్, తెలంగాణ 503001 (గూగుల్ మ్యాప్స్ పిన్)',
-    mapUrl: HALDI_PELLIKODUKU_MAP_URL,
+    venueEn: 'Seetharam Nagar Colony, Anand Nagar, Nizamabad, Telangana 503001',
+    venueTe: 'సీతారాం నగర్ కాలనీ, ఆనంద్ నగర్, నిజామాబాద్, తెలంగాణ 503001',
+    mapUrl: HALDI_MAP_URL,
     descriptionEn: 'Joyous haldi ceremony with pure turmeric paste, fragrant rose petals, auspicious folk songs, and sacred herbal mangala snanam.',
     descriptionTe: 'ముత్తైదువలు కలిసి పచ్చి పసుపు, సుగంధ పరిమళాలు మరియు పూల వర్షంతో జరిపే ఆహ్లాదకరమైన హల్దీ & మంగళస్నానం.',
     significanceEn: 'Purifies the body and mind, symbolizes auspicious beginnings, prosperity, and family blessings.',
@@ -57,7 +61,7 @@ export const INITIAL_EVENTS: EventItem[] = [
     timeTe: 'ఉదయం పందిరి రాట & సాయంత్రం పెళ్ళికొడుకు వేడుక',
     venueEn: 'Nizamabad, Telangana 503001 (Google Maps Pin)',
     venueTe: 'నిజామాబాద్, తెలంగాణ 503001 (గూగుల్ మ్యాప్స్ పిన్)',
-    mapUrl: HALDI_PELLIKODUKU_MAP_URL,
+    mapUrl: PELLIKODUKU_MAP_URL,
     descriptionEn: 'Auspicious installation of the sacred wedding pandiri with fresh mango leaves, followed by elders anointing the groom with fragrant sandalwood, nalugu, and blessing him with traditional silks.',
     descriptionTe: 'పచ్చి మామిడాకుల తోరణాలతో పవిత్ర పందిరి రాట వేసి, పెద్దలందరూ పెళ్ళికొడుకుకు గంధం, నలుగు పెట్టి, పట్టు వస్త్రాలతో అలంకరించి ఆశీర్వదించే శుభ వేడుక.',
     significanceEn: 'Invokes divine blessings on the home and formally prepares the groom for the sacred Grihastha Ashrama.',

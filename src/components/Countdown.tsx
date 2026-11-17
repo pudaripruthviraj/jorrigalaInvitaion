@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Calendar, Clock, Download, Check } from 'lucide-react';
 import { Language } from '../types/wedding';
 import { translations } from '../data/translations';
-import { WEDDING_DATE_ISO } from '../data/weddingData';
+import { WEDDING_DATE_ISO, HALDI_MAP_URL, PELLIKODUKU_MAP_URL, WEDDING_MAP_URL } from '../data/weddingData';
 
 interface CountdownProps {
   currentLang: Language;
@@ -48,8 +48,8 @@ export const Countdown: React.FC<CountdownProps> = ({ currentLang }) => {
     );
     const details = encodeURIComponent(
       currentLang === 'te'
-        ? 'హల్దీ: నవంబర్ 20, 2026 & పెళ్ళికొడుకు & పందిరి: నవంబర్ 21, 2026 (మ్యాప్: https://www.google.com/maps/search/?api=1&query=18.654689,78.106245) · శుభ ముహూర్తం: నవంబర్ 22, 2026 ఉదయం 9:46 గంటలకు, సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్.'
-        : 'Haldi: Nov 20, 2026 & Pelli Koduku & Pandiri: Nov 21, 2026 (Map: https://www.google.com/maps/search/?api=1&query=18.654689,78.106245) · Subha Muhurtham: Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad.'
+        ? `హల్దీ: నవంబర్ 20, 2026 - సీతారాం నగర్ కాలనీ, ఆనంద్ నగర్, నిజామాబాద్ (మ్యాప్: ${HALDI_MAP_URL}) · పెళ్ళికొడుకు & పందిరి: నవంబర్ 21, 2026 (మ్యాప్: ${PELLIKODUKU_MAP_URL}) · శుభ ముహూర్తం: నవంబర్ 22, 2026 ఉదయం 9:46 గంటలకు, సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్ (మ్యాప్: ${WEDDING_MAP_URL}).`
+        : `Haldi: Nov 20, 2026 at Seetharam Nagar Colony, Anand Nagar, Nizamabad (Map: ${HALDI_MAP_URL}) · Pelli Koduku & Pandiri: Nov 21, 2026 at Nizamabad (Map: ${PELLIKODUKU_MAP_URL}) · Subha Muhurtham: Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad (Map: ${WEDDING_MAP_URL}).`
     );
     const location = encodeURIComponent('Sai Baba Temple, Madhav Nagar, Nizamabad, Telangana 503001');
     const startIso = '20261122T041600Z';
@@ -73,7 +73,7 @@ export const Countdown: React.FC<CountdownProps> = ({ currentLang }) => {
       'DTSTART:20261122T041600Z',
       'DTEND:20261122T073000Z',
       `SUMMARY:${summaryText}`,
-      'DESCRIPTION:Haldi: Nov 20, 2026 & Pelli Koduku & Pandiri: Nov 21, 2026 (https://www.google.com/maps/search/?api=1&query=18.654689,78.106245). Subha Muhurtham: Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad.',
+      `DESCRIPTION:Haldi: Nov 20, 2026 at Seetharam Nagar Colony, Anand Nagar, Nizamabad (${HALDI_MAP_URL}). Pelli Koduku & Pandiri: Nov 21, 2026 (${PELLIKODUKU_MAP_URL}). Subha Muhurtham: Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad (${WEDDING_MAP_URL}).`,
       'LOCATION:Sai Baba Temple, Madhav Nagar, Nizamabad, Telangana 503001',
       'STATUS:CONFIRMED',
       'END:VEVENT',

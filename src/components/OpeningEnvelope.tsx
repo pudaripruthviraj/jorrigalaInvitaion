@@ -14,7 +14,7 @@ export const OpeningEnvelope: React.FC<OpeningEnvelopeProps> = ({ onOpen, curren
   const handleOpenClick = () => {
     if (isOpening) return;
     
-    // Play Ritviz - Sage synchronously on direct user gesture to ensure browser audio approval
+    // Play Sita Kalyanam (Ranarangam) synchronously on direct user gesture to ensure browser audio approval
     weddingMusic.start();
     
     setIsOpening(true);
@@ -124,15 +124,15 @@ export const OpeningEnvelope: React.FC<OpeningEnvelopeProps> = ({ onOpen, curren
                     {isTelugu ? '🌼 హల్దీ: నవంబర్ 20, 2026' : '🌼 Haldi: 20 November 2026'}
                   </p>
                   <a
-                    href="https://www.google.com/maps/search/?api=1&query=18.654689,78.106245"
+                    href="https://www.google.com/maps/search/?api=1&query=18.6628516,78.0911954"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
                     className="text-[8.5px] font-serif text-[#781B10] underline hover:text-[#54121E] leading-tight inline-block"
                   >
                     {isTelugu 
-                      ? 'నిజామాబాద్ · గూగుల్ మ్యాప్స్ ↗' 
-                      : 'Nizamabad · Google Maps ↗'}
+                      ? 'సీతారాం నగర్ కాలనీ, నిజామాబాద్ · గూగుల్ మ్యాప్స్ ↗' 
+                      : 'Seetharam Nagar Colony, Nizamabad · Maps ↗'}
                   </a>
                 </div>
 
@@ -196,8 +196,8 @@ export const OpeningEnvelope: React.FC<OpeningEnvelopeProps> = ({ onOpen, curren
 
               <p className="text-[9px] text-[#54121E]/90 font-serif italic text-center">
                 {isTelugu 
-                  ? 'రిత్విజ్ - సేజ్ (Ritviz - Sage) సంగీతంతో వేడుక ప్రారంభమవుతుంది 🎵' 
-                  : 'Experience with Ritviz - Sage festive music 🎵'}
+                  ? 'సీతా కళ్యాణం (రణరంగం) సంగీతంతో వేడుక ప్రారంభమవుతుంది 🎵' 
+                  : 'Experience with Sita Kalyanam (Ranarangam) music 🎵'}
               </p>
             </div>
 

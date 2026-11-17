@@ -442,7 +442,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
                   </div>
                 </div>
                 <p className="text-xs font-sans text-amber-900 leading-relaxed">
-                  <strong>🌼 Haldi:</strong> Friday, Nov 20, 2026 (Nizamabad · 18.654689, 78.106245)<br />
+                  <strong>🌼 Haldi:</strong> Friday, Nov 20, 2026 (Seetharam Nagar Colony, Anand Nagar, Nizamabad · 18.6628516, 78.0911954)<br />
                   <strong>🌸 Pelli Koduku & Pandiri:</strong> Saturday, Nov 21, 2026 (Nizamabad · 18.654689, 78.106245)<br />
                   <strong>💍 Wedding:</strong> Sai Baba Temple, Madhav Nagar, Nizamabad (Sunday, Nov 22, 2026 at 9:46 AM)
                 </p>

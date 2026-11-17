@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Heart, Sparkles, Calendar, MapPin, ChevronRight } from 'lucide-react';
 import { Language } from '../types/wedding';
 import { LordGaneshHeader } from './LordGaneshHeader';
-import { COUPLE_PORTRAIT_URL, COUPLE_PORTRAIT_FALLBACK_URL } from '../data/weddingData';
+import { COUPLE_PORTRAIT_URL, COUPLE_PORTRAIT_FALLBACK_URL, HALDI_MAP_URL, PELLIKODUKU_MAP_URL, WEDDING_MAP_URL } from '../data/weddingData';
 
 interface Milestone {
   id: string;
@@ -68,20 +68,36 @@ const MILESTONES: Milestone[] = [
     icon: '💍',
   },
   {
-    id: 'haldi-pellikoduku-nov-2026',
-    yearEn: '20-21 NOV 2026',
-    yearTe: '20-21 నవంబర్ 2026',
-    dateEn: 'Nov 20 Haldi · Nov 21 Pelli Koduku & Pandiri',
-    dateTe: 'నవంబర్ 20 హల్దీ · నవంబర్ 21 పెళ్ళికొడుకు & పందిరి',
-    titleEn: 'Haldi, Pelli Koduku & Pandiri Celebrations',
-    titleTe: 'హల్దీ, పెళ్ళికొడుకు & పందిరి వేడుకలు',
-    locationEn: 'Nizamabad, Telangana (Google Maps Pin)',
-    locationTe: 'నిజామాబాద్, తెలంగాణ (గూగుల్ మ్యాప్స్ పిన్)',
-    mapUrl: 'https://www.google.com/maps/search/?api=1&query=18.654689,78.106245',
-    descriptionEn: 'Two joyful pre-wedding days filled with turmeric blessings, sacred mango-leaf pandiri rituals, and traditional nalugu.',
-    descriptionTe: 'పసుపు వేడుకలు, మామిడాకుల పందిరి రాట పూజ మరియు పెళ్ళికొడుకు నలుగు వేడుకలతో నిండిన ఆనంద క్షణాలు.',
+    id: 'haldi-nov-2026',
+    yearEn: '20 NOV 2026',
+    yearTe: '20 నవంబర్ 2026',
+    dateEn: 'Friday, November 20, 2026 · 9:00 AM',
+    dateTe: 'శుక్రవారం, నవంబర్ 20, 2026 · ఉదయం 9:00',
+    titleEn: 'Haldi & Mangala Snanam',
+    titleTe: 'హల్దీ వేడుక & మంగళస్నానం',
+    locationEn: 'Seetharam Nagar Colony, Anand Nagar, Nizamabad',
+    locationTe: 'సీతారాం నగర్ కాలనీ, ఆనంద్ నగర్, నిజామాబాద్',
+    mapUrl: HALDI_MAP_URL,
+    descriptionEn: 'Joyful pre-wedding morning filled with auspicious turmeric blessings, fragrant rose petals, and herbal mangala snanam.',
+    descriptionTe: 'పచ్చి పసుపు, సుగంధ పరిమళాలు మరియు పూల వర్షంతో జరిగే మంగళకరమైన హల్దీ & మంగళస్నానం వేడుక.',
     imageUrl: '/images/telangana_haldi_celebration_1791062787214.jpg',
     icon: '🌼',
+  },
+  {
+    id: 'pellikoduku-nov-2026',
+    yearEn: '21 NOV 2026',
+    yearTe: '21 నవంబర్ 2026',
+    dateEn: 'Saturday, November 21, 2026',
+    dateTe: 'శనివారం, నవంబర్ 21, 2026',
+    titleEn: 'Pelli Koduku & Pandiri Event',
+    titleTe: 'పెళ్ళికొడుకు & పందిరి వేడుక',
+    locationEn: 'Nizamabad, Telangana (Google Maps Pin)',
+    locationTe: 'నిజామాబాద్, తెలంగాణ (గూగుల్ మ్యాప్స్ పిన్)',
+    mapUrl: PELLIKODUKU_MAP_URL,
+    descriptionEn: 'Sacred mango-leaf pandiri installation followed by elders blessing Hariprasad with sandalwood, nalugu, and traditional silks.',
+    descriptionTe: 'మామిడాకుల పందిరి రాట పూజ మరియు పెద్దలందరూ పెళ్ళికొడుకుకు గంధం, నలుగు పెట్టి ఆశీర్వదించే శుభ వేడుక.',
+    imageUrl: '/images/luxury_floral_toran_1791066104986.jpg',
+    icon: '🌸',
   },
   {
     id: 'wedding-nov-2026',
@@ -93,6 +109,7 @@ const MILESTONES: Milestone[] = [
     titleTe: 'శుభ ముహూర్తం - కళ్యాణ వైభవం',
     locationEn: 'Sai Baba Temple, Madhav Nagar, Nizamabad',
     locationTe: 'సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్',
+    mapUrl: WEDDING_MAP_URL,
     descriptionEn: 'The sacred morning when we tie the Mangalasutra, shower fragrant Talambralu, and take seven holy vows at Sai Baba Temple, Madhav Nagar, Nizamabad.',
     descriptionTe: 'జీలకర్ర-బెల్లం, మాంగళ్యధారణ, ముత్యాల తాళంబ్రాలు మరియు సప్తపది ఏడడుగులతో ఒక్కటయ్యే పవిత్ర శుభ ముహూర్తం.',
     imageUrl: '/images/hero_telangana_wedding_1791062758055.jpg',

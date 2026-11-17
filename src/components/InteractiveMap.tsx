@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Navigation, Car, Plane, Train, Compass, ExternalLink, Check, Copy, Calendar, Clock } from 'lucide-react';
+import { MapPin, Navigation, Car, Plane, Train, Compass, ExternalLink, Check, Copy, Calendar, Clock, Bike } from 'lucide-react';
 import { Language } from '../types/wedding';
 import { translations } from '../data/translations';
 
@@ -16,19 +16,19 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ currentLang }) =
   const venues = {
     haldi: {
       key: 'haldi',
-      nameEn: 'Haldi Venue (Nizamabad)',
-      nameTe: 'హల్దీ వేదిక (నిజామాబాద్)',
+      nameEn: 'Seetharam Nagar Colony (Haldi Venue)',
+      nameTe: 'సీతారాం నగర్ కాలనీ (హల్దీ వేదిక)',
       tagEn: '🌼 Haldi & Mangala Snanam',
       tagTe: '🌼 హల్దీ వేడుక & మంగళస్నానం',
       dateEn: 'Friday, November 20, 2026',
       dateTe: 'శుక్రవారం, నవంబర్ 20, 2026',
       timeEn: 'Morning 09:00 AM onwards',
       timeTe: 'ఉదయం 09:00 గంటల నుండి',
-      addressEn: 'Nizamabad, Telangana 503001 (Google Maps Pin)',
-      addressTe: 'నిజామాబాద్, తెలంగాణ 503001 (గూగుల్ మ్యాప్స్ పిన్)',
-      coords: '18.654689,78.106245',
-      mapsQuery: '18.654689,78.106245',
-      mapUrl: 'https://www.google.com/maps/search/?api=1&query=18.654689,78.106245',
+      addressEn: 'Seetharam Nagar Colony, Anand Nagar, Nizamabad, Telangana 503001',
+      addressTe: 'సీతారాం నగర్ కాలనీ, ఆనంద్ నగర్, నిజామాబాద్, తెలంగాణ 503001',
+      coords: '18.6628516,78.0911954',
+      mapsQuery: '18.6628516,78.0911954',
+      mapUrl: 'https://www.google.com/maps/search/?api=1&query=18.6628516,78.0911954',
       transitInfoEn: [
         { icon: Train, text: 'Nizamabad Junction Railway Station (NZB): ~10 mins' },
         { icon: Car, text: 'Nizamabad Central Bus Station (TSRTC): ~8 mins' },
@@ -111,10 +111,9 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ currentLang }) =
 
   const [lat, lng] = currentVenue.coords.split(',');
   const appleMapsUrl = `https://maps.apple.com/?q=${encodeURIComponent(currentVenue.mapsQuery)}&ll=${currentVenue.coords}`;
-  const uberUrl = `https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[latitude]=${lat}&dropoff[longitude]=${lng}&dropoff[nickname]=${encodeURIComponent(
+  const rapidoUrl = `https://m.rapido.bike/?dest_lat=${lat}&dest_lng=${lng}&dest_title=${encodeURIComponent(
     isTelugu ? currentVenue.nameTe : currentVenue.nameEn
   )}`;
-  const olaUrl = `https://book.olacabs.com/?lat=${lat}&lng=${lng}&drop_name=${encodeURIComponent(currentVenue.nameEn)}`;
 
   return (
     <section id="venue" className="py-16 px-4 sm:px-6 lg:px-8 bg-white border-b border-amber-200/80">
@@ -144,7 +143,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ currentLang }) =
               <span>🌼</span>
               <div className="text-left">
                 <span className="block leading-tight text-[11px] sm:text-xs">{isTelugu ? 'హల్దీ' : 'Nov 20 Haldi'}</span>
-                <span className="text-[9px] opacity-80 block">{isTelugu ? 'నవంబర్ 20 · నిజామాబాద్' : 'Nizamabad · 9:00 AM'}</span>
+                <span className="text-[9px] opacity-80 block">{isTelugu ? 'సీతారాం నగర్ · నిజామాబాద్' : 'Seetharam Nagar · 9:00 AM'}</span>
               </div>
             </button>
 
@@ -250,25 +249,16 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ currentLang }) =
                 </a>
               </div>
 
-              {/* Cabs / Transit Deeplinks */}
-              <div className="pt-1 grid grid-cols-2 gap-2">
+              {/* Rapido Ride Deeplink */}
+              <div className="pt-1">
                 <a
-                  href={uberUrl}
+                  href={rapidoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-2 text-xs font-semibold text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="w-full px-3 py-2.5 text-xs font-bold text-neutral-950 bg-[#FFDD00] hover:bg-[#F0D000] border border-amber-500/40 rounded-lg transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                 >
-                  <Car className="w-3.5 h-3.5" />
-                  <span>{t.bookUber}</span>
-                </a>
-                <a
-                  href={olaUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-3 py-2 text-xs font-semibold text-emerald-950 bg-emerald-50 hover:bg-emerald-100 rounded-lg transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
-                >
-                  <Car className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>{t.bookOla}</span>
+                  <Bike className="w-4 h-4 text-neutral-950" />
+                  <span>{t.bookRapido}</span>
                 </a>
               </div>
             </div>
