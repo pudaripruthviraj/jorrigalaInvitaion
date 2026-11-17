@@ -76,7 +76,7 @@ const MILESTONES: Milestone[] = [
     titleTe: 'హల్దీ, పెళ్ళికొడుకు & పందిరి వేడుకలు',
     locationEn: 'Nizamabad, Telangana (Google Maps Pin)',
     locationTe: 'నిజామాబాద్, తెలంగాణ (గూగుల్ మ్యాప్స్ పిన్)',
-    mapUrl: 'https://goo.gl/maps/PVJN4G3JLKHTQAb99',
+    mapUrl: 'https://www.google.com/maps/search/?api=1&query=18.654689,78.106245',
     descriptionEn: 'Two joyful pre-wedding days filled with turmeric blessings, sacred mango-leaf pandiri rituals, and traditional nalugu.',
     descriptionTe: 'పసుపు వేడుకలు, మామిడాకుల పందిరి రాట పూజ మరియు పెళ్ళికొడుకు నలుగు వేడుకలతో నిండిన ఆనంద క్షణాలు.',
     imageUrl: '/images/telangana_haldi_celebration_1791062787214.jpg',

@@ -11,7 +11,7 @@ import { translations } from './data/translations';
 import { 
   INITIAL_EVENTS, INITIAL_GALLERY, INITIAL_GUESTBOOK, 
   INITIAL_RSVPS, INITIAL_REGISTRY, INITIAL_BUDGET, INITIAL_TABLES, WEDDING_DATE_ISO,
-  HALDI_PELLIKODUKU_MAP_URL, HALDI_PELLIKODUKU_COORDS, WEDDING_COORDS
+  HALDI_PELLIKODUKU_MAP_URL, HALDI_PELLIKODUKU_COORDS, WEDDING_MAP_URL, WEDDING_COORDS
 } from './data/weddingData';
 import { weddingMusic } from './utils/audioPlayer';
 import { triggerAkshinthaluShower } from './utils/confetti';
@@ -205,7 +205,7 @@ export default function App() {
     const msg =
       currentLang === 'te'
         ? `|| శ్రీరస్తు శుభమస్తు || కీర్తి & హరిప్రసాద్ వివాహ ఆహ్వానానికి నమస్కారములు. మేము (${rsvpName || 'మా కుటుంబం'}, ${rsvpCount} మంది) నవంబర్ 22, 2026 ఉదయం 9:46 గంటలకు సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్‌లో జరుగు శుభ ముహూర్తానికి విచ్చేసి వధూవరులను ఆశీర్వదిస్తాము. - ${rsvpPhone}`
-        : `Namaskaram! Delighted to accept the wedding invitation of Keerthi & HariPrasad. We (${rsvpName || 'Our family'}, ${rsvpCount} guests) look forward to gracing the Subha Muhurtham on Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad. Warmest blessings!`;
+        : `Namaskaram! Delighted to accept the wedding invitation of Keerthi & Hariprasad. We (${rsvpName || 'Our family'}, ${rsvpCount} guests) look forward to gracing the Subha Muhurtham on Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad. Warmest blessings!`;
     window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`, '_blank');
   };
 
@@ -253,10 +253,10 @@ export default function App() {
 
   const shareText = currentLang === 'te'
     ? `శుభ వివాహ ఆహ్వానం: కీర్తి & హరిప్రసాద్ | 🌼 హల్దీ: శుక్రవారం, నవంబర్ 20, 2026 & 🌸 పెళ్ళికొడుకు & పందిరి: శనివారం, నవంబర్ 21, 2026 (నిజామాబాద్ మ్యాప్: ${HALDI_PELLIKODUKU_MAP_URL}) | 💍 శుభ వివాహం: ఆదివారం, నవంబర్ 22, 2026 ఉదయం 9:46 గంటలకు — సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్. పూర్తి ఆహ్వాన పత్రిక: ${window.location.href}`
-    : `Wedding Invitation: Keerthi & HariPrasad | 🌼 Haldi (Nov 20) & 🌸 Pelli Koduku & Pandiri (Nov 21): Nizamabad (${HALDI_PELLIKODUKU_MAP_URL}) | 💍 Wedding (Subha Muhurtham): Sunday, Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad. View full invitation: ${window.location.href}`;
+    : `Wedding Invitation: Keerthi & Hariprasad | 🌼 Haldi (Nov 20) & 🌸 Pelli Koduku & Pandiri (Nov 21): Nizamabad (${HALDI_PELLIKODUKU_MAP_URL}) | 💍 Wedding (Subha Muhurtham): Sunday, Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad. View full invitation: ${window.location.href}`;
 
   const handleCalendar = () => {
-    const title = encodeURIComponent('Keerthi & HariPrasad Wedding (Nov 20 - 22, 2026)');
+    const title = encodeURIComponent('Keerthi & Hariprasad Wedding (Nov 20 - 22, 2026)');
     const details = encodeURIComponent(`Celebrations Schedule:\n1. Haldi: Friday, Nov 20, 2026 (Map: ${HALDI_PELLIKODUKU_MAP_URL}).\n2. Pelli Koduku & Pandiri Event: Saturday, Nov 21, 2026 (Map: ${HALDI_PELLIKODUKU_MAP_URL}).\n3. Wedding (Subha Muhurtham): Sunday, Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad.`);
     const location = encodeURIComponent('Sai Baba Temple, Madhav Nagar, Nizamabad, Telangana 503001');
     window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=20261122T041600Z/20261122T073000Z&details=${details}&location=${location}`, '_blank');
@@ -503,10 +503,10 @@ export default function App() {
                 <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#C89B3C]" />
               </div>
 
-              {/* Groom HariPrasad */}
+              {/* Groom Hariprasad */}
               <div>
                 <h1 className="text-2xl sm:text-3xl font-display font-bold text-[#54121E] tracking-tight drop-shadow-xs">
-                  {currentLang === 'te' ? 'చి|| హరిప్రసాద్' : 'HariPrasad'}
+                  {currentLang === 'te' ? 'చి|| హరిప్రసాద్' : 'Hariprasad'}
                 </h1>
                 <p className="text-xs text-amber-900 font-serif mt-0.5">
                   {currentLang === 'te' 
@@ -521,7 +521,7 @@ export default function App() {
               <div className="w-56 h-72 mx-auto rounded-t-full rounded-b-3xl overflow-hidden border-4 border-[#C89B3C] ring-2 ring-rose-300/40 shadow-xl bg-gradient-to-b from-[#FFFDF9] to-[#FEF5E7] relative group p-1 flex items-center justify-center">
                 <img
                   src="/images/deepika_pruthvi_caricature_1791601211737.jpeg"
-                  alt="Keerthi & HariPrasad Cartoon Caricature"
+                  alt="Keerthi & Hariprasad Cartoon Caricature"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105 rounded-t-full rounded-b-2xl shadow-inner"
                 />
@@ -774,13 +774,15 @@ export default function App() {
             </div>
 
             <div className="pt-1 flex items-center gap-2">
-              <button
-                onClick={() => window.open(HALDI_PELLIKODUKU_MAP_URL, '_blank')}
+              <a
+                href={HALDI_PELLIKODUKU_MAP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex-1 py-2 px-3 bg-[#781B10] text-white text-xs font-bold rounded-xl shadow-xs hover:bg-[#54121E] transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
               >
                 <Navigation className="w-3.5 h-3.5" />
                 <span>{currentLang === 'te' ? 'గూగుల్ మ్యాప్స్ లో తెరవండి' : 'Open Google Maps'}</span>
-              </button>
+              </a>
               <button
                 onClick={() => {
                   navigator.clipboard.writeText(HALDI_PELLIKODUKU_MAP_URL);
@@ -816,15 +818,15 @@ export default function App() {
             </div>
 
             <div className="pt-1 flex items-center gap-2">
-              <button
-                onClick={() => {
-                  window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Sai Baba Temple Madhav Nagar Nizamabad Telangana')}`, '_blank');
-                }}
+              <a
+                href={WEDDING_MAP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex-1 py-2 px-3 bg-[#54121E] text-white text-xs font-bold rounded-xl shadow-xs hover:bg-[#781B10] transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
               >
                 <Navigation className="w-3.5 h-3.5" />
                 <span>{currentLang === 'te' ? 'గూగుల్ మ్యాప్స్' : 'Google Maps'}</span>
-              </button>
+              </a>
               <button
                 onClick={() => {
                   navigator.clipboard.writeText('Sai Baba Temple, Madhav Nagar, Nizamabad, Telangana 503001');
@@ -868,7 +870,7 @@ export default function App() {
               venueName={activeRideVenue === 'haldi-pellikoduku' ? 'Haldi & Pelli Koduku Venue' : 'Sai Baba Temple'}
               venueAddress={
                 activeRideVenue === 'haldi-pellikoduku'
-                  ? 'Nizamabad, Telangana 503001 (goo.gl/maps/PVJN4G3JLKHTQAb99)'
+                  ? 'Nizamabad, Telangana 503001 (18.654689, 78.106245)'
                   : 'Madhav Nagar, Nizamabad, Telangana 503001'
               }
               latitude={activeRideVenue === 'haldi-pellikoduku' ? HALDI_PELLIKODUKU_COORDS.lat : WEDDING_COORDS.lat}
@@ -1134,7 +1136,7 @@ export default function App() {
                 <p className="text-[11px] text-amber-900/80 italic">
                   {currentLang === 'te' 
                     ? 'కీర్తి & హరిప్రసాద్ లకు మీ అమూల్యమైన శుభాకాంక్షలు తెలియజేసే తొలి గౌరవ అతిథి అవ్వండి!' 
-                    : 'Be the first honored guest to post your heartfelt blessing for Keerthi & HariPrasad!'}
+                    : 'Be the first honored guest to post your heartfelt blessing for Keerthi & Hariprasad!'}
                 </p>
               </div>
             ) : (

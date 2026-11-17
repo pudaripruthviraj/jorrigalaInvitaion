@@ -10,7 +10,7 @@ export const PELLIKODUKU_DATE_ISO = '2026-11-21T09:00:00+05:30';
 export const HALDI_DATE_ISO = '2026-11-20T09:00:00+05:30';
 
 // Venue Map Links & Coordinates
-export const HALDI_PELLIKODUKU_MAP_URL = 'https://goo.gl/maps/PVJN4G3JLKHTQAb99';
+export const HALDI_PELLIKODUKU_MAP_URL = 'https://www.google.com/maps/search/?api=1&query=18.654689,78.106245';
 export const HALDI_PELLIKODUKU_COORDS = { lat: 18.654689, lng: 78.106245 };
 export const WEDDING_MAP_URL = 'https://www.google.com/maps/search/?api=1&query=Sai+Baba+Temple+Madhav+Nagar+Nizamabad+Telangana';
 export const WEDDING_COORDS = { lat: 18.6725, lng: 78.0941 };
@@ -67,7 +67,7 @@ export const INITIAL_EVENTS: EventItem[] = [
     venueEn: 'Sai Baba Temple, Madhav Nagar, Nizamabad, Telangana',
     venueTe: 'సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్, తెలంగాణ',
     mapUrl: WEDDING_MAP_URL,
-    descriptionEn: 'The sacred Telugu wedding rituals of Keerthi & HariPrasad: holding cumin & jaggery paste over each other’s heads, tying the Mangalasutra with three sacred knots, and showering fragrant Talambralu.',
+    descriptionEn: 'The sacred Telugu wedding rituals of Keerthi & Hariprasad: holding cumin & jaggery paste over each other’s heads, tying the Mangalasutra with three sacred knots, and showering fragrant Talambralu.',
     descriptionTe: 'కీర్తి & హరిప్రసాద్‌ల శిరస్సులపై జీలకర్ర-బెల్లం ఉంచడం, ముల్లోకాల సాక్షిగా మూడు ముళ్ళు వేయడం, మరియు ఆనందోత్సాహాల నడుమ ముత్యాల తాళంబ్రాల మహోత్సవం.',
     significanceEn: 'Jeelakarra Bellam symbolizes eternal inseparability; Mangalasutra represents lifelong protection; Talambralu brings prosperity and joy.',
     significanceTe: 'జీలకర్ర-బెల్లం కలయిక విడదీయరాని బంధానికి, మాంగళ్యధారణ రక్షణకు, తాళంబ్రాలు సమృద్ధికి ప్రతీకలు.',
@@ -89,7 +89,7 @@ export const INITIAL_GALLERY: GalleryPhoto[] = [
   {
     id: 'photo-2',
     url: '/images/deepika_pruthvi_caricature_1791601211737.jpeg',
-    captionEn: 'Keerthi & HariPrasad - Our Cartoon Caricature Portrait',
+    captionEn: 'Keerthi & Hariprasad - Our Cartoon Caricature Portrait',
     captionTe: 'కీర్తి & హరిప్రసాద్ - ప్రత్యేక కార్టూన్ క్యారికేచర్ చిత్రం',
     category: 'couple',
   },
@@ -139,7 +139,7 @@ export const INITIAL_RSVPS: GuestRsvp[] = [
     dietaryPreference: 'pure-veg',
     accommodationNeeded: false,
     transportAssistance: false,
-    personalNote: 'Warmest blessings to Keerthi & HariPrasad.',
+    personalNote: 'Warmest blessings to Keerthi & Hariprasad.',
     status: 'confirmed',
     tableId: 'table-1',
     createdAt: '2026-10-02',

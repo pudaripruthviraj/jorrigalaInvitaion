@@ -45,7 +45,7 @@ export const CoupleStory: React.FC<CoupleStoryProps> = ({ currentLang }) => {
             <div className="w-64 h-80 sm:w-72 sm:h-92 rounded-2xl overflow-hidden shadow-lg border-4 border-amber-200 bg-amber-50 relative">
               <img
                 src="/images/deepika_pruthvi_caricature_1791601211737.jpeg"
-                alt="Keerthi and HariPrasad"
+                alt="Keerthi and Hariprasad"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover object-top"
               />

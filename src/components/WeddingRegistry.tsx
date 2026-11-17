@@ -216,7 +216,7 @@ export const WeddingRegistry: React.FC<WeddingRegistryProps> = ({
             <div className="space-y-3 text-xs text-amber-950">
               <div className="p-3 rounded-lg bg-amber-50 border border-amber-200 space-y-1">
                 <span className="font-semibold block text-[#781B10]">Account Holder:</span>
-                <span className="font-bold">HariPrasad Pandari</span>
+                <span className="font-bold">Hariprasad Pandari</span>
               </div>
               <div className="p-3 rounded-lg bg-amber-50 border border-amber-200 space-y-1">
                 <span className="font-semibold block text-[#781B10]">Bank:</span>

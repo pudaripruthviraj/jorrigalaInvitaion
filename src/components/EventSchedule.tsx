@@ -20,7 +20,7 @@ export const EventSchedule: React.FC<EventScheduleProps> = ({ currentLang }) => 
 
   const handleAddEventToCalendar = (evt: EventItem) => {
     const title = encodeURIComponent(
-      currentLang === 'te' ? `${evt.titleTe} - కీర్తి & హరిప్రసాద్ వివాహం` : `${evt.titleEn} - Keerthi & HariPrasad Wedding`
+      currentLang === 'te' ? `${evt.titleTe} - కీర్తి & హరిప్రసాద్ వివాహం` : `${evt.titleEn} - Keerthi & Hariprasad Wedding`
     );
     const details = encodeURIComponent(
       currentLang === 'te'

@@ -15,8 +15,8 @@ export const SocialShareModal: React.FC<SocialShareModalProps> = ({ currentLang,
   const siteUrl = window.location.href;
   const shareMessage =
     currentLang === 'te'
-      ? `|| శ్రీరస్తు శుభమస్తు || కీర్తి & హరిప్రసాద్ ల వివాహ మహోత్సవ ఆహ్వాన పత్రిక. 🌼 హల్దీ (నవంబర్ 20) & 🌸 పెళ్ళికొడుకు & పందిరి (నవంబర్ 21): నిజామాబాద్ (https://goo.gl/maps/PVJN4G3JLKHTQAb99) | 💍 వివాహం: ఆదివారం, నవంబర్ 22, 2026 (ఉదయం 9:46) - సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్. ఆహ్వానాన్ని చూడండి: ${siteUrl}`
-      : `|| Sri Rastuva Subhamastu || Wedding Invitation of Keerthi & HariPrasad. 🌼 Haldi (Nov 20) & 🌸 Pelli Koduku & Pandiri (Nov 21): Nizamabad (https://goo.gl/maps/PVJN4G3JLKHTQAb99) | 💍 Wedding: Sunday, Nov 22, 2026 (9:46 AM) at Sai Baba Temple, Madhav Nagar, Nizamabad. View full invitation: ${siteUrl}`;
+      ? `|| శ్రీరస్తు శుభమస్తు || కీర్తి & హరిప్రసాద్ ల వివాహ మహోత్సవ ఆహ్వాన పత్రిక. 🌼 హల్దీ (నవంబర్ 20) & 🌸 పెళ్ళికొడుకు & పందిరి (నవంబర్ 21): నిజామాబాద్ (https://www.google.com/maps/search/?api=1&query=18.654689,78.106245) | 💍 వివాహం: ఆదివారం, నవంబర్ 22, 2026 (ఉదయం 9:46) - సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్. ఆహ్వానాన్ని చూడండి: ${siteUrl}`
+      : `|| Sri Rastuva Subhamastu || Wedding Invitation of Keerthi & Hariprasad. 🌼 Haldi (Nov 20) & 🌸 Pelli Koduku & Pandiri (Nov 21): Nizamabad (https://www.google.com/maps/search/?api=1&query=18.654689,78.106245) | 💍 Wedding: Sunday, Nov 22, 2026 (9:46 AM) at Sai Baba Temple, Madhav Nagar, Nizamabad. View full invitation: ${siteUrl}`;
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(siteUrl);

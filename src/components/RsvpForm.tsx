@@ -370,7 +370,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
               </label>
               <textarea
                 rows={2}
-                placeholder="Share your prayers or a message for Keerthi & HariPrasad..."
+                placeholder="Share your prayers or a message for Keerthi & Hariprasad..."
                 value={personalNote}
                 onChange={(e) => setPersonalNote(e.target.value)}
                 className="w-full px-3 py-2 text-sm bg-white border border-amber-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#781B10]"
@@ -415,7 +415,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
             <div className="p-6 space-y-4 text-xs text-slate-800 bg-[#FFFDF9] max-h-[70vh] overflow-y-auto">
               <div className="border-b border-amber-100 pb-3 space-y-1">
                 <p><span className="font-semibold text-amber-950">To:</span> {confirmedRsvp.fullName} &lt;{confirmedRsvp.email}&gt;</p>
-                <p><span className="font-semibold text-amber-950">Subject:</span> RSVP Confirmed: Keerthi & HariPrasad Kalyana Mahotsavam (Pass #{confirmedRsvp.id})</p>
+                <p><span className="font-semibold text-amber-950">Subject:</span> RSVP Confirmed: Keerthi & Hariprasad Kalyana Mahotsavam (Pass #{confirmedRsvp.id})</p>
                 <p><span className="font-semibold text-amber-950">Date:</span> {new Date().toLocaleDateString()}</p>
               </div>
 
@@ -442,8 +442,8 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
                   </div>
                 </div>
                 <p className="text-xs font-sans text-amber-900 leading-relaxed">
-                  <strong>🌼 Haldi:</strong> Friday, Nov 20, 2026 (Nizamabad · https://goo.gl/maps/PVJN4G3JLKHTQAb99)<br />
-                  <strong>🌸 Pelli Koduku & Pandiri:</strong> Saturday, Nov 21, 2026 (Nizamabad · https://goo.gl/maps/PVJN4G3JLKHTQAb99)<br />
+                  <strong>🌼 Haldi:</strong> Friday, Nov 20, 2026 (Nizamabad · 18.654689, 78.106245)<br />
+                  <strong>🌸 Pelli Koduku & Pandiri:</strong> Saturday, Nov 21, 2026 (Nizamabad · 18.654689, 78.106245)<br />
                   <strong>💍 Wedding:</strong> Sai Baba Temple, Madhav Nagar, Nizamabad (Sunday, Nov 22, 2026 at 9:46 AM)
                 </p>
                 <p className="text-xs font-sans text-amber-900">
@@ -451,7 +451,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
                 </p>
                 <p className="font-bold text-[#781B10] pt-2">
                   Warm Regards,<br />
-                  Keerthi & HariPrasad<br />
+                  Keerthi & Hariprasad<br />
                   Families & Elders
                 </p>
               </div>

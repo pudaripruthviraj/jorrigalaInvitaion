@@ -28,7 +28,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ currentLang }) =
       addressTe: 'నిజామాబాద్, తెలంగాణ 503001 (గూగుల్ మ్యాప్స్ పిన్)',
       coords: '18.654689,78.106245',
       mapsQuery: '18.654689,78.106245',
-      mapUrl: 'https://goo.gl/maps/PVJN4G3JLKHTQAb99',
+      mapUrl: 'https://www.google.com/maps/search/?api=1&query=18.654689,78.106245',
       transitInfoEn: [
         { icon: Train, text: 'Nizamabad Junction Railway Station (NZB): ~10 mins' },
         { icon: Car, text: 'Nizamabad Central Bus Station (TSRTC): ~8 mins' },
@@ -56,7 +56,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ currentLang }) =
       addressTe: 'నిజామాబాద్, తెలంగాణ 503001 (గూగుల్ మ్యాప్స్ పిన్)',
       coords: '18.654689,78.106245',
       mapsQuery: '18.654689,78.106245',
-      mapUrl: 'https://goo.gl/maps/PVJN4G3JLKHTQAb99',
+      mapUrl: 'https://www.google.com/maps/search/?api=1&query=18.654689,78.106245',
       transitInfoEn: [
         { icon: Train, text: 'Nizamabad Junction Railway Station (NZB): ~10 mins' },
         { icon: Car, text: 'Nizamabad Central Bus Station (TSRTC): ~8 mins' },
@@ -109,28 +109,12 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ currentLang }) =
     setTimeout(() => setCopiedAddress(false), 2500);
   };
 
-  const handleGoogleMaps = () => {
-    window.open(currentVenue.mapUrl, '_blank');
-  };
-
-  const handleAppleMaps = () => {
-    const url = `http://maps.apple.com/?q=${encodeURIComponent(currentVenue.mapsQuery)}&ll=${currentVenue.coords}`;
-    window.open(url, '_blank');
-  };
-
-  const handleUber = () => {
-    const [lat, lng] = currentVenue.coords.split(',');
-    const url = `https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[latitude]=${lat}&dropoff[longitude]=${lng}&dropoff[nickname]=${encodeURIComponent(
-      isTelugu ? currentVenue.nameTe : currentVenue.nameEn
-    )}`;
-    window.open(url, '_blank');
-  };
-
-  const handleOla = () => {
-    const [lat, lng] = currentVenue.coords.split(',');
-    const url = `https://book.olacabs.com/?lat=${lat}&lng=${lng}&drop_name=${encodeURIComponent(currentVenue.nameEn)}`;
-    window.open(url, '_blank');
-  };
+  const [lat, lng] = currentVenue.coords.split(',');
+  const appleMapsUrl = `https://maps.apple.com/?q=${encodeURIComponent(currentVenue.mapsQuery)}&ll=${currentVenue.coords}`;
+  const uberUrl = `https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[latitude]=${lat}&dropoff[longitude]=${lng}&dropoff[nickname]=${encodeURIComponent(
+    isTelugu ? currentVenue.nameTe : currentVenue.nameEn
+  )}`;
+  const olaUrl = `https://book.olacabs.com/?lat=${lat}&lng=${lng}&drop_name=${encodeURIComponent(currentVenue.nameEn)}`;
 
   return (
     <section id="venue" className="py-16 px-4 sm:px-6 lg:px-8 bg-white border-b border-amber-200/80">
@@ -246,38 +230,46 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ currentLang }) =
 
               {/* Map App Navigators */}
               <div className="pt-3 border-t border-amber-100 grid grid-cols-2 gap-2">
-                <button
-                  onClick={handleGoogleMaps}
+                <a
+                  href={currentVenue.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-3 py-2.5 text-xs font-semibold text-white bg-[#54121E] hover:bg-[#781B10] rounded-xl shadow-xs transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   <Navigation className="w-3.5 h-3.5" />
                   <span>Google Maps</span>
-                </button>
-                <button
-                  onClick={handleAppleMaps}
+                </a>
+                <a
+                  href={appleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-3 py-2.5 text-xs font-semibold text-amber-950 bg-white border border-amber-300 hover:bg-amber-50 rounded-xl shadow-xs transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   <Compass className="w-3.5 h-3.5 text-amber-700" />
                   <span>Apple Maps</span>
-                </button>
+                </a>
               </div>
 
               {/* Cabs / Transit Deeplinks */}
               <div className="pt-1 grid grid-cols-2 gap-2">
-                <button
-                  onClick={handleUber}
+                <a
+                  href={uberUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-3 py-2 text-xs font-semibold text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   <Car className="w-3.5 h-3.5" />
                   <span>{t.bookUber}</span>
-                </button>
-                <button
-                  onClick={handleOla}
+                </a>
+                <a
+                  href={olaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-3 py-2 text-xs font-semibold text-emerald-950 bg-emerald-50 hover:bg-emerald-100 rounded-lg transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   <Car className="w-3.5 h-3.5 text-emerald-600" />
                   <span>{t.bookOla}</span>
-                </button>
+                </a>
               </div>
             </div>
 
@@ -358,13 +350,15 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ currentLang }) =
                 <span className="font-mono text-amber-900 block text-[11px]">
                   {currentVenue.coords} · Nizamabad
                 </span>
-                <button
-                  onClick={handleGoogleMaps}
+                <a
+                  href={currentVenue.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-xs text-[#B45309] hover:underline flex items-center gap-1 cursor-pointer font-bold pt-0.5"
                 >
                   <span>{isTelugu ? 'గూగుల్ మ్యాప్స్ లో నావిగేట్ చేయండి' : 'Launch Google Maps Navigation'}</span>
                   <ExternalLink className="w-3.5 h-3.5" />
-                </button>
+                </a>
               </div>
             </div>
           </div>

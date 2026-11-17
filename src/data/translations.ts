@@ -1,8 +1,8 @@
 export const translations = {
   en: {
     // Navigation & Common
-    appTitle: 'Keerthi & HariPrasad Kalyana Mahotsavam',
-    subtitle: 'Keerthi & HariPrasad Wedding Celebration',
+    appTitle: 'Keerthi & Hariprasad Kalyana Mahotsavam',
+    subtitle: 'Keerthi & Hariprasad Wedding Celebration',
     navInvitation: 'Invitation',
     navEvents: 'Schedule',
     navGallery: 'Gallery',
@@ -18,7 +18,7 @@ export const translations = {
     // Hero Section
     auspiciousGreeting: '|| Sri Ganeshayanamaha || Sri Sita Rama Chandra Parabrahmane Namaha ||',
     heroKicker: 'An Auspicious Union Blessed By The Elders',
-    groomName: 'HariPrasad',
+    groomName: 'Hariprasad',
     groomParents: 'S/o Smt. J. Laxmi & Sri J. Narayana',
     brideName: 'Keerthi',
     brideParents: 'D/o Smt. O. Bhagyalaxmi & Sri O. Kishan',
@@ -129,7 +129,7 @@ export const translations = {
     mainHall: 'Wedding Venue: Sai Baba Temple, Madhav Nagar, Nizamabad',
     addressLine: 'Madhav Nagar, Nizamabad, Telangana 503001',
     receptionHall: 'Haldi & Pelli Koduku Venue: Nizamabad (Google Maps Pin)',
-    receptionAddressLine: 'Nizamabad, Telangana 503001 · https://goo.gl/maps/PVJN4G3JLKHTQAb99',
+    receptionAddressLine: 'Nizamabad, Telangana 503001 · 18.654689, 78.106245',
     openGoogleMaps: 'Open in Google Maps',
     openAppleMaps: 'Open in Apple Maps',
     bookUber: 'Book Uber Ride to Venue',
@@ -319,7 +319,7 @@ export const translations = {
     mainHall: 'వివాహ వేదిక: సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్',
     addressLine: 'మాధవ్ నగర్, నిజామాబాద్, తెలంగాణ 503001',
     receptionHall: 'హల్దీ & పెళ్ళికొడుకు వేదిక: నిజామాబాద్ (గూగుల్ మ్యాప్స్ పిన్)',
-    receptionAddressLine: 'నిజామాబాద్, తెలంగాణ 503001 · https://goo.gl/maps/PVJN4G3JLKHTQAb99',
+    receptionAddressLine: 'నిజామాబాద్, తెలంగాణ 503001 · 18.654689, 78.106245',
     openGoogleMaps: 'గూగుల్ మ్యాప్స్ లో తెరవండి',
     openAppleMaps: 'యాపిల్ మ్యాప్స్ లో తెరవండి',
     bookUber: 'ఉబెర్ క్యాబ్ బుక్ చేయండి',

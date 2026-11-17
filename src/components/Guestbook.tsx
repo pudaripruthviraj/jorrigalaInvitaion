@@ -26,7 +26,7 @@ export const Guestbook: React.FC<GuestbookProps> = ({
     'ఆయురారోగ్య ఐశ్వర్యాలతో నూరేళ్ళు వర్ధిల్లండి!',
     'సదా మీ జంట లక్ష్మీనారాయణుల వలె సంతోషంగా ఉండాలి.',
     'నూరేళ్ళ పంట మీ దాంపత్యం, నిండు నూరేళ్ళు చల్లగా ఉండాలి.',
-    'Wishing Keerthi & HariPrasad a blessed, joyous, and eternal marriage!',
+    'Wishing Keerthi & Hariprasad a blessed, joyous, and eternal marriage!',
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -159,7 +159,7 @@ export const Guestbook: React.FC<GuestbookProps> = ({
                 <p className="text-xs sm:text-sm text-amber-900/80 font-serif max-w-sm mx-auto">
                   {currentLang === 'te' 
                     ? 'కీర్తి & హరిప్రసాద్ లకు మీ అమూల్యమైన శుభాకాంక్షలు మరియు ఆశీస్సులు తెలియజేసే తొలి గౌరవ అతిథి అవ్వండి!' 
-                    : 'Be the first honored guest to post your heartfelt blessing for Keerthi & HariPrasad!'}
+                    : 'Be the first honored guest to post your heartfelt blessing for Keerthi & Hariprasad!'}
                 </p>
               </div>
             ) : (

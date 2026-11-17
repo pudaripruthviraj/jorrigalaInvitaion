@@ -105,10 +105,10 @@ export const OpeningEnvelope: React.FC<OpeningEnvelopeProps> = ({ onOpen, curren
                   <span className="h-px w-6 bg-gradient-to-l from-transparent to-[#C89B3C]" />
                 </div>
 
-                {/* Groom HariPrasad */}
+                {/* Groom Hariprasad */}
                 <div>
                   <h1 className="text-xl sm:text-2xl font-display font-bold text-[#54121E] tracking-tight drop-shadow-xs">
-                    {isTelugu ? 'హరిప్రసాద్' : 'HariPrasad'}
+                    {isTelugu ? 'హరిప్రసాద్' : 'Hariprasad'}
                   </h1>
                   <p className="text-[8.5px] sm:text-[9px] text-amber-900 font-serif leading-tight">
                     {isTelugu ? 'శ్రీమతి జె. లక్ష్మి & శ్రీ జె. నారాయణ గార్ల సుపుత్రుడు' : 'S/o Smt. J. Laxmi & Sri J. Narayana'}
@@ -116,33 +116,15 @@ export const OpeningEnvelope: React.FC<OpeningEnvelopeProps> = ({ onOpen, curren
                 </div>
               </div>
 
-              {/* Haldi, Pelli Koduku & Pandiri, and Wedding Dates & Venue */}
-              <div className="pt-1 space-y-1 border-t border-[#C89B3C]/40 mt-1">
+              {/* Haldi and Wedding Dates & Venue */}
+              <div className="pt-1.5 space-y-1.5 border-t border-[#C89B3C]/40 mt-1 relative z-20">
                 {/* Haldi - Nov 20 */}
-                <div className="space-y-0.2">
+                <div className="space-y-0.5">
                   <p className="text-[9.5px] sm:text-[10.5px] font-serif font-bold text-[#6B1D2F]">
                     {isTelugu ? '🌼 హల్దీ: నవంబర్ 20, 2026' : '🌼 Haldi: 20 November 2026'}
                   </p>
                   <a
-                    href="https://goo.gl/maps/PVJN4G3JLKHTQAb99"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="text-[8.5px] font-serif text-[#781B10] underline hover:text-[#54121E] leading-tight inline-block"
-                  >
-                    {isTelugu 
-                      ? 'నిజామాబాద్ · గూగుల్ మ్యాప్స్ ↗' 
-                      : 'Nizamabad · Google Maps ↗'}
-                  </a>
-                </div>
-
-                {/* Pelli Koduku & Pandiri - Nov 21 */}
-                <div className="space-y-0.2 pt-0.5 border-t border-[#C89B3C]/20">
-                  <p className="text-[9.5px] sm:text-[10.5px] font-serif font-bold text-[#6B1D2F]">
-                    {isTelugu ? '🌸 పెళ్ళికొడుకు & పందిరి: నవంబర్ 21, 2026' : '🌸 Pelli Koduku & Pandiri: 21 November 2026'}
-                  </p>
-                  <a
-                    href="https://goo.gl/maps/PVJN4G3JLKHTQAb99"
+                    href="https://www.google.com/maps/search/?api=1&query=18.654689,78.106245"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
@@ -155,15 +137,21 @@ export const OpeningEnvelope: React.FC<OpeningEnvelopeProps> = ({ onOpen, curren
                 </div>
 
                 {/* Wedding - Nov 22 at 9:46 AM */}
-                <div className="space-y-0.2 pt-0.5 border-t border-[#C89B3C]/20">
+                <div className="space-y-0.5 pt-1 border-t border-[#C89B3C]/20">
                   <p className="text-[9.5px] sm:text-[10.5px] font-serif font-bold text-[#6B1D2F]">
                     {isTelugu ? '💍 వివాహం: నవంబర్ 22, 2026 · ఉదయం 9:46' : '💍 Wedding: 22 November 2026 · 9:46 AM'}
                   </p>
-                  <p className="text-[8.5px] font-serif text-amber-950/85 leading-tight">
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Sai+Baba+Temple+Madhav+Nagar+Nizamabad+Telangana"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="text-[8.5px] font-serif text-[#781B10] underline hover:text-[#54121E] leading-tight inline-block"
+                  >
                     {isTelugu 
-                      ? 'సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్' 
-                      : 'Sai Baba Temple, Madhav Nagar, Nizamabad'}
-                  </p>
+                      ? 'సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్ ↗' 
+                      : 'Sai Baba Temple, Madhav Nagar, Nizamabad ↗'}
+                  </a>
                 </div>
               </div>
             </div>

@@ -33,24 +33,14 @@ export const RideNavigator: React.FC<RideNavigatorProps> = ({
   
   const rapidoUrl = `https://m.rapido.bike/?dest_lat=${latitude}&dest_lng=${longitude}&dest_title=${encodedVenue}`;
   
-  const gmapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}&destination_name=${encodedVenue}`;
+  const gmapsUrl = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
   
-  const appleMapsUrl = `http://maps.apple.com/?daddr=${latitude},${longitude}&dirflg=d`;
+  const appleMapsUrl = `https://maps.apple.com/?daddr=${latitude},${longitude}&dirflg=d`;
 
   const handleCopyAddress = () => {
     navigator.clipboard.writeText(`${venueName}, ${venueAddress}`);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-  };
-
-  const handleLaunchRide = (app: 'uber' | 'ola' | 'rapido' | 'gmaps' | 'apple') => {
-    let targetUrl = uberUrl;
-    if (app === 'ola') targetUrl = olaUrl;
-    else if (app === 'rapido') targetUrl = rapidoUrl;
-    else if (app === 'gmaps') targetUrl = gmapsUrl;
-    else if (app === 'apple') targetUrl = appleMapsUrl;
-
-    window.open(targetUrl, '_blank');
   };
 
   return (
@@ -84,28 +74,34 @@ export const RideNavigator: React.FC<RideNavigatorProps> = ({
       {/* Quick Launch Chips (Instant 1-Tap Trigger directly on card) */}
       <div className="grid grid-cols-4 gap-1.5 pt-0.5">
         {/* Uber */}
-        <button
-          onClick={() => handleLaunchRide('uber')}
+        <a
+          href={uberUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="p-2 rounded-xl bg-black text-white hover:bg-neutral-800 transition-all flex flex-col items-center justify-center gap-1 shadow-xs cursor-pointer border border-neutral-700"
           title="Book Uber to Venue"
         >
           <span className="text-[11px] font-black tracking-tight leading-none text-white">Uber</span>
           <span className="text-[9px] text-neutral-300 font-medium">Cab</span>
-        </button>
+        </a>
 
         {/* Ola */}
-        <button
-          onClick={() => handleLaunchRide('ola')}
+        <a
+          href={olaUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="p-2 rounded-xl bg-[#000000] text-emerald-400 hover:bg-neutral-800 transition-all flex flex-col items-center justify-center gap-1 shadow-xs cursor-pointer border border-emerald-600/40"
           title="Book Ola to Venue"
         >
           <span className="text-[11px] font-black tracking-tight leading-none text-emerald-400">Ola</span>
           <span className="text-[9px] text-emerald-200 font-medium">Auto/Cab</span>
-        </button>
+        </a>
 
         {/* Rapido */}
-        <button
-          onClick={() => handleLaunchRide('rapido')}
+        <a
+          href={rapidoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="p-2 rounded-xl bg-[#FFDD00] text-neutral-950 hover:bg-[#F0D000] transition-all flex flex-col items-center justify-center gap-1 shadow-xs cursor-pointer border border-amber-500/40"
           title="Book Rapido to Venue"
         >
@@ -114,17 +110,19 @@ export const RideNavigator: React.FC<RideNavigatorProps> = ({
             <span className="text-[11px] font-black tracking-tight leading-none">Rapido</span>
           </div>
           <span className="text-[9px] text-neutral-800 font-bold">Auto/Bike</span>
-        </button>
+        </a>
 
         {/* Maps GPS */}
-        <button
-          onClick={() => handleLaunchRide('gmaps')}
+        <a
+          href={gmapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="p-2 rounded-xl bg-white text-[#4A0E17] hover:bg-amber-50 transition-all flex flex-col items-center justify-center gap-1 shadow-xs cursor-pointer border border-[#C89B3C]/70"
           title="Google Maps GPS"
         >
           <Compass className="w-3.5 h-3.5 text-blue-600" />
           <span className="text-[9px] text-neutral-900 font-bold">Directions</span>
-        </button>
+        </a>
       </div>
 
       {/* Copy Address Shortcut */}
@@ -191,8 +189,10 @@ export const RideNavigator: React.FC<RideNavigatorProps> = ({
             {/* Ride App Options */}
             <div className="space-y-2">
               {/* Option 1: Uber */}
-              <button
-                onClick={() => handleLaunchRide('uber')}
+              <a
+                href={uberUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full p-3 rounded-2xl border border-neutral-300 bg-white hover:bg-neutral-50 transition-all flex items-center justify-between cursor-pointer group shadow-xs"
               >
                 <div className="flex items-center gap-3">
@@ -204,7 +204,7 @@ export const RideNavigator: React.FC<RideNavigatorProps> = ({
                       Uber Cab (Go / Premier / XL)
                     </span>
                     <span className="text-[10px] text-neutral-500 block">
-                      Direct pickup to wedding palace gates
+                      Direct dropoff to venue
                     </span>
                   </div>
                 </div>
@@ -212,11 +212,13 @@ export const RideNavigator: React.FC<RideNavigatorProps> = ({
                   <span>Book</span>
                   <ExternalLink className="w-3 h-3 text-neutral-400" />
                 </div>
-              </button>
+              </a>
 
               {/* Option 2: Ola */}
-              <button
-                onClick={() => handleLaunchRide('ola')}
+              <a
+                href={olaUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full p-3 rounded-2xl border border-emerald-200 bg-white hover:bg-emerald-50/40 transition-all flex items-center justify-between cursor-pointer group shadow-xs"
               >
                 <div className="flex items-center gap-3">
@@ -236,11 +238,13 @@ export const RideNavigator: React.FC<RideNavigatorProps> = ({
                   <span>Book</span>
                   <ExternalLink className="w-3 h-3 text-neutral-400" />
                 </div>
-              </button>
+              </a>
 
               {/* Option 3: Rapido */}
-              <button
-                onClick={() => handleLaunchRide('rapido')}
+              <a
+                href={rapidoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full p-3 rounded-2xl border border-amber-300 bg-white hover:bg-amber-50/50 transition-all flex items-center justify-between cursor-pointer group shadow-xs"
               >
                 <div className="flex items-center gap-3">
@@ -260,11 +264,13 @@ export const RideNavigator: React.FC<RideNavigatorProps> = ({
                   <span>Book</span>
                   <ExternalLink className="w-3 h-3 text-neutral-400" />
                 </div>
-              </button>
+              </a>
 
               {/* Option 4: Google Maps GPS Navigation */}
-              <button
-                onClick={() => handleLaunchRide('gmaps')}
+              <a
+                href={gmapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full p-3 rounded-2xl border border-blue-200 bg-blue-50/30 hover:bg-blue-50/80 transition-all flex items-center justify-between cursor-pointer group shadow-xs"
               >
                 <div className="flex items-center gap-3">
@@ -284,7 +290,18 @@ export const RideNavigator: React.FC<RideNavigatorProps> = ({
                   <span>Start</span>
                   <ExternalLink className="w-3 h-3 text-blue-400" />
                 </div>
-              </button>
+              </a>
+
+              {/* Option 5: Apple Maps */}
+              <a
+                href={appleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full p-2.5 rounded-xl border border-amber-200 bg-amber-50/50 hover:bg-amber-100/70 transition-all flex items-center justify-between text-xs text-amber-950 font-semibold"
+              >
+                <span>Apple Maps Directions</span>
+                <ExternalLink className="w-3 h-3 text-amber-700" />
+              </a>
             </div>
 
             {/* Parking & Proximity Info */}
