@@ -36,7 +36,7 @@ export const CoupleStory: React.FC<CoupleStoryProps> = ({ currentLang }) => {
               {t.groomBio}
             </p>
             <div className="pt-2 text-xs text-amber-800 font-medium">
-              S/o Smt. P. Gangamani & Sri P. Sayanna
+              S/o Smt. J. Laxmi & Sri J. Narayana
             </div>
           </div>
 

@@ -19,9 +19,9 @@ export const translations = {
     auspiciousGreeting: '|| Sri Ganeshayanamaha || Sri Sita Rama Chandra Parabrahmane Namaha ||',
     heroKicker: 'An Auspicious Union Blessed By The Elders',
     groomName: 'HariPrasad',
-    groomParents: 'S/o Smt. P. Gangamani & Sri P. Sayanna',
+    groomParents: 'S/o Smt. J. Laxmi & Sri J. Narayana',
     brideName: 'Keerthi',
-    brideParents: 'D/o Smt. N. Usha & Sri N. Nagarajulu',
+    brideParents: 'D/o Smt. O. Bhagyalaxmi & Sri O. Kishan',
     andSymbol: '&',
     weddingDateFull: 'Friday, October 30, 2026',
     muhurthamTime: 'Subha Muhurtham: 5:30 AM (Chittoor) | Reception: Nov 4 Evening (Nizamabad)',
@@ -42,9 +42,9 @@ export const translations = {
     storyTitle: 'The Blessed Journey',
     storySub: 'Two souls united by destiny, with the warmth of family and traditions',
     groomTitle: 'The Groom',
-    groomBio: 'Software Architect & Tech Lead, S/o Smt. P. Gangamani & Sri P. Sayanna. Rooted in traditional values with a passion for soulful music and tech innovation.',
+    groomBio: 'Software Architect & Tech Lead, S/o Smt. J. Laxmi & Sri J. Narayana. Rooted in traditional values with a passion for soulful music and tech innovation.',
     brideTitle: 'The Bride',
-    brideBio: 'Biomedical Scientist, D/o Smt. N. Usha & Sri N. Nagarajulu. Classical art enthusiast and researcher devoted to life sciences and cultural arts.',
+    brideBio: 'Biomedical Scientist, D/o Smt. O. Bhagyalaxmi & Sri O. Kishan. Classical art enthusiast and researcher devoted to life sciences and cultural arts.',
     familyBlessing: 'With the divine blessings of our beloved grandparents, parents, and family elders, we cordially invite you and your family to grace our wedding celebration.',
 
     // Event Schedule

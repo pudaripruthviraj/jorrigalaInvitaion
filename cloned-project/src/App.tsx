@@ -486,7 +486,7 @@ export default function App() {
                 <p className="text-xs text-amber-900 font-serif mt-0.5">
                   {currentLang === 'te' 
                     ? 'శ్రీమతి ఎన్. ఉష & శ్రీ ఎన్. నాగరాజులు గార్ల సుపుత్రిక' 
-                    : 'D/o Smt. N. Usha & Sri N. Nagarajulu'}
+                    : 'D/o Smt. O. Bhagyalaxmi & Sri O. Kishan'}
                 </p>
               </div>
               
@@ -506,7 +506,7 @@ export default function App() {
                 <p className="text-xs text-amber-900 font-serif mt-0.5">
                   {currentLang === 'te' 
                     ? 'శ్రీమతి పి. గంగామణి & శ్రీ పి. సాయన్న గార్ల సుపుత్రుడు' 
-                    : 'S/o Smt. P. Gangamani & Sri P. Sayanna'}
+                    : 'S/o Smt. J. Laxmi & Sri J. Narayana'}
                 </p>
               </div>
             </div>

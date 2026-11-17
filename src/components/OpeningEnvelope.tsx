@@ -93,7 +93,7 @@ export const OpeningEnvelope: React.FC<OpeningEnvelopeProps> = ({ onOpen, curren
                     {isTelugu ? 'దీపిక' : 'Keerthi'}
                   </h1>
                   <p className="text-[8.5px] sm:text-[9px] text-amber-900 font-serif leading-tight">
-                    {isTelugu ? 'శ్రీమతి ఎన్. ఉష & శ్రీ ఎన్. నాగరాజులు గార్ల సుపుత్రిక' : 'D/o Smt. N. Usha & Sri N. Nagarajulu'}
+                    {isTelugu ? 'శ్రీమతి ఎన్. ఉష & శ్రీ ఎన్. నాగరాజులు గార్ల సుపుత్రిక' : 'D/o Smt. O. Bhagyalaxmi & Sri O. Kishan'}
                   </p>
                 </div>
                 
@@ -111,7 +111,7 @@ export const OpeningEnvelope: React.FC<OpeningEnvelopeProps> = ({ onOpen, curren
                     {isTelugu ? 'పృథ్వీరాజ్' : 'HariPrasad'}
                   </h1>
                   <p className="text-[8.5px] sm:text-[9px] text-amber-900 font-serif leading-tight">
-                    {isTelugu ? 'శ్రీమతి పి. గంగామణి & శ్రీ పి. సాయన్న గార్ల సుపుత్రుడు' : 'S/o Smt. P. Gangamani & Sri P. Sayanna'}
+                    {isTelugu ? 'శ్రీమతి పి. గంగామణి & శ్రీ పి. సాయన్న గార్ల సుపుత్రుడు' : 'S/o Smt. J. Laxmi & Sri J. Narayana'}
                   </p>
                 </div>
               </div>
