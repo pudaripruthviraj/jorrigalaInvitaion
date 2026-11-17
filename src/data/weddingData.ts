@@ -1,10 +1,99 @@
 import { EventItem, GuestRsvp, GuestbookEntry, GalleryPhoto, RegistryItem, BudgetItem, SeatingTable } from '../types/wedding';
 
+export type InviteSide = 'hari' | 'keerthi';
+
+export function getInviteSide(): InviteSide {
+  if (typeof window === 'undefined') return 'hari';
+  const pathSearchHash = `${window.location.pathname}${window.location.search}${window.location.hash}`.toLowerCase();
+  if (pathSearchHash.includes('hari')) return 'hari';
+  if (pathSearchHash.includes('keerthi')) return 'keerthi';
+
+  const fullUrl = window.location.href.toLowerCase();
+  if (fullUrl.includes('hari')) return 'hari';
+  if (fullUrl.includes('keerthi')) return 'keerthi';
+  return 'hari';
+}
+
+export const INVITE_SIDE: InviteSide = getInviteSide();
+export const IS_KEERTHI_SIDE = INVITE_SIDE === 'keerthi';
+
+export const SIDE_CEREMONY = IS_KEERTHI_SIDE
+  ? {
+      id: 'pellikuthuru-pandiri',
+      shortEn: 'Pelli Kuthuru',
+      shortAndPandiriEn: 'Pelli Kuthuru & Pandiri',
+      titleEn: 'Pelli Kuthuru & Pandiri Event',
+      shortTe: 'పెళ్ళికూతురు',
+      shortAndPandiriTe: 'పెళ్ళికూతురు & పందిరి',
+      titleTe: 'పెళ్ళికూతురు & పందిరి వేడుక',
+      dateFullEn: 'Saturday, November 21, 2026',
+      dateMedEn: 'Saturday, Nov 21, 2026',
+      dateShortEn: 'Nov 21',
+      timelineYearEn: '21 NOV 2026',
+      dateFullTe: 'శనివారం, నవంబర్ 21, 2026',
+      dateShortTe: 'నవంబర్ 21',
+      timelineYearTe: '21 నవంబర్ 2026',
+      dateIso: '2026-11-21T09:00:00+05:30',
+      calStartUtc: '20261121T033000Z',
+      calEndUtc: '20261121T133000Z',
+      timeEn: 'Morning Pandiri & Evening Pelli Kuthuru',
+      timeTe: 'ఉదయం పందిరి రాట & సాయంత్రం పెళ్ళికూతురు వేడుక',
+      descriptionEn:
+        'Auspicious installation of the sacred wedding pandiri with fresh mango leaves, followed by elders anointing Keerthi with fragrant turmeric, sandalwood, nalugu, and blessing her with traditional silks.',
+      descriptionTe:
+        'పచ్చి మామిడాకుల తోరణాలతో పవిత్ర పందిరి రాట వేసి, పెద్దలందరూ పెళ్ళికూతురు కీర్తికి పసుపు, గంధం, నలుగు పెట్టి, పట్టు వస్త్రాలతో అలంకరించి ఆశీర్వదించే శుభ వేడుక.',
+      significanceEn:
+        'Invokes divine blessings on the home and formally prepares the bride for the sacred Grihastha Ashrama.',
+      significanceTe:
+        'గృహ శాంతి, విఘ్న నివారణ మరియు వధువును గృహస్థాశ్రమ స్వీకారానికి సిద్ధం చేసే మంగళకర వేడుక.',
+      attireEn: 'Traditional Silk Sarees / Pattu Pavadai & Ethnic Wear',
+      attireTe: 'సాంప్రదాయ పట్టు చీరలు & తెలుగు సాంప్రదాయ వస్త్రాలు',
+      venueEn: 'Nizamabad, Telangana 503001 (Google Maps Pin)',
+      venueTe: 'నిజామాబాద్, తెలంగాణ 503001 (గూగుల్ మ్యాప్స్ పిన్)',
+      mapUrl: 'https://www.google.com/maps/search/?api=1&query=18.654689,78.106245',
+      coords: '18.654689,78.106245',
+    }
+  : {
+      id: 'pellikoduku-pandiri',
+      shortEn: 'Pelli Koduku',
+      shortAndPandiriEn: 'Pelli Koduku & Pandiri',
+      titleEn: 'Pelli Koduku & Pandiri Event',
+      shortTe: 'పెళ్ళికొడుకు',
+      shortAndPandiriTe: 'పెళ్ళికొడుకు & పందిరి',
+      titleTe: 'పెళ్ళికొడుకు & పందిరి వేడుక',
+      dateFullEn: 'Friday, November 20, 2026',
+      dateMedEn: 'Friday, Nov 20, 2026',
+      dateShortEn: 'Nov 20',
+      timelineYearEn: '20 NOV 2026',
+      dateFullTe: 'శుక్రవారం, నవంబర్ 20, 2026',
+      dateShortTe: 'నవంబర్ 20',
+      timelineYearTe: '20 నవంబర్ 2026',
+      dateIso: '2026-11-20T09:00:00+05:30',
+      calStartUtc: '20261120T033000Z',
+      calEndUtc: '20261120T133000Z',
+      timeEn: 'Morning Pandiri & Evening Pelli Koduku',
+      timeTe: 'ఉదయం పందిరి రాట & సాయంత్రం పెళ్ళికొడుకు వేడుక',
+      descriptionEn:
+        'Auspicious installation of the sacred wedding pandiri with fresh mango leaves, followed by elders anointing Hariprasad with fragrant sandalwood, nalugu, and blessing him with traditional silks.',
+      descriptionTe:
+        'పచ్చి మామిడాకుల తోరణాలతో పవిత్ర పందిరి రాట వేసి, పెద్దలందరూ పెళ్ళికొడుకు హరిప్రసాద్‌కు గంధం, నలుగు పెట్టి, పట్టు వస్త్రాలతో అలంకరించి ఆశీర్వదించే శుభ వేడుక.',
+      significanceEn:
+        'Invokes divine blessings on the home and formally prepares the groom for the sacred Grihastha Ashrama.',
+      significanceTe:
+        'గృహ శాంతి, విఘ్న నివారణ మరియు వరుడిని గృహస్థాశ్రమ స్వీకారానికి సిద్ధం చేసే మంగళకర వేడుక.',
+      attireEn: 'Traditional Silk Sarees / Kurta with Angavastram',
+      attireTe: 'సాంప్రదాయ పట్టు చీరలు / అంగవస్త్రంతో కూడిన కుర్తా',
+      venueEn: 'Nizamabad, Telangana 503001 (Google Maps Pin)',
+      venueTe: 'నిజామాబాద్, తెలంగాణ 503001 (గూగుల్ మ్యాప్స్ పిన్)',
+      mapUrl: 'https://www.google.com/maps/search/?api=1&query=18.654689,78.106245',
+      coords: '18.654689,78.106245',
+    };
+
 // Wedding date: November 22, 2026 at 9:46 AM IST
 export const WEDDING_DATE_ISO = '2026-11-22T09:46:00+05:30';
 
-// Pelli Koduku & Pandiri date: November 21, 2026 IST
-export const PELLIKODUKU_DATE_ISO = '2026-11-21T09:00:00+05:30';
+// Side ceremony date (Hari: Nov 20 Pelli Koduku | Keerthi: Nov 21 Pelli Kuthuru)
+export const PELLIKODUKU_DATE_ISO = SIDE_CEREMONY.dateIso;
 
 // Haldi date: November 20, 2026 IST
 export const HALDI_DATE_ISO = '2026-11-20T09:00:00+05:30';
@@ -52,22 +141,22 @@ export const INITIAL_EVENTS: EventItem[] = [
     icon: 'Sun',
   },
   {
-    id: 'pellikoduku-pandiri',
-    titleEn: 'Pelli Koduku & Pandiri Event',
-    titleTe: 'పెళ్ళికొడుకు & పందిరి వేడుక',
-    dateStrEn: 'Saturday, Nov 21, 2026',
-    dateStrTe: 'శనివారం, నవంబర్ 21, 2026',
-    timeEn: 'Morning Pandiri & Evening Pelli Koduku',
-    timeTe: 'ఉదయం పందిరి రాట & సాయంత్రం పెళ్ళికొడుకు వేడుక',
-    venueEn: 'Nizamabad, Telangana 503001 (Google Maps Pin)',
-    venueTe: 'నిజామాబాద్, తెలంగాణ 503001 (గూగుల్ మ్యాప్స్ పిన్)',
-    mapUrl: PELLIKODUKU_MAP_URL,
-    descriptionEn: 'Auspicious installation of the sacred wedding pandiri with fresh mango leaves, followed by elders anointing the groom with fragrant sandalwood, nalugu, and blessing him with traditional silks.',
-    descriptionTe: 'పచ్చి మామిడాకుల తోరణాలతో పవిత్ర పందిరి రాట వేసి, పెద్దలందరూ పెళ్ళికొడుకుకు గంధం, నలుగు పెట్టి, పట్టు వస్త్రాలతో అలంకరించి ఆశీర్వదించే శుభ వేడుక.',
-    significanceEn: 'Invokes divine blessings on the home and formally prepares the groom for the sacred Grihastha Ashrama.',
-    significanceTe: 'గృహ శాంతి, విఘ్న నివారణ మరియు వరుడిని గృహస్థాశ్రమ స్వీకారానికి సిద్ధం చేసే మంగళకర వేడుక.',
-    attireEn: 'Traditional Silk Sarees / Kurta with Angavastram',
-    attireTe: 'సాంప్రదాయ పట్టు చీరలు / అంగవస్త్రంతో కూడిన కుర్తా',
+    id: SIDE_CEREMONY.id,
+    titleEn: SIDE_CEREMONY.titleEn,
+    titleTe: SIDE_CEREMONY.titleTe,
+    dateStrEn: SIDE_CEREMONY.dateMedEn,
+    dateStrTe: SIDE_CEREMONY.dateFullTe,
+    timeEn: SIDE_CEREMONY.timeEn,
+    timeTe: SIDE_CEREMONY.timeTe,
+    venueEn: SIDE_CEREMONY.venueEn,
+    venueTe: SIDE_CEREMONY.venueTe,
+    mapUrl: SIDE_CEREMONY.mapUrl,
+    descriptionEn: SIDE_CEREMONY.descriptionEn,
+    descriptionTe: SIDE_CEREMONY.descriptionTe,
+    significanceEn: SIDE_CEREMONY.significanceEn,
+    significanceTe: SIDE_CEREMONY.significanceTe,
+    attireEn: SIDE_CEREMONY.attireEn,
+    attireTe: SIDE_CEREMONY.attireTe,
     category: 'pre-wedding',
     icon: 'Sparkles',
   },
@@ -134,7 +223,7 @@ export const INITIAL_RSVPS: GuestRsvp[] = [
     email: 'venkat.vangala@example.com',
     phone: '+91 98480 22334',
     guestCount: 4,
-    attendingEvents: ['haldi-mangala-snanam', 'pellikoduku-pandiri', 'subha-muhurtham'],
+    attendingEvents: ['haldi-mangala-snanam', SIDE_CEREMONY.id, 'subha-muhurtham'],
     dietaryPreference: 'pure-veg',
     accommodationNeeded: true,
     transportAssistance: true,

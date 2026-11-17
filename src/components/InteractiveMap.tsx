@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { MapPin, Navigation, Car, Plane, Train, Compass, ExternalLink, Check, Copy, Calendar, Clock, Bike } from 'lucide-react';
 import { Language } from '../types/wedding';
 import { translations } from '../data/translations';
+import { SIDE_CEREMONY } from '../data/weddingData';
 
 interface InteractiveMapProps {
   currentLang: Language;
@@ -44,19 +45,19 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ currentLang }) =
     },
     pellikoduku: {
       key: 'pellikoduku',
-      nameEn: 'Pelli Koduku & Pandiri Venue (Nizamabad)',
-      nameTe: 'పెళ్ళికొడుకు & పందిరి వేదిక (నిజామాబాద్)',
-      tagEn: '🌸 Pelli Koduku & Pandiri Event',
-      tagTe: '🌸 పెళ్ళికొడుకు & పందిరి వేడుక',
-      dateEn: 'Saturday, November 21, 2026',
-      dateTe: 'శనివారం, నవంబర్ 21, 2026',
-      timeEn: 'Morning Pandiri & Evening Pelli Koduku',
-      timeTe: 'ఉదయం పందిరి & సాయంత్రం పెళ్ళికొడుకు వేడుక',
-      addressEn: 'Nizamabad, Telangana 503001 (Google Maps Pin)',
-      addressTe: 'నిజామాబాద్, తెలంగాణ 503001 (గూగుల్ మ్యాప్స్ పిన్)',
-      coords: '18.654689,78.106245',
-      mapsQuery: '18.654689,78.106245',
-      mapUrl: 'https://www.google.com/maps/search/?api=1&query=18.654689,78.106245',
+      nameEn: `${SIDE_CEREMONY.titleEn} Venue (Nizamabad)`,
+      nameTe: `${SIDE_CEREMONY.shortAndPandiriTe} వేదిక (నిజామాబాద్)`,
+      tagEn: `🌸 ${SIDE_CEREMONY.titleEn}`,
+      tagTe: `🌸 ${SIDE_CEREMONY.titleTe}`,
+      dateEn: SIDE_CEREMONY.dateFullEn,
+      dateTe: SIDE_CEREMONY.dateFullTe,
+      timeEn: SIDE_CEREMONY.timeEn,
+      timeTe: SIDE_CEREMONY.timeTe,
+      addressEn: SIDE_CEREMONY.venueEn,
+      addressTe: SIDE_CEREMONY.venueTe,
+      coords: SIDE_CEREMONY.coords,
+      mapsQuery: SIDE_CEREMONY.coords,
+      mapUrl: SIDE_CEREMONY.mapUrl,
       transitInfoEn: [
         { icon: Train, text: 'Nizamabad Junction Railway Station (NZB): ~10 mins' },
         { icon: Car, text: 'Nizamabad Central Bus Station (TSRTC): ~8 mins' },
@@ -157,8 +158,8 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ currentLang }) =
             >
               <span>🌸</span>
               <div className="text-left">
-                <span className="block leading-tight text-[11px] sm:text-xs">{isTelugu ? 'పెళ్ళికొడుకు & పందిరి' : 'Nov 21 Pelli Koduku'}</span>
-                <span className="text-[9px] opacity-80 block">{isTelugu ? 'నవంబర్ 21 · నిజామాబాద్' : 'Pandiri & Nalugu'}</span>
+                <span className="block leading-tight text-[11px] sm:text-xs">{isTelugu ? SIDE_CEREMONY.shortAndPandiriTe : `${SIDE_CEREMONY.dateShortEn} ${SIDE_CEREMONY.shortEn}`}</span>
+                <span className="text-[9px] opacity-80 block">{isTelugu ? `${SIDE_CEREMONY.dateShortTe} · నిజామాబాద్` : 'Pandiri & Nalugu'}</span>
               </div>
             </button>
 

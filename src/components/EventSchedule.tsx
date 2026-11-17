@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Calendar, Clock, MapPin, Sparkles, Shirt, ChevronRight, Check } from 'lucide-react';
 import { Language, EventItem } from '../types/wedding';
 import { translations } from '../data/translations';
-import { INITIAL_EVENTS } from '../data/weddingData';
+import { INITIAL_EVENTS, SIDE_CEREMONY } from '../data/weddingData';
 
 interface EventScheduleProps {
   currentLang: Language;
@@ -35,9 +35,9 @@ export const EventSchedule: React.FC<EventScheduleProps> = ({ currentLang }) => 
     if (evt.id === 'haldi-mangala-snanam') {
       startIso = '20261120T033000Z';
       endIso = '20261120T063000Z';
-    } else if (evt.id === 'pellikoduku-pandiri') {
-      startIso = '20261121T033000Z';
-      endIso = '20261121T133000Z';
+    } else if (evt.id === SIDE_CEREMONY.id) {
+      startIso = SIDE_CEREMONY.calStartUtc;
+      endIso = SIDE_CEREMONY.calEndUtc;
     }
 
     const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startIso}/${endIso}&details=${details}&location=${location}`;

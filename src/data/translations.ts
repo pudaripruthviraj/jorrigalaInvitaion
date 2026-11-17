@@ -1,3 +1,5 @@
+import { SIDE_CEREMONY } from './weddingData';
+
 export const translations = {
   en: {
     // Navigation & Common
@@ -24,7 +26,7 @@ export const translations = {
     brideParents: 'D/o Smt. O. Bhagyalaxmi & Sri O. Kishan',
     andSymbol: '&',
     weddingDateFull: 'Sunday, November 22, 2026',
-    muhurthamTime: 'Subha Muhurtham: 9:46 AM (Nov 22) | Haldi: Nov 20 | Pelli Koduku & Pandiri: Nov 21',
+    muhurthamTime: `Subha Muhurtham: 9:46 AM (Nov 22) | Haldi: Nov 20 | ${SIDE_CEREMONY.shortAndPandiriEn}: ${SIDE_CEREMONY.dateShortEn}`,
     venueLocationHero: 'Sai Baba Temple, Madhav Nagar, Nizamabad, Telangana',
     blessTheCouple: 'Shower Akshinthalu',
     rsvpNowBtn: 'Confirm Your RSVP',
@@ -49,7 +51,7 @@ export const translations = {
 
     // Event Schedule
     eventsSectionTitle: 'Pelli Pandiri - Auspicious Events',
-    eventsSectionSub: 'Experience the grandeur of traditional Telangana marriage rituals: Haldi (Nov 20), Pelli Koduku & Pandiri (Nov 21), and Wedding (Nov 22)',
+    eventsSectionSub: `Experience the grandeur of traditional Telangana marriage rituals: Haldi (Nov 20), ${SIDE_CEREMONY.shortAndPandiriEn} (${SIDE_CEREMONY.dateShortEn}), and Wedding (Nov 22)`,
     filterAll: 'All Events',
     filterPre: 'Pre-Wedding',
     filterCeremony: 'Sacred Rituals',
@@ -125,11 +127,11 @@ export const translations = {
 
     // Venue & Map
     venueTitle: 'Shubha Vedika - Venue & Directions',
-    venueSub: 'Join Haldi at Seetharam Nagar Colony (Anand Nagar), Pelli Koduku in Nizamabad, and the Sacred Wedding at Sai Baba Temple, Madhav Nagar, Nizamabad.',
+    venueSub: `Join Haldi at Seetharam Nagar Colony (Anand Nagar), ${SIDE_CEREMONY.shortEn} in Nizamabad, and the Sacred Wedding at Sai Baba Temple, Madhav Nagar, Nizamabad.`,
     mainHall: 'Wedding Venue: Sai Baba Temple, Madhav Nagar, Nizamabad',
     addressLine: 'Madhav Nagar, Nizamabad, Telangana 503001',
-    receptionHall: 'Haldi (Seetharam Nagar Colony) & Pelli Koduku Venues, Nizamabad',
-    receptionAddressLine: 'Haldi: Seetharam Nagar Colony, Anand Nagar, Nizamabad · Pelli Koduku: Nizamabad 503001',
+    receptionHall: `Haldi (Seetharam Nagar Colony) & ${SIDE_CEREMONY.shortEn} Venues, Nizamabad`,
+    receptionAddressLine: `Haldi: Seetharam Nagar Colony, Anand Nagar, Nizamabad · ${SIDE_CEREMONY.shortEn}: Nizamabad 503001`,
     openGoogleMaps: 'Open in Google Maps',
     openAppleMaps: 'Open in Apple Maps',
     bookRapido: 'Book Rapido Ride to Venue',
@@ -213,7 +215,7 @@ export const translations = {
     brideParents: 'శ్రీమతి ఓ. భాగ్యలక్ష్మి & శ్రీ ఓ. కిషన్ గార్ల సుపుత్రిక',
     andSymbol: 'సమేత',
     weddingDateFull: 'ఆదివారం, నవంబర్ 22, 2026',
-    muhurthamTime: 'శుభ ముహూర్తం: ఉదయం 9:46 గంటలకు (నవంబర్ 22) | హల్దీ: నవంబర్ 20 | పెళ్ళికొడుకు & పందిరి: నవంబర్ 21',
+    muhurthamTime: `శుభ ముహూర్తం: ఉదయం 9:46 గంటలకు (నవంబర్ 22) | హల్దీ: నవంబర్ 20 | ${SIDE_CEREMONY.shortAndPandiriTe}: ${SIDE_CEREMONY.dateShortTe}`,
     venueLocationHero: 'సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్, తెలంగాణ',
     blessTheCouple: 'అక్షింతలు వేసి ఆశీర్వదించండి',
     rsvpNowBtn: 'హాజరును ధ్రువీకరించండి',
@@ -238,7 +240,7 @@ export const translations = {
 
     // Event Schedule
     eventsSectionTitle: 'పెళ్ళి పందిరి - శుభ కార్యాల పట్టిక',
-    eventsSectionSub: 'సాంప్రదాయ తెలంగాణ వివాహ క్రతువులు: హల్దీ (నవంబర్ 20), పెళ్ళికొడుకు & పందిరి (నవంబర్ 21), మరియు శుభ వివాహం (నవంబర్ 22)',
+    eventsSectionSub: `సాంప్రదాయ తెలంగాణ వివాహ క్రతువులు: హల్దీ (నవంబర్ 20), ${SIDE_CEREMONY.shortAndPandiriTe} (${SIDE_CEREMONY.dateShortTe}), మరియు శుభ వివాహం (నవంబర్ 22)`,
     filterAll: 'అన్ని కార్యక్రమాలు',
     filterPre: 'పెళ్ళికి ముందు పూజలు',
     filterCeremony: 'శుభ లగ్నం & తాళంబ్రాలు',
@@ -314,11 +316,11 @@ export const translations = {
 
     // Venue & Map
     venueTitle: 'శుభ వేదిక & మార్గదర్శిని',
-    venueSub: 'సీతారాం నగర్ కాలనీ (ఆనంద్ నగర్)లో హల్దీ, నిజామాబాద్‌లో పెళ్ళికొడుకు, మరియు సాయి బాబా దేవాలయం, మాధవ్ నగర్‌లో శుభ వివాహానికి విచ్చేయండి.',
+    venueSub: `సీతారాం నగర్ కాలనీ (ఆనంద్ నగర్)లో హల్దీ, నిజామాబాద్‌లో ${SIDE_CEREMONY.shortTe}, మరియు సాయి బాబా దేవాలయం, మాధవ్ నగర్‌లో శుభ వివాహానికి విచ్చేయండి.`,
     mainHall: 'వివాహ వేదిక: సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్',
     addressLine: 'మాధవ్ నగర్, నిజామాబాద్, తెలంగాణ 503001',
-    receptionHall: 'హల్దీ (సీతారాం నగర్ కాలనీ) & పెళ్ళికొడుకు వేదికలు, నిజామాబాద్',
-    receptionAddressLine: 'హల్దీ: సీతారాం నగర్ కాలనీ, ఆనంద్ నగర్ · పెళ్ళికొడుకు: నిజామాబాద్ 503001',
+    receptionHall: `హల్దీ (సీతారాం నగర్ కాలనీ) & ${SIDE_CEREMONY.shortTe} వేదికలు, నిజామాబాద్`,
+    receptionAddressLine: `హల్దీ: సీతారాం నగర్ కాలనీ, ఆనంద్ నగర్ · ${SIDE_CEREMONY.shortTe}: నిజామాబాద్ 503001`,
     openGoogleMaps: 'గూగుల్ మ్యాప్స్ లో తెరవండి',
     openAppleMaps: 'యాపిల్ మ్యాప్స్ లో తెరవండి',
     bookRapido: 'రాపిడో రైడ్ బుక్ చేయండి',

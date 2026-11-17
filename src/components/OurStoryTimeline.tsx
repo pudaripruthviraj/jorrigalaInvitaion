@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Heart, Sparkles, Calendar, MapPin, ChevronRight } from 'lucide-react';
 import { Language } from '../types/wedding';
 import { LordGaneshHeader } from './LordGaneshHeader';
-import { COUPLE_PORTRAIT_URL, COUPLE_PORTRAIT_FALLBACK_URL, HALDI_MAP_URL, PELLIKODUKU_MAP_URL, WEDDING_MAP_URL } from '../data/weddingData';
+import { COUPLE_PORTRAIT_URL, COUPLE_PORTRAIT_FALLBACK_URL, HALDI_MAP_URL, WEDDING_MAP_URL, SIDE_CEREMONY } from '../data/weddingData';
 
 interface Milestone {
   id: string;
@@ -84,18 +84,18 @@ const MILESTONES: Milestone[] = [
     icon: '🌼',
   },
   {
-    id: 'pellikoduku-nov-2026',
-    yearEn: '21 NOV 2026',
-    yearTe: '21 నవంబర్ 2026',
-    dateEn: 'Saturday, November 21, 2026',
-    dateTe: 'శనివారం, నవంబర్ 21, 2026',
-    titleEn: 'Pelli Koduku & Pandiri Event',
-    titleTe: 'పెళ్ళికొడుకు & పందిరి వేడుక',
-    locationEn: 'Nizamabad, Telangana (Google Maps Pin)',
-    locationTe: 'నిజామాబాద్, తెలంగాణ (గూగుల్ మ్యాప్స్ పిన్)',
-    mapUrl: PELLIKODUKU_MAP_URL,
-    descriptionEn: 'Sacred mango-leaf pandiri installation followed by elders blessing Hariprasad with sandalwood, nalugu, and traditional silks.',
-    descriptionTe: 'మామిడాకుల పందిరి రాట పూజ మరియు పెద్దలందరూ పెళ్ళికొడుకుకు గంధం, నలుగు పెట్టి ఆశీర్వదించే శుభ వేడుక.',
+    id: SIDE_CEREMONY.id,
+    yearEn: SIDE_CEREMONY.timelineYearEn,
+    yearTe: SIDE_CEREMONY.timelineYearTe,
+    dateEn: SIDE_CEREMONY.dateFullEn,
+    dateTe: SIDE_CEREMONY.dateFullTe,
+    titleEn: SIDE_CEREMONY.titleEn,
+    titleTe: SIDE_CEREMONY.titleTe,
+    locationEn: SIDE_CEREMONY.venueEn,
+    locationTe: SIDE_CEREMONY.venueTe,
+    mapUrl: SIDE_CEREMONY.mapUrl,
+    descriptionEn: SIDE_CEREMONY.descriptionEn,
+    descriptionTe: SIDE_CEREMONY.descriptionTe,
     imageUrl: '/images/luxury_floral_toran_1791066104986.jpg',
     icon: '🌸',
   },

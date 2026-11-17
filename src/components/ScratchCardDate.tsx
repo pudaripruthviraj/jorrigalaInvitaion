@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Sparkles, RefreshCw, CheckCircle2 } from 'lucide-react';
 import { Language } from '../types/wedding';
 import { triggerAkshinthaluShower } from '../utils/confetti';
+import { SIDE_CEREMONY } from '../data/weddingData';
 import ganeshImage from '../assets/images/lord_ganesh_gold_1791130909426.jpg';
 
 interface ScratchCardDateProps {
@@ -218,7 +219,9 @@ export const ScratchCardDate: React.FC<ScratchCardDateProps> = ({ currentLang })
               {currentLang === 'te' ? '🌼 హల్దీ: నవంబర్ 20' : '🌼 Haldi: Nov 20'}
             </span>
             <span className="font-bold text-[#54121E]">
-              {currentLang === 'te' ? '🌸 పెళ్ళికొడుకు & పందిరి: నవంబర్ 21' : '🌸 Pelli Koduku & Pandiri: Nov 21'}
+              {currentLang === 'te'
+                ? `🌸 ${SIDE_CEREMONY.shortAndPandiriTe}: ${SIDE_CEREMONY.dateShortTe}`
+                : `🌸 ${SIDE_CEREMONY.shortAndPandiriEn}: ${SIDE_CEREMONY.dateShortEn}`}
             </span>
           </div>
         </div>

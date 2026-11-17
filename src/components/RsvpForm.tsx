@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Check, Mail, Phone, User, Users, Heart, Sparkles, QrCode, Copy, Send, Calendar, Download } from 'lucide-react';
 import { Language, GuestRsvp } from '../types/wedding';
 import { translations } from '../data/translations';
-import { INITIAL_EVENTS } from '../data/weddingData';
+import { INITIAL_EVENTS, SIDE_CEREMONY } from '../data/weddingData';
 import { triggerAkshinthaluShower } from '../utils/confetti';
 
 interface RsvpFormProps {
@@ -19,7 +19,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
   const [guestCount, setGuestCount] = useState<number>(2);
   const [attendingEvents, setAttendingEvents] = useState<string[]>([
     'haldi-mangala-snanam',
-    'pellikoduku-pandiri',
+    SIDE_CEREMONY.id,
     'subha-muhurtham',
   ]);
   const [dietaryPreference, setDietaryPreference] = useState<GuestRsvp['dietaryPreference']>('pure-veg');
@@ -75,7 +75,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
 
   const handleCopyPass = () => {
     if (!confirmedRsvp) return;
-    const text = `Kalyana Mahotsavam Wedding Pass\nGuest: ${confirmedRsvp.fullName}\nPass ID: ${confirmedRsvp.id}\nAttendees: ${confirmedRsvp.guestCount}\nHaldi: Nov 20, 2026 | Pelli Koduku & Pandiri: Nov 21, 2026\nWedding: Nov 22, 2026 (9:46 AM) - Sai Baba Temple, Madhav Nagar, Nizamabad`;
+    const text = `Kalyana Mahotsavam Wedding Pass\nGuest: ${confirmedRsvp.fullName}\nPass ID: ${confirmedRsvp.id}\nAttendees: ${confirmedRsvp.guestCount}\nHaldi: Nov 20, 2026 | ${SIDE_CEREMONY.shortAndPandiriEn}: ${SIDE_CEREMONY.dateMedEn}\nWedding: Nov 22, 2026 (9:46 AM) - Sai Baba Temple, Madhav Nagar, Nizamabad`;
     navigator.clipboard.writeText(text);
     setCopiedPass(true);
     setTimeout(() => setCopiedPass(false), 2500);
@@ -137,7 +137,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
                 </div>
                 <div>
                   <span className="text-amber-800 block">Auspicious Dates:</span>
-                  <span className="font-bold">Nov 20 Haldi · Nov 21 Pelli Koduku · Nov 22 Wedding (9:46 AM)</span>
+                  <span className="font-bold">Nov 20 Haldi · {SIDE_CEREMONY.dateShortEn} {SIDE_CEREMONY.shortEn} · Nov 22 Wedding (9:46 AM)</span>
                 </div>
                 <div>
                   <span className="text-amber-800 block">Primary Venue:</span>
@@ -443,7 +443,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
                 </div>
                 <p className="text-xs font-sans text-amber-900 leading-relaxed">
                   <strong>🌼 Haldi:</strong> Friday, Nov 20, 2026 (Seetharam Nagar Colony, Anand Nagar, Nizamabad · 18.6628516, 78.0911954)<br />
-                  <strong>🌸 Pelli Koduku & Pandiri:</strong> Saturday, Nov 21, 2026 (Nizamabad · 18.654689, 78.106245)<br />
+                  <strong>🌸 {SIDE_CEREMONY.shortAndPandiriEn}:</strong> {SIDE_CEREMONY.dateMedEn} (Nizamabad · 18.654689, 78.106245)<br />
                   <strong>💍 Wedding:</strong> Sai Baba Temple, Madhav Nagar, Nizamabad (Sunday, Nov 22, 2026 at 9:46 AM)
                 </p>
                 <p className="text-xs font-sans text-amber-900">
