@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MapPin, Navigation, Car, Plane, Train, Compass, ExternalLink, Check, Copy, Calendar, Clock, Bike } from 'lucide-react';
 import { Language } from '../types/wedding';
 import { translations } from '../data/translations';
-import { SIDE_CEREMONY, HALDI_VENUE } from '../data/weddingData';
+import { SIDE_CEREMONY, HALDI_VENUE, IS_KEERTHI_SIDE, KEERTHI_FORMALITIES } from '../data/weddingData';
 
 interface InteractiveMapProps {
   currentLang: Language;
@@ -11,7 +11,7 @@ interface InteractiveMapProps {
 export const InteractiveMap: React.FC<InteractiveMapProps> = ({ currentLang }) => {
   const t = translations[currentLang];
   const isTelugu = currentLang === 'te';
-  const [activeVenueTab, setActiveVenueTab] = useState<'haldi' | 'pellikoduku' | 'wedding'>('wedding');
+  const [activeVenueTab, setActiveVenueTab] = useState<'haldi' | 'pellikoduku' | 'formalities' | 'wedding'>('wedding');
   const [copiedAddress, setCopiedAddress] = useState(false);
 
   const venues = {
@@ -23,8 +23,8 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ currentLang }) =
       tagTe: '🌼 హల్దీ వేడుక & మంగళస్నానం',
       dateEn: 'Friday, November 20, 2026',
       dateTe: 'శుక్రవారం, నవంబర్ 20, 2026',
-      timeEn: 'Morning 09:00 AM onwards',
-      timeTe: 'ఉదయం 09:00 గంటల నుండి',
+      timeEn: HALDI_VENUE.timeEn,
+      timeTe: HALDI_VENUE.timeTe,
       addressEn: HALDI_VENUE.addressEn,
       addressTe: HALDI_VENUE.addressTe,
       coords: HALDI_VENUE.coordsStr,
@@ -58,6 +58,34 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ currentLang }) =
       coords: SIDE_CEREMONY.coords,
       mapsQuery: SIDE_CEREMONY.coords,
       mapUrl: SIDE_CEREMONY.mapUrl,
+      transitInfoEn: [
+        { icon: Train, text: 'Nizamabad Junction Railway Station (NZB): ~10 mins' },
+        { icon: Car, text: 'Nizamabad Central Bus Station (TSRTC): ~8 mins' },
+        { icon: Plane, text: 'Hyderabad RGIA Airport / NH-44 Express Corridor' },
+        { icon: Car, text: 'Convenient parking available near venue' },
+      ],
+      transitInfoTe: [
+        { icon: Train, text: 'నిజామాబాద్ జంక్షన్ రైల్వే స్టేషన్ (NZB): ~10 నిమిషాలు' },
+        { icon: Car, text: 'నిజామాబాద్ సెంట్రల్ బస్ స్టేషన్ (TSRTC): ~8 నిమిషాలు' },
+        { icon: Plane, text: 'హైదరాబాద్ RGIA ఎయిర్‌పోర్ట్ / NH-44 హైవే కనెక్టివిటీ' },
+        { icon: Car, text: 'వేదిక వద్ద పార్కింగ్ సదుపాయం కలదు' },
+      ],
+    },
+    formalities: {
+      key: 'formalities',
+      nameEn: KEERTHI_FORMALITIES.nameEn,
+      nameTe: KEERTHI_FORMALITIES.nameTe,
+      tagEn: `✨ ${KEERTHI_FORMALITIES.titleEn}`,
+      tagTe: `✨ ${KEERTHI_FORMALITIES.titleTe}`,
+      dateEn: KEERTHI_FORMALITIES.dateFullEn,
+      dateTe: KEERTHI_FORMALITIES.dateFullTe,
+      timeEn: KEERTHI_FORMALITIES.timeEn,
+      timeTe: KEERTHI_FORMALITIES.timeTe,
+      addressEn: KEERTHI_FORMALITIES.venueEn,
+      addressTe: KEERTHI_FORMALITIES.venueTe,
+      coords: KEERTHI_FORMALITIES.coordsStr,
+      mapsQuery: KEERTHI_FORMALITIES.coordsStr,
+      mapUrl: KEERTHI_FORMALITIES.mapUrl,
       transitInfoEn: [
         { icon: Train, text: 'Nizamabad Junction Railway Station (NZB): ~10 mins' },
         { icon: Car, text: 'Nizamabad Central Bus Station (TSRTC): ~8 mins' },
@@ -159,9 +187,26 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ currentLang }) =
               <span>🌸</span>
               <div className="text-left">
                 <span className="block leading-tight text-[11px] sm:text-xs">{isTelugu ? SIDE_CEREMONY.shortAndPandiriTe : `${SIDE_CEREMONY.dateShortEn} ${SIDE_CEREMONY.shortEn}`}</span>
-                <span className="text-[9px] opacity-80 block">{isTelugu ? `${SIDE_CEREMONY.dateShortTe} · నిజామాబాద్` : 'Pandiri & Nalugu'}</span>
+                <span className="text-[9px] opacity-80 block">{isTelugu ? `${SIDE_CEREMONY.dateShortTe} · పందిరి 8AM` : (IS_KEERTHI_SIDE ? 'Pandiri 8 AM & Morning' : 'Pandiri & Nalugu')}</span>
               </div>
             </button>
+
+            {IS_KEERTHI_SIDE && (
+              <button
+                onClick={() => setActiveVenueTab('formalities')}
+                className={`flex-1 py-2.5 px-2 sm:px-3 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                  activeVenueTab === 'formalities'
+                    ? 'bg-[#54121E] text-white shadow-md'
+                    : 'text-amber-900 hover:bg-amber-100/60'
+                }`}
+              >
+                <span>✨</span>
+                <div className="text-left">
+                  <span className="block leading-tight text-[11px] sm:text-xs">{isTelugu ? 'ఫార్మాలిటీస్' : 'Nov 21 Formalities'}</span>
+                  <span className="text-[9px] opacity-80 block">{isTelugu ? 'నవంబర్ 21 · మ. 2:00' : 'Seetharam Nagar · 2:00 PM'}</span>
+                </div>
+              </button>
+            )}
 
             <button
               onClick={() => setActiveVenueTab('wedding')}

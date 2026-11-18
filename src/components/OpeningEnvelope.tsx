@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Sparkles, Heart } from 'lucide-react';
 import { Language } from '../types/wedding';
 import { weddingMusic } from '../utils/audioPlayer';
-import { HALDI_VENUE } from '../data/weddingData';
+import { HALDI_VENUE, IS_KEERTHI_SIDE, KEERTHI_FORMALITIES } from '../data/weddingData';
 
 interface OpeningEnvelopeProps {
   onOpen: () => void;
@@ -122,8 +122,17 @@ export const OpeningEnvelope: React.FC<OpeningEnvelopeProps> = ({ onOpen, curren
                 {/* Haldi - Nov 20 */}
                 <div className="space-y-0.5">
                   <p className="text-[9.5px] sm:text-[10.5px] font-serif font-bold text-[#6B1D2F]">
-                    {isTelugu ? '🌼 హల్దీ: నవంబర్ 20, 2026' : '🌼 Haldi: 20 November 2026'}
+                    {IS_KEERTHI_SIDE
+                      ? (isTelugu ? '🌼 హల్దీ: నవంబర్ 20, 2026 · సా. 6:00' : '🌼 Haldi: 20 November 2026 · 6:00 PM')
+                      : (isTelugu ? '🌼 హల్దీ: నవంబర్ 20, 2026' : '🌼 Haldi: 20 November 2026')}
                   </p>
+                  {IS_KEERTHI_SIDE && (
+                    <p className="text-[8.5px] sm:text-[9px] font-serif font-semibold text-[#6B1D2F]">
+                      {isTelugu
+                        ? `✨ ఫార్మాలిటీస్: నవంబర్ 21, 2026 · మ. 2:00`
+                        : `✨ Formalities: 21 November 2026 · ${KEERTHI_FORMALITIES.timeShortEn}`}
+                    </p>
+                  )}
                   <a
                     href={HALDI_VENUE.mapUrl}
                     target="_blank"

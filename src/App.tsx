@@ -12,7 +12,7 @@ import {
   INITIAL_EVENTS, INITIAL_GALLERY, INITIAL_GUESTBOOK, 
   INITIAL_RSVPS, INITIAL_REGISTRY, INITIAL_BUDGET, INITIAL_TABLES, WEDDING_DATE_ISO,
   HALDI_MAP_URL, HALDI_COORDS, PELLIKODUKU_MAP_URL, PELLIKODUKU_COORDS, WEDDING_MAP_URL, WEDDING_COORDS,
-  COUPLE_PORTRAIT_URL, COUPLE_PORTRAIT_FALLBACK_URL, SIDE_CEREMONY, HALDI_VENUE
+  COUPLE_PORTRAIT_URL, COUPLE_PORTRAIT_FALLBACK_URL, SIDE_CEREMONY, HALDI_VENUE, IS_KEERTHI_SIDE, KEERTHI_FORMALITIES
 } from './data/weddingData';
 import { weddingMusic } from './utils/audioPlayer';
 import { triggerAkshinthaluShower } from './utils/confetti';
@@ -86,11 +86,23 @@ export default function App() {
   const [hasOpenedInvite, setHasOpenedInvite] = useState(false);
   const [activeChapter, setActiveChapter] = useState<number>(1);
   const [viewMode, setViewMode] = useState<'storybook' | 'scroll'>('storybook');
-  const [activeRideVenue, setActiveRideVenue] = useState<'haldi' | 'pellikoduku' | 'wedding'>('wedding');
+  const [activeRideVenue, setActiveRideVenue] = useState<'haldi' | 'pellikoduku' | 'formalities' | 'wedding'>('wedding');
 
   const CHAPTERS = [
-    { id: 1, titleTe: 'శుభ ఆహ్వానం', titleEn: 'Invitation', subTe: `హల్దీ, ${SIDE_CEREMONY.shortTe} & వివాహం`, subEn: `Haldi, ${SIDE_CEREMONY.shortEn} & Wedding` },
-    { id: 2, titleTe: 'వేడుకల వివరాలు', titleEn: 'Ceremonies', subTe: `హల్దీ, ${SIDE_CEREMONY.shortAndPandiriTe} & వివాహం`, subEn: `Haldi, ${SIDE_CEREMONY.shortAndPandiriEn} & Wedding` },
+    {
+      id: 1,
+      titleTe: 'శుభ ఆహ్వానం',
+      titleEn: 'Invitation',
+      subTe: IS_KEERTHI_SIDE ? 'పందిరి, పెళ్ళికూతురు, హల్దీ & వివాహం' : `హల్దీ, ${SIDE_CEREMONY.shortTe} & వివాహం`,
+      subEn: IS_KEERTHI_SIDE ? 'Pandiri, Pelli Kuthuru, Haldi & Wedding' : `Haldi, ${SIDE_CEREMONY.shortEn} & Wedding`,
+    },
+    {
+      id: 2,
+      titleTe: 'వేడుకల వివరాలు',
+      titleEn: 'Ceremonies',
+      subTe: IS_KEERTHI_SIDE ? 'పందిరి, హల్దీ, ఫార్మాలిటీస్ & వివాహం' : `హల్దీ, ${SIDE_CEREMONY.shortAndPandiriTe} & వివాహం`,
+      subEn: IS_KEERTHI_SIDE ? 'Pandiri, Haldi, Formalities & Wedding' : `Haldi, ${SIDE_CEREMONY.shortAndPandiriEn} & Wedding`,
+    },
     { id: 3, titleTe: 'వేదిక & RSVP', titleEn: 'Venue & RSVP', subTe: 'సాయి బాబా దేవాలయం, నిజామాబాద్', subEn: 'Sai Baba Temple, Nizamabad' },
     { id: 4, titleTe: 'ఆశీస్సులు', titleEn: 'Blessings', subTe: 'చిత్రమాలిక & శుభాకాంక్షలు', subEn: 'Gallery & Guestbook' },
   ];
@@ -202,7 +214,9 @@ export default function App() {
       email: `${rsvpName.toLowerCase().replace(/\s+/g, '')}@weddinginvitee.com`,
       phone: rsvpPhone.trim(),
       guestCount: Number(rsvpCount),
-      attendingEvents: ['haldi-mangala-snanam', SIDE_CEREMONY.id, 'subha-muhurtham'],
+      attendingEvents: IS_KEERTHI_SIDE
+        ? ['pandiri-event', SIDE_CEREMONY.id, 'haldi-mangala-snanam', KEERTHI_FORMALITIES.id, 'subha-muhurtham']
+        : ['haldi-mangala-snanam', SIDE_CEREMONY.id, 'subha-muhurtham'],
       dietaryPreference: rsvpDiet,
       accommodationNeeded: rsvpStay,
       transportAssistance: false,
@@ -265,13 +279,21 @@ export default function App() {
     triggerAkshinthaluShower();
   };
 
-  const shareText = currentLang === 'te'
+  const shareText = IS_KEERTHI_SIDE
+    ? currentLang === 'te'
+      ? `శుభ వివాహ ఆహ్వానం: కీర్తి & హరిప్రసాద్ | 🌸 పందిరి (నవంబర్ 20, ఉ. 8:00) & పెళ్ళికూతురు (ఉదయం): ${SIDE_CEREMONY.venueTe} (${PELLIKODUKU_MAP_URL}) | 🌼 హల్దీ (నవంబర్ 20, సా. 6:00): ${HALDI_VENUE.shortLabelTe} (${HALDI_MAP_URL}) | ✨ ఫార్మాలిటీస్ (నవంబర్ 21, మ. 2:00): ${KEERTHI_FORMALITIES.shortLabelTe} (${KEERTHI_FORMALITIES.mapUrl}) | 💍 శుభ వివాహం (నవంబర్ 22, ఉదయం 9:46): సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్ (${WEDDING_MAP_URL}). పూర్తి ఆహ్వాన పత్రిక: ${window.location.href}`
+      : `Wedding Invitation: Keerthi & Hariprasad | 🌸 Pandiri (Nov 20, 8:00 AM) & Pelli Kuthuru (Morning): ${SIDE_CEREMONY.venueEn} (${PELLIKODUKU_MAP_URL}) | 🌼 Haldi (Nov 20, 6:00 PM): ${HALDI_VENUE.shortLabelEn} (${HALDI_MAP_URL}) | ✨ Formalities (Nov 21, 2:00 PM): ${KEERTHI_FORMALITIES.shortLabelEn} (${KEERTHI_FORMALITIES.mapUrl}) | 💍 Wedding (Subha Muhurtham, Nov 22, 2026 at 9:46 AM): Sai Baba Temple, Madhav Nagar, Nizamabad (${WEDDING_MAP_URL}). View full invitation: ${window.location.href}`
+    : currentLang === 'te'
     ? `శుభ వివాహ ఆహ్వానం: కీర్తి & హరిప్రసాద్ | 🌼 హల్దీ (నవంబర్ 20, 2026): ${HALDI_VENUE.shortLabelTe} (${HALDI_MAP_URL}) | 🌸 ${SIDE_CEREMONY.shortAndPandiriTe} (${SIDE_CEREMONY.dateFullTe}): నిజామాబాద్ (${PELLIKODUKU_MAP_URL}) | 💍 శుభ వివాహం (నవంబర్ 22, 2026, ఉదయం 9:46): సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్ (${WEDDING_MAP_URL}). పూర్తి ఆహ్వాన పత్రిక: ${window.location.href}`
     : `Wedding Invitation: Keerthi & Hariprasad | 🌼 Haldi (Nov 20, 2026): ${HALDI_VENUE.shortLabelEn} (${HALDI_MAP_URL}) | 🌸 ${SIDE_CEREMONY.shortAndPandiriEn} (${SIDE_CEREMONY.dateMedEn}): Nizamabad (${PELLIKODUKU_MAP_URL}) | 💍 Wedding (Subha Muhurtham, Nov 22, 2026 at 9:46 AM): Sai Baba Temple, Madhav Nagar, Nizamabad (${WEDDING_MAP_URL}). View full invitation: ${window.location.href}`;
 
   const handleCalendar = () => {
     const title = encodeURIComponent(`Keerthi & Hariprasad Wedding & ${SIDE_CEREMONY.shortEn} (Nov 20 - 22, 2026)`);
-    const details = encodeURIComponent(`Celebrations Schedule:\n1. Haldi: Friday, Nov 20, 2026 at ${HALDI_VENUE.shortLabelEn} (Map: ${HALDI_MAP_URL}).\n2. ${SIDE_CEREMONY.titleEn}: ${SIDE_CEREMONY.dateFullEn} at Nizamabad (Map: ${PELLIKODUKU_MAP_URL}).\n3. Wedding (Subha Muhurtham): Sunday, Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad (Map: ${WEDDING_MAP_URL}).`);
+    const details = encodeURIComponent(
+      IS_KEERTHI_SIDE
+        ? `Celebrations Schedule:\n1. Pandiri Event: Friday, Nov 20, 2026 at 8:00 AM at ${SIDE_CEREMONY.venueEn} (Map: ${PELLIKODUKU_MAP_URL}).\n2. Pelli Kuthuru: Friday, Nov 20, 2026 (Morning) at ${SIDE_CEREMONY.venueEn} (Map: ${PELLIKODUKU_MAP_URL}).\n3. Haldi: Friday, Nov 20, 2026 at 6:00 PM at ${HALDI_VENUE.shortLabelEn} (Map: ${HALDI_MAP_URL}).\n4. Formalities: Saturday, Nov 21, 2026 at 2:00 PM at ${KEERTHI_FORMALITIES.shortLabelEn} (Map: ${KEERTHI_FORMALITIES.mapUrl}).\n5. Wedding (Subha Muhurtham): Sunday, Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad (Map: ${WEDDING_MAP_URL}).`
+        : `Celebrations Schedule:\n1. Haldi: Friday, Nov 20, 2026 at ${HALDI_VENUE.shortLabelEn} (Map: ${HALDI_MAP_URL}).\n2. ${SIDE_CEREMONY.titleEn}: ${SIDE_CEREMONY.dateFullEn} at Nizamabad (Map: ${PELLIKODUKU_MAP_URL}).\n3. Wedding (Subha Muhurtham): Sunday, Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad (Map: ${WEDDING_MAP_URL}).`
+    );
     const location = encodeURIComponent('Sai Baba Temple, Madhav Nagar, Nizamabad, Telangana 503001');
     window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=20261122T041600Z/20261122T073000Z&details=${details}&location=${location}`, '_blank');
   };
@@ -640,7 +662,11 @@ export default function App() {
           {/* Top Auspicious Lord Ganesh Emblem */}
           <LordGaneshHeader 
             currentLang={currentLang} 
-            subtitle={currentLang === 'te' ? `హల్దీ, ${SIDE_CEREMONY.shortAndPandiriTe} & వివాహం` : `Haldi, ${SIDE_CEREMONY.shortAndPandiriEn} & Wedding`} 
+            subtitle={
+              IS_KEERTHI_SIDE
+                ? (currentLang === 'te' ? 'పందిరి, పెళ్ళికూతురు, హల్దీ, ఫార్మాలిటీస్ & వివాహం' : 'Pandiri, Pelli Kuthuru, Haldi, Formalities & Wedding')
+                : (currentLang === 'te' ? `హల్దీ, ${SIDE_CEREMONY.shortAndPandiriTe} & వివాహం` : `Haldi, ${SIDE_CEREMONY.shortAndPandiriEn} & Wedding`)
+            } 
           />
 
           <div className="text-center space-y-1">
@@ -657,6 +683,8 @@ export default function App() {
             {INITIAL_EVENTS.map((evt) => {
               const isMuhurtham = evt.id === 'subha-muhurtham';
               const isHaldi = evt.id === 'haldi-mangala-snanam';
+              const isPandiri = evt.id === 'pandiri-event';
+              const isFormalities = evt.id === KEERTHI_FORMALITIES.id;
               const isPellikoduku = evt.id === SIDE_CEREMONY.id;
 
               let cardBg = 'bg-white border-amber-200/90';
@@ -671,6 +699,14 @@ export default function App() {
                 cardBg = 'bg-gradient-to-br from-amber-50/90 via-yellow-50/60 to-white border-amber-300 shadow-xs';
                 badgeColor = 'bg-amber-500/15 text-amber-950 border-amber-400';
                 iconSymbol = '🌼';
+              } else if (isPandiri) {
+                cardBg = 'bg-gradient-to-br from-emerald-50/70 via-amber-50/50 to-white border-emerald-300 shadow-xs';
+                badgeColor = 'bg-emerald-600/15 text-emerald-950 border-emerald-400';
+                iconSymbol = '🌿';
+              } else if (isFormalities) {
+                cardBg = 'bg-gradient-to-br from-orange-50/80 via-amber-50/50 to-white border-amber-300 shadow-xs';
+                badgeColor = 'bg-amber-600/15 text-amber-950 border-amber-400';
+                iconSymbol = '✨';
               } else if (isPellikoduku) {
                 cardBg = 'bg-gradient-to-br from-rose-50/85 via-amber-50/50 to-white border-rose-300 shadow-xs';
                 badgeColor = 'bg-rose-600/15 text-rose-950 border-rose-400';
@@ -696,7 +732,11 @@ export default function App() {
                           ? (currentLang === 'te' ? 'శుభ వివాహం' : 'Wedding')
                           : isHaldi
                           ? (currentLang === 'te' ? 'హల్దీ' : 'Haldi')
-                          : (currentLang === 'te' ? SIDE_CEREMONY.shortAndPandiriTe : SIDE_CEREMONY.shortAndPandiriEn)}
+                          : isPandiri
+                          ? (currentLang === 'te' ? 'పందిరి' : 'Pandiri')
+                          : isFormalities
+                          ? (currentLang === 'te' ? 'ఫార్మాలిటీస్' : 'Formalities')
+                          : (currentLang === 'te' ? SIDE_CEREMONY.shortTe : SIDE_CEREMONY.shortEn)}
                       </span>
                     </span>
                   </div>
@@ -764,17 +804,23 @@ export default function App() {
               {currentLang === 'te' ? 'వేడుకల వేదికలు' : 'Celebration Venues'}
             </h2>
             <p className="text-xs text-amber-950/80">
-              {currentLang === 'te' 
-                ? `నవంబర్ 20 హల్దీ · ${SIDE_CEREMONY.dateShortTe} ${SIDE_CEREMONY.shortAndPandiriTe} · నవంబర్ 22 వివాహం (ఉదయం 9:46)` 
-                : `Nov 20 Haldi · ${SIDE_CEREMONY.dateShortEn} ${SIDE_CEREMONY.shortAndPandiriEn} · Nov 22 Wedding (9:46 AM)`}
+              {IS_KEERTHI_SIDE
+                ? (currentLang === 'te'
+                    ? 'నవంబర్ 20 పందిరి (ఉ. 8:00), పెళ్ళికూతురు & హల్దీ (సా. 6:00) · నవంబర్ 21 ఫార్మాలిటీస్ (మ. 2:00) · నవంబర్ 22 వివాహం (ఉదయం 9:46)'
+                    : 'Nov 20 Pandiri (8 AM), Pelli Kuthuru & Haldi (6 PM) · Nov 21 Formalities (2 PM) · Nov 22 Wedding (9:46 AM)')
+                : (currentLang === 'te'
+                    ? `నవంబర్ 20 హల్దీ · ${SIDE_CEREMONY.dateShortTe} ${SIDE_CEREMONY.shortAndPandiriTe} · నవంబర్ 22 వివాహం (ఉదయం 9:46)`
+                    : `Nov 20 Haldi · ${SIDE_CEREMONY.dateShortEn} ${SIDE_CEREMONY.shortAndPandiriEn} · Nov 22 Wedding (9:46 AM)`)}
             </p>
           </div>
 
-          {/* Venue 1: Haldi Venue (Seetharam Nagar Colony, Anand Nagar, Nizamabad) */}
+          {/* Venue 1: Haldi Venue */}
           <div className="p-4 rounded-2xl bg-gradient-to-br from-amber-50/90 to-white border-2 border-amber-300 shadow-sm text-left space-y-3">
             <div className="flex flex-wrap items-center gap-1.5">
               <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-[#8C5D0D] text-[10px] font-bold uppercase border border-amber-300">
-                {currentLang === 'te' ? '🌼 నవంబర్ 20: హల్దీ వేడుక' : '🌼 Nov 20: Haldi Ceremony'}
+                {IS_KEERTHI_SIDE
+                  ? (currentLang === 'te' ? '🌼 నవంబర్ 20: హల్దీ వేడుక (సా. 6:00)' : '🌼 Nov 20: Haldi Ceremony (6:00 PM)')
+                  : (currentLang === 'te' ? '🌼 నవంబర్ 20: హల్దీ వేడుక' : '🌼 Nov 20: Haldi Ceremony')}
               </span>
             </div>
 
@@ -786,7 +832,7 @@ export default function App() {
                 {currentLang === 'te' ? HALDI_VENUE.addressTe : HALDI_VENUE.addressEn}
               </p>
               <div className="mt-2 text-[11px] font-serif text-[#781B10] bg-white/90 p-2.5 rounded-xl border border-amber-200/80 space-y-1">
-                <p>• <strong>{currentLang === 'te' ? 'హల్దీ & మంగళస్నానం:' : 'Haldi & Mangala Snanam:'}</strong> {currentLang === 'te' ? 'శుక్రవారం, నవంబర్ 20, 2026 · ఉదయం 9:00 నుండి' : 'Friday, November 20, 2026 · 9:00 AM onwards'}</p>
+                <p>• <strong>{currentLang === 'te' ? 'హల్దీ & మంగళస్నానం:' : 'Haldi & Mangala Snanam:'}</strong> {currentLang === 'te' ? `శుక్రవారం, నవంబర్ 20, 2026 · ${HALDI_VENUE.timeTe}` : `Friday, November 20, 2026 · ${HALDI_VENUE.timeEn}`}</p>
               </div>
             </div>
 
@@ -812,7 +858,7 @@ export default function App() {
             </div>
           </div>
 
-          {/* Venue 2: Side Ceremony (Pelli Koduku / Pelli Kuthuru & Pandiri Venue) */}
+          {/* Venue 2: Side Ceremony (Pelli Koduku / Pandiri & Pelli Kuthuru Venue) */}
           <div className="p-4 rounded-2xl bg-gradient-to-br from-rose-50/80 to-white border-2 border-rose-300 shadow-sm text-left space-y-3">
             <div className="flex flex-wrap items-center gap-1.5">
               <span className="px-2.5 py-0.5 rounded-full bg-rose-50 text-[#6B1D2F] text-[10px] font-bold uppercase border border-rose-200">
@@ -825,12 +871,10 @@ export default function App() {
                 {currentLang === 'te' ? `${SIDE_CEREMONY.shortAndPandiriTe} వేదిక` : `${SIDE_CEREMONY.shortAndPandiriEn} Venue`}
               </h3>
               <p className="text-xs text-amber-950/85 mt-0.5">
-                {currentLang === 'te' 
-                  ? 'నిజామాబాద్, తెలంగాణ 503001' 
-                  : 'Nizamabad, Telangana 503001'}
+                {currentLang === 'te' ? SIDE_CEREMONY.venueTe : SIDE_CEREMONY.venueEn}
               </p>
               <div className="mt-2 text-[11px] font-serif text-[#781B10] bg-white/90 p-2.5 rounded-xl border border-rose-200/80 space-y-1">
-                <p>• <strong>{currentLang === 'te' ? `${SIDE_CEREMONY.shortAndPandiriTe}:` : `${SIDE_CEREMONY.shortAndPandiriEn}:`}</strong> {currentLang === 'te' ? SIDE_CEREMONY.dateFullTe : SIDE_CEREMONY.dateFullEn}</p>
+                <p>• <strong>{currentLang === 'te' ? `${SIDE_CEREMONY.shortAndPandiriTe}:` : `${SIDE_CEREMONY.shortAndPandiriEn}:`}</strong> {currentLang === 'te' ? `${SIDE_CEREMONY.dateFullTe} · ${SIDE_CEREMONY.timeTe}` : `${SIDE_CEREMONY.dateFullEn} · ${SIDE_CEREMONY.timeEn}`}</p>
               </div>
             </div>
 
@@ -855,6 +899,50 @@ export default function App() {
               </button>
             </div>
           </div>
+
+          {/* Venue 3 (Keerthi Side): Nov 21 Afternoon 2 PM Formalities */}
+          {IS_KEERTHI_SIDE && (
+            <div className="p-4 rounded-2xl bg-gradient-to-br from-orange-50/80 to-white border-2 border-amber-300 shadow-sm text-left space-y-3">
+              <div className="flex flex-wrap items-center gap-1.5">
+                <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-[#6B1D2F] text-[10px] font-bold uppercase border border-amber-300">
+                  {currentLang === 'te' ? '✨ నవంబర్ 21: ఫార్మాలిటీస్ (మ. 2:00)' : '✨ Nov 21: Formalities (2:00 PM)'}
+                </span>
+              </div>
+
+              <div>
+                <h3 className="font-display font-bold text-base text-[#54121E]">
+                  {currentLang === 'te' ? KEERTHI_FORMALITIES.nameTe : KEERTHI_FORMALITIES.nameEn}
+                </h3>
+                <p className="text-xs text-amber-950/85 mt-0.5">
+                  {currentLang === 'te' ? KEERTHI_FORMALITIES.venueTe : KEERTHI_FORMALITIES.venueEn}
+                </p>
+                <div className="mt-2 text-[11px] font-serif text-[#781B10] bg-white/90 p-2.5 rounded-xl border border-amber-200/80 space-y-1">
+                  <p>• <strong>{currentLang === 'te' ? `${KEERTHI_FORMALITIES.titleTe}:` : `${KEERTHI_FORMALITIES.titleEn}:`}</strong> {currentLang === 'te' ? `${KEERTHI_FORMALITIES.dateFullTe} · ${KEERTHI_FORMALITIES.timeTe}` : `${KEERTHI_FORMALITIES.dateFullEn} · ${KEERTHI_FORMALITIES.timeEn}`}</p>
+                </div>
+              </div>
+
+              <div className="pt-1 flex items-center gap-2">
+                <a
+                  href={KEERTHI_FORMALITIES.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 py-2 px-3 bg-[#781B10] text-white text-xs font-bold rounded-xl shadow-xs hover:bg-[#54121E] transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                >
+                  <Navigation className="w-3.5 h-3.5" />
+                  <span>{currentLang === 'te' ? 'గూగుల్ మ్యాప్స్ లో తెరవండి' : 'Open Google Maps'}</span>
+                </a>
+                <button
+                  onClick={() => {
+                    navigator.clipboard.writeText(KEERTHI_FORMALITIES.mapUrl);
+                    triggerAkshinthaluShower();
+                  }}
+                  className="py-2 px-3 bg-amber-100/80 hover:bg-amber-200/80 text-amber-950 text-xs font-semibold rounded-xl transition-colors cursor-pointer"
+                >
+                  {currentLang === 'te' ? 'లింక్ కాపీ' : 'Copy Pin'}
+                </button>
+              </div>
+            </div>
+          )}
 
           {/* Venue 2: Main Wedding Venue — Sai Baba Temple, Madhav Nagar, Nizamabad */}
           <div className="p-4 rounded-2xl bg-white border-2 border-[#C89B3C] shadow-md text-left space-y-3">
@@ -902,11 +990,11 @@ export default function App() {
 
           {/* Interactive Navigate & Ride-Sharing Selector with Venue Toggle */}
           <div className="pt-1 space-y-2">
-            <div className="grid grid-cols-3 gap-1 p-1 bg-amber-50 border border-amber-200 rounded-xl text-[10px] font-bold">
+            <div className={`grid ${IS_KEERTHI_SIDE ? 'grid-cols-4' : 'grid-cols-3'} gap-1 p-1 bg-amber-50 border border-amber-200 rounded-xl text-[10px] font-bold`}>
               <button
                 type="button"
                 onClick={() => setActiveRideVenue('haldi')}
-                className={`py-1.5 px-1.5 rounded-lg transition-all cursor-pointer ${
+                className={`py-1.5 px-1 rounded-lg transition-all cursor-pointer ${
                   activeRideVenue === 'haldi'
                     ? 'bg-[#781B10] text-white shadow-xs'
                     : 'text-amber-950 hover:bg-amber-100'
@@ -917,7 +1005,7 @@ export default function App() {
               <button
                 type="button"
                 onClick={() => setActiveRideVenue('pellikoduku')}
-                className={`py-1.5 px-1.5 rounded-lg transition-all cursor-pointer ${
+                className={`py-1.5 px-1 rounded-lg transition-all cursor-pointer truncate ${
                   activeRideVenue === 'pellikoduku'
                     ? 'bg-[#781B10] text-white shadow-xs'
                     : 'text-amber-950 hover:bg-amber-100'
@@ -925,10 +1013,23 @@ export default function App() {
               >
                 {currentLang === 'te' ? `🌸 ${SIDE_CEREMONY.shortTe}` : `🌸 ${SIDE_CEREMONY.shortEn}`}
               </button>
+              {IS_KEERTHI_SIDE && (
+                <button
+                  type="button"
+                  onClick={() => setActiveRideVenue('formalities')}
+                  className={`py-1.5 px-1 rounded-lg transition-all cursor-pointer truncate ${
+                    activeRideVenue === 'formalities'
+                      ? 'bg-[#781B10] text-white shadow-xs'
+                      : 'text-amber-950 hover:bg-amber-100'
+                  }`}
+                >
+                  {currentLang === 'te' ? '✨ ఫార్మాలిటీస్' : '✨ Formalities'}
+                </button>
+              )}
               <button
                 type="button"
                 onClick={() => setActiveRideVenue('wedding')}
-                className={`py-1.5 px-1.5 rounded-lg transition-all cursor-pointer ${
+                className={`py-1.5 px-1 rounded-lg transition-all cursor-pointer ${
                   activeRideVenue === 'wedding'
                     ? 'bg-[#54121E] text-white shadow-xs'
                     : 'text-amber-950 hover:bg-amber-100'
@@ -944,13 +1045,17 @@ export default function App() {
                   ? HALDI_VENUE.nameEn
                   : activeRideVenue === 'pellikoduku'
                   ? `${SIDE_CEREMONY.shortAndPandiriEn} Venue`
+                  : activeRideVenue === 'formalities'
+                  ? KEERTHI_FORMALITIES.nameEn
                   : 'Sai Baba Temple'
               }
               venueAddress={
                 activeRideVenue === 'haldi'
                   ? HALDI_VENUE.addressEn
                   : activeRideVenue === 'pellikoduku'
-                  ? 'Nizamabad, Telangana 503001 (18.654689, 78.106245)'
+                  ? `${SIDE_CEREMONY.venueEn} (${SIDE_CEREMONY.coordsDisplay})`
+                  : activeRideVenue === 'formalities'
+                  ? KEERTHI_FORMALITIES.venueEn
                   : 'Madhav Nagar, Nizamabad, Telangana 503001'
               }
               latitude={
@@ -958,6 +1063,8 @@ export default function App() {
                   ? HALDI_COORDS.lat
                   : activeRideVenue === 'pellikoduku'
                   ? PELLIKODUKU_COORDS.lat
+                  : activeRideVenue === 'formalities'
+                  ? KEERTHI_FORMALITIES.coords.lat
                   : WEDDING_COORDS.lat
               }
               longitude={
@@ -965,6 +1072,8 @@ export default function App() {
                   ? HALDI_COORDS.lng
                   : activeRideVenue === 'pellikoduku'
                   ? PELLIKODUKU_COORDS.lng
+                  : activeRideVenue === 'formalities'
+                  ? KEERTHI_FORMALITIES.coords.lng
                   : WEDDING_COORDS.lng
               }
             />

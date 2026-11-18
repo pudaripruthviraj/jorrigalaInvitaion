@@ -21,37 +21,39 @@ export const SIDE_CEREMONY = IS_KEERTHI_SIDE
   ? {
       id: 'pellikuthuru-pandiri',
       shortEn: 'Pelli Kuthuru',
-      shortAndPandiriEn: 'Pelli Kuthuru & Pandiri',
-      titleEn: 'Pelli Kuthuru & Pandiri Event',
+      shortAndPandiriEn: 'Pandiri & Pelli Kuthuru',
+      titleEn: 'Pelli Kuthuru Ceremony',
       shortTe: 'పెళ్ళికూతురు',
-      shortAndPandiriTe: 'పెళ్ళికూతురు & పందిరి',
-      titleTe: 'పెళ్ళికూతురు & పందిరి వేడుక',
-      dateFullEn: 'Saturday, November 21, 2026',
-      dateMedEn: 'Saturday, Nov 21, 2026',
-      dateShortEn: 'Nov 21',
-      timelineYearEn: '21 NOV 2026',
-      dateFullTe: 'శనివారం, నవంబర్ 21, 2026',
-      dateShortTe: 'నవంబర్ 21',
-      timelineYearTe: '21 నవంబర్ 2026',
-      dateIso: '2026-11-21T09:00:00+05:30',
-      calStartUtc: '20261121T033000Z',
-      calEndUtc: '20261121T133000Z',
-      timeEn: 'Morning Pandiri & Evening Pelli Kuthuru',
-      timeTe: 'ఉదయం పందిరి రాట & సాయంత్రం పెళ్ళికూతురు వేడుక',
+      shortAndPandiriTe: 'పందిరి & పెళ్ళికూతురు',
+      titleTe: 'పెళ్ళికూతురు వేడుక',
+      dateFullEn: 'Friday, November 20, 2026',
+      dateMedEn: 'Friday, Nov 20, 2026',
+      dateShortEn: 'Nov 20',
+      timelineYearEn: '20 NOV 2026',
+      dateFullTe: 'శుక్రవారం, నవంబర్ 20, 2026',
+      dateShortTe: 'నవంబర్ 20',
+      timelineYearTe: '20 నవంబర్ 2026',
+      dateIso: '2026-11-20T08:00:00+05:30',
+      calStartUtc: '20261120T023000Z',
+      calEndUtc: '20261120T063000Z',
+      timeEn: 'Pandiri: 8:00 AM · Pelli Kuthuru: Morning',
+      timeTe: 'పందిరి: ఉదయం 8:00 · పెళ్ళికూతురు: ఉదయం',
       descriptionEn:
-        'Auspicious installation of the sacred wedding pandiri with fresh mango leaves, followed by elders anointing Keerthi with fragrant turmeric, sandalwood, nalugu, and blessing her with traditional silks.',
+        'Auspicious Pandiri installation at 8:00 AM with fresh mango leaves, followed by morning Pelli Kuthuru rituals where elders anoint Keerthi with fragrant turmeric, sandalwood, nalugu, and bless her with traditional silks.',
       descriptionTe:
-        'పచ్చి మామిడాకుల తోరణాలతో పవిత్ర పందిరి రాట వేసి, పెద్దలందరూ పెళ్ళికూతురు కీర్తికి పసుపు, గంధం, నలుగు పెట్టి, పట్టు వస్త్రాలతో అలంకరించి ఆశీర్వదించే శుభ వేడుక.',
+        'ఉదయం 8:00 గంటలకు పచ్చి మామిడాకుల తోరణాలతో పవిత్ర పందిరి రాట వేసి, అనంతరం ఉదయం పెద్దలందరూ పెళ్ళికూతురు కీర్తికి పసుపు, గంధం, నలుగు పెట్టి పట్టు వస్త్రాలతో ఆశీర్వదించే శుభ వేడుక.',
       significanceEn:
         'Invokes divine blessings on the home and formally prepares the bride for the sacred Grihastha Ashrama.',
       significanceTe:
         'గృహ శాంతి, విఘ్న నివారణ మరియు వధువును గృహస్థాశ్రమ స్వీకారానికి సిద్ధం చేసే మంగళకర వేడుక.',
       attireEn: 'Traditional Silk Sarees / Pattu Pavadai & Ethnic Wear',
       attireTe: 'సాంప్రదాయ పట్టు చీరలు & తెలుగు సాంప్రదాయ వస్త్రాలు',
-      venueEn: 'Nizamabad, Telangana 503001 (Google Maps Pin)',
-      venueTe: 'నిజామాబాద్, తెలంగాణ 503001 (గూగుల్ మ్యాప్స్ పిన్)',
-      mapUrl: 'https://www.google.com/maps/search/?api=1&query=18.654689,78.106245',
-      coords: '18.654689,78.106245',
+      venueEn: 'Seetharam Nagar Colony, Anand Nagar, Nizamabad, Telangana 503001',
+      venueTe: 'సీతారాం నగర్ కాలనీ, ఆనంద్ నగర్, నిజామాబాద్, తెలంగాణ 503001',
+      mapUrl: 'https://www.google.com/maps/search/?api=1&query=18.6628516,78.0911954',
+      coords: '18.6628516,78.0911954',
+      coordsDisplay: '18.6628516, 78.0911954',
+      coordsObj: { lat: 18.6628516, lng: 78.0911954 },
     }
   : {
       id: 'pellikoduku-pandiri',
@@ -87,16 +89,20 @@ export const SIDE_CEREMONY = IS_KEERTHI_SIDE
       venueTe: 'నిజామాబాద్, తెలంగాణ 503001 (గూగుల్ మ్యాప్స్ పిన్)',
       mapUrl: 'https://www.google.com/maps/search/?api=1&query=18.654689,78.106245',
       coords: '18.654689,78.106245',
+      coordsDisplay: '18.654689, 78.106245',
+      coordsObj: { lat: 18.654689, lng: 78.106245 },
     };
 
 // Wedding date: November 22, 2026 at 9:46 AM IST
 export const WEDDING_DATE_ISO = '2026-11-22T09:46:00+05:30';
 
-// Side ceremony date (Hari: Nov 20 Pelli Koduku | Keerthi: Nov 21 Pelli Kuthuru)
+// Side ceremony date (Hari: Nov 20 Pelli Koduku | Keerthi: Nov 20 Pandiri 8 AM & Pelli Kuthuru Morning)
 export const PELLIKODUKU_DATE_ISO = SIDE_CEREMONY.dateIso;
 
-// Haldi date: November 20, 2026 IST
-export const HALDI_DATE_ISO = '2026-11-20T09:00:00+05:30';
+// Haldi date: November 20, 2026 IST (Hari: 9:00 AM | Keerthi: 6:00 PM)
+export const HALDI_DATE_ISO = IS_KEERTHI_SIDE
+  ? '2026-11-20T18:00:00+05:30'
+  : '2026-11-20T09:00:00+05:30';
 
 export const HALDI_VENUE = IS_KEERTHI_SIDE
   ? {
@@ -108,8 +114,14 @@ export const HALDI_VENUE = IS_KEERTHI_SIDE
       addressTe: 'సీతారాం నగర్ కాలనీ, ఆనంద్ నగర్, నిజామాబాద్, తెలంగాణ 503001',
       envelopeLabelEn: 'Seetharam Nagar Colony, Nizamabad · Maps ↗',
       envelopeLabelTe: 'సీతారాం నగర్ కాలనీ, నిజామాబాద్ · గూగుల్ మ్యాప్స్ ↗',
-      tabSubEn: 'Seetharam Nagar · 9:00 AM',
-      tabSubTe: 'సీతారాం నగర్ · నిజామాబాద్',
+      tabSubEn: 'Seetharam Nagar · 6:00 PM',
+      tabSubTe: 'సీతారాం నగర్ · సా. 6:00',
+      timeEn: '06:00 PM onwards (Evening)',
+      timeTe: 'సాయంత్రం 06:00 గంటల నుండి',
+      timeShortEn: '6:00 PM',
+      timeShortTe: 'సాయంత్రం 6:00',
+      calStartUtc: '20261120T123000Z',
+      calEndUtc: '20261120T153000Z',
       coordsStr: '18.6628516,78.0911954',
       coordsDisplay: '18.6628516, 78.0911954',
       coords: { lat: 18.6628516, lng: 78.0911954 },
@@ -126,17 +138,52 @@ export const HALDI_VENUE = IS_KEERTHI_SIDE
       envelopeLabelTe: 'నిజామాబాద్, తెలంగాణ · గూగుల్ మ్యాప్స్ ↗',
       tabSubEn: 'Nizamabad · 9:00 AM',
       tabSubTe: 'నవంబర్ 20 · నిజామాబాద్',
+      timeEn: '09:00 AM onwards',
+      timeTe: 'ఉదయం 09:00 గంటల నుండి',
+      timeShortEn: '9:00 AM',
+      timeShortTe: 'ఉదయం 9:00',
+      calStartUtc: '20261120T033000Z',
+      calEndUtc: '20261120T063000Z',
       coordsStr: '18.654689,78.106245',
       coordsDisplay: '18.654689, 78.106245',
       coords: { lat: 18.654689, lng: 78.106245 },
       mapUrl: 'https://www.google.com/maps/search/?api=1&query=18.654689,78.106245',
     };
 
+export const KEERTHI_FORMALITIES = {
+  id: 'formalities-event',
+  titleEn: 'Wedding Formalities',
+  titleTe: 'వివాహ ఫార్మాలిటీస్ వేడుక',
+  dateFullEn: 'Saturday, November 21, 2026',
+  dateMedEn: 'Saturday, Nov 21, 2026',
+  dateShortEn: 'Nov 21',
+  timelineYearEn: '21 NOV 2026',
+  dateFullTe: 'శనివారం, నవంబర్ 21, 2026',
+  dateShortTe: 'నవంబర్ 21',
+  timelineYearTe: '21 నవంబర్ 2026',
+  timeEn: '02:00 PM onwards (Afternoon)',
+  timeTe: 'మధ్యాహ్నం 02:00 గంటల నుండి',
+  timeShortEn: '2:00 PM',
+  timeShortTe: 'మధ్యాహ్నం 2:00',
+  calStartUtc: '20261121T083000Z',
+  calEndUtc: '20261121T123000Z',
+  nameEn: 'Formalities Venue · Seetharam Nagar Colony',
+  nameTe: 'ఫార్మాలిటీస్ వేదిక · సీతారాం నగర్ కాలనీ',
+  shortLabelEn: 'Seetharam Nagar Colony, Anand Nagar, Nizamabad',
+  shortLabelTe: 'సీతారాం నగర్ కాలనీ, ఆనంద్ నగర్, నిజామాబాద్',
+  venueEn: 'Seetharam Nagar Colony, Anand Nagar, Nizamabad, Telangana 503001',
+  venueTe: 'సీతారాం నగర్ కాలనీ, ఆనంద్ నగర్, నిజామాబాద్, తెలంగాణ 503001',
+  coordsStr: '18.6628516,78.0911954',
+  coordsDisplay: '18.6628516, 78.0911954',
+  coords: { lat: 18.6628516, lng: 78.0911954 },
+  mapUrl: 'https://www.google.com/maps/search/?api=1&query=18.6628516,78.0911954',
+};
+
 // Venue Map Links & Coordinates
 export const HALDI_MAP_URL = HALDI_VENUE.mapUrl;
 export const HALDI_COORDS = HALDI_VENUE.coords;
-export const PELLIKODUKU_MAP_URL = 'https://www.google.com/maps/search/?api=1&query=18.654689,78.106245';
-export const PELLIKODUKU_COORDS = { lat: 18.654689, lng: 78.106245 };
+export const PELLIKODUKU_MAP_URL = SIDE_CEREMONY.mapUrl;
+export const PELLIKODUKU_COORDS = SIDE_CEREMONY.coordsObj;
 export const HALDI_PELLIKODUKU_MAP_URL = PELLIKODUKU_MAP_URL;
 export const HALDI_PELLIKODUKU_COORDS = PELLIKODUKU_COORDS;
 export const WEDDING_MAP_URL = 'https://www.google.com/maps/search/?api=1&query=Sai+Baba+Temple+Madhav+Nagar+Nizamabad+Telangana';
@@ -153,68 +200,199 @@ export const COUPLE_PORTRAIT_URL =
 export const COUPLE_PORTRAIT_FALLBACK_URL =
   '/images/hari.png';
 
-export const INITIAL_EVENTS: EventItem[] = [
-  {
-    id: 'haldi-mangala-snanam',
-    titleEn: 'Haldi & Mangala Snanam',
-    titleTe: 'హల్దీ వేడుక & మంగళస్నానం',
-    dateStrEn: 'Friday, Nov 20, 2026',
-    dateStrTe: 'శుక్రవారం, నవంబర్ 20, 2026',
-    timeEn: '09:00 AM onwards',
-    timeTe: 'ఉదయం 09:00 గంటల నుండి',
-    venueEn: HALDI_VENUE.addressEn,
-    venueTe: HALDI_VENUE.addressTe,
-    mapUrl: HALDI_MAP_URL,
-    descriptionEn: 'Joyous haldi ceremony with pure turmeric paste, fragrant rose petals, auspicious folk songs, and sacred herbal mangala snanam.',
-    descriptionTe: 'ముత్తైదువలు కలిసి పచ్చి పసుపు, సుగంధ పరిమళాలు మరియు పూల వర్షంతో జరిపే ఆహ్లాదకరమైన హల్దీ & మంగళస్నానం.',
-    significanceEn: 'Purifies the body and mind, symbolizes auspicious beginnings, prosperity, and family blessings.',
-    significanceTe: 'శరీర, మనస్సుల పవిత్రత, సౌభాగ్యం మరియు మంగళకరమైన ఆరంభానికి ప్రతీక.',
-    attireEn: 'Festive Yellow Traditional Wear',
-    attireTe: 'పసుపు రంగు సాంప్రదాయ వస్త్రాలు',
-    category: 'pre-wedding',
-    icon: 'Sun',
-  },
-  {
-    id: SIDE_CEREMONY.id,
-    titleEn: SIDE_CEREMONY.titleEn,
-    titleTe: SIDE_CEREMONY.titleTe,
-    dateStrEn: SIDE_CEREMONY.dateMedEn,
-    dateStrTe: SIDE_CEREMONY.dateFullTe,
-    timeEn: SIDE_CEREMONY.timeEn,
-    timeTe: SIDE_CEREMONY.timeTe,
-    venueEn: SIDE_CEREMONY.venueEn,
-    venueTe: SIDE_CEREMONY.venueTe,
-    mapUrl: SIDE_CEREMONY.mapUrl,
-    descriptionEn: SIDE_CEREMONY.descriptionEn,
-    descriptionTe: SIDE_CEREMONY.descriptionTe,
-    significanceEn: SIDE_CEREMONY.significanceEn,
-    significanceTe: SIDE_CEREMONY.significanceTe,
-    attireEn: SIDE_CEREMONY.attireEn,
-    attireTe: SIDE_CEREMONY.attireTe,
-    category: 'pre-wedding',
-    icon: 'Sparkles',
-  },
-  {
-    id: 'subha-muhurtham',
-    titleEn: 'Wedding (Subha Muhurtham): Jeelakarra Bellam & Mangalasutra Dharana',
-    titleTe: 'శుభ వివాహం (ముహూర్తం): జీలకర్ర-బెల్లం & మాంగళ్యధారణ',
-    dateStrEn: 'Sunday, Nov 22, 2026',
-    dateStrTe: 'ఆదివారం, నవంబర్ 22, 2026',
-    timeEn: '09:46 AM (Subha Muhurtham)',
-    timeTe: 'ఉదయం 09:46 గంటలకు (శుభ ముహూర్తం)',
-    venueEn: 'Sai Baba Temple, Madhav Nagar, Nizamabad, Telangana',
-    venueTe: 'సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్, తెలంగాణ',
-    mapUrl: WEDDING_MAP_URL,
-    descriptionEn: 'The sacred Telugu wedding rituals of Keerthi & Hariprasad: holding cumin & jaggery paste over each other’s heads, tying the Mangalasutra with three sacred knots, and showering fragrant Talambralu.',
-    descriptionTe: 'కీర్తి & హరిప్రసాద్‌ల శిరస్సులపై జీలకర్ర-బెల్లం ఉంచడం, ముల్లోకాల సాక్షిగా మూడు ముళ్ళు వేయడం, మరియు ఆనందోత్సాహాల నడుమ ముత్యాల తాళంబ్రాల మహోత్సవం.',
-    significanceEn: 'Jeelakarra Bellam symbolizes eternal inseparability; Mangalasutra represents lifelong protection; Talambralu brings prosperity and joy.',
-    significanceTe: 'జీలకర్ర-బెల్లం కలయిక విడదీయరాని బంధానికి, మాంగళ్యధారణ రక్షణకు, తాళంబ్రాలు సమృద్ధికి ప్రతీకలు.',
-    attireEn: 'Traditional Kanchipuram Pattu Saree & Silk Dhoti',
-    attireTe: 'సాంప్రదాయ కాంచీపురం పట్టు చీర & పట్టు పంచె',
-    category: 'ceremony',
-    icon: 'Crown',
-  },
-];
+export const INITIAL_EVENTS: EventItem[] = IS_KEERTHI_SIDE
+  ? [
+      {
+        id: 'pandiri-event',
+        titleEn: 'Pandiri Event (Pelli Pandiri)',
+        titleTe: 'పందిరి వేడుక (పెళ్ళి పందిరి రాట)',
+        dateStrEn: 'Friday, Nov 20, 2026',
+        dateStrTe: 'శుక్రవారం, నవంబర్ 20, 2026',
+        timeEn: '08:00 AM (Morning)',
+        timeTe: 'ఉదయం 08:00 గంటలకు',
+        venueEn: SIDE_CEREMONY.venueEn,
+        venueTe: SIDE_CEREMONY.venueTe,
+        mapUrl: SIDE_CEREMONY.mapUrl,
+        descriptionEn:
+          'Auspicious morning installation of the sacred wedding pandiri with fresh mango leaf toranam, turmeric, and traditional prayers to bless the bride’s home.',
+        descriptionTe:
+          'ఉదయం 8:00 గంటలకు పచ్చి మామిడాకుల తోరణాలు, పసుపు కుంకుమలతో పవిత్ర పెళ్ళి పందిరి రాట వేసి వేడుకలకు శుభారంభం చేసే మంగళకర ఘట్టం.',
+        significanceEn:
+          'Invokes divine blessings and protection on the home before all wedding rituals begin.',
+        significanceTe:
+          'గృహ శాంతి, విఘ్న నివారణ మరియు శుభకార్యాలకు ఆహ్వానంగా పందిరి రాట వేయు సాంప్రదాయం.',
+        attireEn: 'Traditional Silk Sarees & Ethnic Wear',
+        attireTe: 'సాంప్రదాయ పట్టు చీరలు & తెలుగు సాంప్రదాయ వస్త్రాలు',
+        category: 'pre-wedding',
+        icon: 'Sparkles',
+      },
+      {
+        id: SIDE_CEREMONY.id,
+        titleEn: 'Pelli Kuthuru Ceremony',
+        titleTe: 'పెళ్ళికూతురు వేడుక',
+        dateStrEn: 'Friday, Nov 20, 2026',
+        dateStrTe: 'శుక్రవారం, నవంబర్ 20, 2026',
+        timeEn: 'Morning (following Pandiri)',
+        timeTe: 'ఉదయం (పందిరి వేడుక అనంతరం)',
+        venueEn: SIDE_CEREMONY.venueEn,
+        venueTe: SIDE_CEREMONY.venueTe,
+        mapUrl: SIDE_CEREMONY.mapUrl,
+        descriptionEn:
+          'Elders and family members anoint Keerthi with fragrant turmeric, sandalwood, and nalugu, blessing her with new traditional silks and jewelry as the bride-to-be.',
+        descriptionTe:
+          'పెద్దలందరూ కీర్తికి పసుపు, గంధం, నలుగు పెట్టి, నూతన పట్టు వస్త్రాలతో పెళ్ళికూతురుగా అలంకరించి ఆశీర్వదించే శుభ వేడుక.',
+        significanceEn:
+          'Formally honors and prepares the bride for the sacred Grihastha Ashrama.',
+        significanceTe:
+          'వధువును గృహస్థాశ్రమ స్వీకారానికి ఆశీర్వదించి సిద్ధం చేసే మంగళకర వేడుక.',
+        attireEn: 'Traditional Silk Sarees / Pattu Pavadai & Ethnic Wear',
+        attireTe: 'సాంప్రదాయ పట్టు చీరలు & తెలుగు సాంప్రదాయ వస్త్రాలు',
+        category: 'pre-wedding',
+        icon: 'Sparkles',
+      },
+      {
+        id: 'haldi-mangala-snanam',
+        titleEn: 'Haldi & Mangala Snanam',
+        titleTe: 'హల్దీ వేడుక & మంగళస్నానం',
+        dateStrEn: 'Friday, Nov 20, 2026',
+        dateStrTe: 'శుక్రవారం, నవంబర్ 20, 2026',
+        timeEn: HALDI_VENUE.timeEn,
+        timeTe: HALDI_VENUE.timeTe,
+        venueEn: HALDI_VENUE.addressEn,
+        venueTe: HALDI_VENUE.addressTe,
+        mapUrl: HALDI_MAP_URL,
+        descriptionEn:
+          'Joyous evening haldi celebration at 6:00 PM with pure turmeric paste, fragrant rose petals, auspicious folk songs, and blessings.',
+        descriptionTe:
+          'సాయంత్రం 6:00 గంటలకు ముత్తైదువలు కలిసి పచ్చి పసుపు, సుగంధ పరిమళాలు మరియు పూల వర్షంతో జరిపే ఆహ్లాదకరమైన హల్దీ వేడుక.',
+        significanceEn:
+          'Purifies the body and mind, symbolizes auspicious beginnings, prosperity, and family blessings.',
+        significanceTe:
+          'శరీర, మనస్సుల పవిత్రత, సౌభాగ్యం మరియు మంగళకరమైన ఆరంభానికి ప్రతీక.',
+        attireEn: 'Festive Yellow Traditional Wear',
+        attireTe: 'పసుపు రంగు సాంప్రదాయ వస్త్రాలు',
+        category: 'pre-wedding',
+        icon: 'Sun',
+      },
+      {
+        id: KEERTHI_FORMALITIES.id,
+        titleEn: KEERTHI_FORMALITIES.titleEn,
+        titleTe: KEERTHI_FORMALITIES.titleTe,
+        dateStrEn: KEERTHI_FORMALITIES.dateMedEn,
+        dateStrTe: KEERTHI_FORMALITIES.dateFullTe,
+        timeEn: KEERTHI_FORMALITIES.timeEn,
+        timeTe: KEERTHI_FORMALITIES.timeTe,
+        venueEn: KEERTHI_FORMALITIES.venueEn,
+        venueTe: KEERTHI_FORMALITIES.venueTe,
+        mapUrl: KEERTHI_FORMALITIES.mapUrl,
+        descriptionEn:
+          'Traditional pre-wedding afternoon formalities at 2:00 PM bringing both families, elders, and relatives together for auspicious rituals, blessings, and hospitality.',
+        descriptionTe:
+          'శనివారం మధ్యాహ్నం 2:00 గంటలకు బంధుమిత్రులు, పెద్దల సమక్షంలో సాంప్రదాయ వివాహ పూర్వ ఫార్మాలిటీస్, మర్యాదలు మరియు ఆశీర్వచన వేడుక.',
+        significanceEn:
+          'Strengthens family bonds and completes sacred traditional customs ahead of the Subha Muhurtham.',
+        significanceTe:
+          'శుభ ముహూర్తానికి ముందు రెండు కుటుంబాల ఆత్మీయ కలయిక మరియు సాంప్రదాయ వివాహ క్రతువుల నిర్వహణ.',
+        attireEn: 'Traditional Silk Sarees & Festive Ethnic Wear',
+        attireTe: 'సాంప్రదాయ పట్టు చీరలు & పండుగ వస్త్రాలు',
+        category: 'pre-wedding',
+        icon: 'Sparkles',
+      },
+      {
+        id: 'subha-muhurtham',
+        titleEn: 'Wedding (Subha Muhurtham): Jeelakarra Bellam & Mangalasutra Dharana',
+        titleTe: 'శుభ వివాహం (ముహూర్తం): జీలకర్ర-బెల్లం & మాంగళ్యధారణ',
+        dateStrEn: 'Sunday, Nov 22, 2026',
+        dateStrTe: 'ఆదివారం, నవంబర్ 22, 2026',
+        timeEn: '09:46 AM (Subha Muhurtham)',
+        timeTe: 'ఉదయం 09:46 గంటలకు (శుభ ముహూర్తం)',
+        venueEn: 'Sai Baba Temple, Madhav Nagar, Nizamabad, Telangana',
+        venueTe: 'సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్, తెలంగాణ',
+        mapUrl: WEDDING_MAP_URL,
+        descriptionEn:
+          'The sacred Telugu wedding rituals of Keerthi & Hariprasad: holding cumin & jaggery paste over each other’s heads, tying the Mangalasutra with three sacred knots, and showering fragrant Talambralu.',
+        descriptionTe:
+          'కీర్తి & హరిప్రసాద్‌ల శిరస్సులపై జీలకర్ర-బెల్లం ఉంచడం, ముల్లోకాల సాక్షిగా మూడు ముళ్ళు వేయడం, మరియు ఆనందోత్సాహాల నడుమ ముత్యాల తాళంబ్రాల మహోత్సవం.',
+        significanceEn:
+          'Jeelakarra Bellam symbolizes eternal inseparability; Mangalasutra represents lifelong protection; Talambralu brings prosperity and joy.',
+        significanceTe:
+          'జీలకర్ర-బెల్లం కలయిక విడదీయరాని బంధానికి, మాంగళ్యధారణ రక్షణకు, తాళంబ్రాలు సమృద్ధికి ప్రతీకలు.',
+        attireEn: 'Traditional Kanchipuram Pattu Saree & Silk Dhoti',
+        attireTe: 'సాంప్రదాయ కాంచీపురం పట్టు చీర & పట్టు పంచె',
+        category: 'ceremony',
+        icon: 'Crown',
+      },
+    ]
+  : [
+      {
+        id: 'haldi-mangala-snanam',
+        titleEn: 'Haldi & Mangala Snanam',
+        titleTe: 'హల్దీ వేడుక & మంగళస్నానం',
+        dateStrEn: 'Friday, Nov 20, 2026',
+        dateStrTe: 'శుక్రవారం, నవంబర్ 20, 2026',
+        timeEn: HALDI_VENUE.timeEn,
+        timeTe: HALDI_VENUE.timeTe,
+        venueEn: HALDI_VENUE.addressEn,
+        venueTe: HALDI_VENUE.addressTe,
+        mapUrl: HALDI_MAP_URL,
+        descriptionEn:
+          'Joyous haldi ceremony with pure turmeric paste, fragrant rose petals, auspicious folk songs, and sacred herbal mangala snanam.',
+        descriptionTe:
+          'ముత్తైదువలు కలిసి పచ్చి పసుపు, సుగంధ పరిమళాలు మరియు పూల వర్షంతో జరిపే ఆహ్లాదకరమైన హల్దీ & మంగళస్నానం.',
+        significanceEn:
+          'Purifies the body and mind, symbolizes auspicious beginnings, prosperity, and family blessings.',
+        significanceTe:
+          'శరీర, మనస్సుల పవిత్రత, సౌభాగ్యం మరియు మంగళకరమైన ఆరంభానికి ప్రతీక.',
+        attireEn: 'Festive Yellow Traditional Wear',
+        attireTe: 'పసుపు రంగు సాంప్రదాయ వస్త్రాలు',
+        category: 'pre-wedding',
+        icon: 'Sun',
+      },
+      {
+        id: SIDE_CEREMONY.id,
+        titleEn: SIDE_CEREMONY.titleEn,
+        titleTe: SIDE_CEREMONY.titleTe,
+        dateStrEn: SIDE_CEREMONY.dateMedEn,
+        dateStrTe: SIDE_CEREMONY.dateFullTe,
+        timeEn: SIDE_CEREMONY.timeEn,
+        timeTe: SIDE_CEREMONY.timeTe,
+        venueEn: SIDE_CEREMONY.venueEn,
+        venueTe: SIDE_CEREMONY.venueTe,
+        mapUrl: SIDE_CEREMONY.mapUrl,
+        descriptionEn: SIDE_CEREMONY.descriptionEn,
+        descriptionTe: SIDE_CEREMONY.descriptionTe,
+        significanceEn: SIDE_CEREMONY.significanceEn,
+        significanceTe: SIDE_CEREMONY.significanceTe,
+        attireEn: SIDE_CEREMONY.attireEn,
+        attireTe: SIDE_CEREMONY.attireTe,
+        category: 'pre-wedding',
+        icon: 'Sparkles',
+      },
+      {
+        id: 'subha-muhurtham',
+        titleEn: 'Wedding (Subha Muhurtham): Jeelakarra Bellam & Mangalasutra Dharana',
+        titleTe: 'శుభ వివాహం (ముహూర్తం): జీలకర్ర-బెల్లం & మాంగళ్యధారణ',
+        dateStrEn: 'Sunday, Nov 22, 2026',
+        dateStrTe: 'ఆదివారం, నవంబర్ 22, 2026',
+        timeEn: '09:46 AM (Subha Muhurtham)',
+        timeTe: 'ఉదయం 09:46 గంటలకు (శుభ ముహూర్తం)',
+        venueEn: 'Sai Baba Temple, Madhav Nagar, Nizamabad, Telangana',
+        venueTe: 'సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్, తెలంగాణ',
+        mapUrl: WEDDING_MAP_URL,
+        descriptionEn:
+          'The sacred Telugu wedding rituals of Keerthi & Hariprasad: holding cumin & jaggery paste over each other’s heads, tying the Mangalasutra with three sacred knots, and showering fragrant Talambralu.',
+        descriptionTe:
+          'కీర్తి & హరిప్రసాద్‌ల శిరస్సులపై జీలకర్ర-బెల్లం ఉంచడం, ముల్లోకాల సాక్షిగా మూడు ముళ్ళు వేయడం, మరియు ఆనందోత్సాహాల నడుమ ముత్యాల తాళంబ్రాల మహోత్సవం.',
+        significanceEn:
+          'Jeelakarra Bellam symbolizes eternal inseparability; Mangalasutra represents lifelong protection; Talambralu brings prosperity and joy.',
+        significanceTe:
+          'జీలకర్ర-బెల్లం కలయిక విడదీయరాని బంధానికి, మాంగళ్యధారణ రక్షణకు, తాళంబ్రాలు సమృద్ధికి ప్రతీకలు.',
+        attireEn: 'Traditional Kanchipuram Pattu Saree & Silk Dhoti',
+        attireTe: 'సాంప్రదాయ కాంచీపురం పట్టు చీర & పట్టు పంచె',
+        category: 'ceremony',
+        icon: 'Crown',
+      },
+    ];
 
 export const INITIAL_GALLERY: GalleryPhoto[] = [
   {

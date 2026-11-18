@@ -1,4 +1,4 @@
-import { HALDI_VENUE, SIDE_CEREMONY } from './weddingData';
+import { HALDI_VENUE, IS_KEERTHI_SIDE, KEERTHI_FORMALITIES, SIDE_CEREMONY } from './weddingData';
 
 export const translations = {
   en: {
@@ -26,7 +26,9 @@ export const translations = {
     brideParents: 'D/o Smt. O. Bhagyalaxmi & Sri O. Kishan',
     andSymbol: '&',
     weddingDateFull: 'Sunday, November 22, 2026',
-    muhurthamTime: `Subha Muhurtham: 9:46 AM (Nov 22) | Haldi: Nov 20 | ${SIDE_CEREMONY.shortAndPandiriEn}: ${SIDE_CEREMONY.dateShortEn}`,
+    muhurthamTime: IS_KEERTHI_SIDE
+      ? `Subha Muhurtham: 9:46 AM (Nov 22) | Pandiri (8 AM), Pelli Kuthuru & Haldi (6 PM): Nov 20 | Formalities (2 PM): Nov 21`
+      : `Subha Muhurtham: 9:46 AM (Nov 22) | Haldi: Nov 20 | ${SIDE_CEREMONY.shortAndPandiriEn}: ${SIDE_CEREMONY.dateShortEn}`,
     venueLocationHero: 'Sai Baba Temple, Madhav Nagar, Nizamabad, Telangana',
     blessTheCouple: 'Shower Akshinthalu',
     rsvpNowBtn: 'Confirm Your RSVP',
@@ -51,7 +53,9 @@ export const translations = {
 
     // Event Schedule
     eventsSectionTitle: 'Pelli Pandiri - Auspicious Events',
-    eventsSectionSub: `Experience the grandeur of traditional Telangana marriage rituals: Haldi (Nov 20), ${SIDE_CEREMONY.shortAndPandiriEn} (${SIDE_CEREMONY.dateShortEn}), and Wedding (Nov 22)`,
+    eventsSectionSub: IS_KEERTHI_SIDE
+      ? `Experience the grandeur of traditional Telangana marriage rituals: Pandiri 8:00 AM, Pelli Kuthuru Morning & Haldi 6:00 PM (Nov 20), Formalities 2:00 PM (Nov 21), and Wedding (Nov 22)`
+      : `Experience the grandeur of traditional Telangana marriage rituals: Haldi (Nov 20), ${SIDE_CEREMONY.shortAndPandiriEn} (${SIDE_CEREMONY.dateShortEn}), and Wedding (Nov 22)`,
     filterAll: 'All Events',
     filterPre: 'Pre-Wedding',
     filterCeremony: 'Sacred Rituals',
@@ -127,11 +131,17 @@ export const translations = {
 
     // Venue & Map
     venueTitle: 'Shubha Vedika - Venue & Directions',
-    venueSub: `Join Haldi at ${HALDI_VENUE.shortLabelEn}, ${SIDE_CEREMONY.shortEn} in Nizamabad, and the Sacred Wedding at Sai Baba Temple, Madhav Nagar, Nizamabad.`,
+    venueSub: IS_KEERTHI_SIDE
+      ? `Join Pandiri (8 AM), Pelli Kuthuru, Haldi (6 PM) & Formalities (2 PM) at ${HALDI_VENUE.shortLabelEn}, and the Sacred Wedding at Sai Baba Temple, Madhav Nagar, Nizamabad.`
+      : `Join Haldi at ${HALDI_VENUE.shortLabelEn}, ${SIDE_CEREMONY.shortEn} in Nizamabad, and the Sacred Wedding at Sai Baba Temple, Madhav Nagar, Nizamabad.`,
     mainHall: 'Wedding Venue: Sai Baba Temple, Madhav Nagar, Nizamabad',
     addressLine: 'Madhav Nagar, Nizamabad, Telangana 503001',
-    receptionHall: `Haldi & ${SIDE_CEREMONY.shortEn} Venues, Nizamabad`,
-    receptionAddressLine: `Haldi: ${HALDI_VENUE.shortLabelEn} · ${SIDE_CEREMONY.shortEn}: Nizamabad 503001`,
+    receptionHall: IS_KEERTHI_SIDE
+      ? `Pandiri, Pelli Kuthuru, Haldi & ${KEERTHI_FORMALITIES.titleEn} Venue`
+      : `Haldi & ${SIDE_CEREMONY.shortEn} Venues, Nizamabad`,
+    receptionAddressLine: IS_KEERTHI_SIDE
+      ? `${HALDI_VENUE.shortLabelEn} · Haldi: Nov 20 (6 PM) · Formalities: Nov 21 (2 PM)`
+      : `Haldi: ${HALDI_VENUE.shortLabelEn} · ${SIDE_CEREMONY.shortEn}: Nizamabad 503001`,
     openGoogleMaps: 'Open in Google Maps',
     openAppleMaps: 'Open in Apple Maps',
     bookRapido: 'Book Rapido Ride to Venue',
@@ -215,7 +225,9 @@ export const translations = {
     brideParents: 'శ్రీమతి ఓ. భాగ్యలక్ష్మి & శ్రీ ఓ. కిషన్ గార్ల సుపుత్రిక',
     andSymbol: 'సమేత',
     weddingDateFull: 'ఆదివారం, నవంబర్ 22, 2026',
-    muhurthamTime: `శుభ ముహూర్తం: ఉదయం 9:46 గంటలకు (నవంబర్ 22) | హల్దీ: నవంబర్ 20 | ${SIDE_CEREMONY.shortAndPandiriTe}: ${SIDE_CEREMONY.dateShortTe}`,
+    muhurthamTime: IS_KEERTHI_SIDE
+      ? `శుభ ముహూర్తం: ఉదయం 9:46 (నవంబర్ 22) | పందిరి (ఉ. 8:00), పెళ్ళికూతురు & హల్దీ (సా. 6:00): నవంబర్ 20 | ఫార్మాలిటీస్ (మ. 2:00): నవంబర్ 21`
+      : `శుభ ముహూర్తం: ఉదయం 9:46 గంటలకు (నవంబర్ 22) | హల్దీ: నవంబర్ 20 | ${SIDE_CEREMONY.shortAndPandiriTe}: ${SIDE_CEREMONY.dateShortTe}`,
     venueLocationHero: 'సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్, తెలంగాణ',
     blessTheCouple: 'అక్షింతలు వేసి ఆశీర్వదించండి',
     rsvpNowBtn: 'హాజరును ధ్రువీకరించండి',
@@ -240,7 +252,9 @@ export const translations = {
 
     // Event Schedule
     eventsSectionTitle: 'పెళ్ళి పందిరి - శుభ కార్యాల పట్టిక',
-    eventsSectionSub: `సాంప్రదాయ తెలంగాణ వివాహ క్రతువులు: హల్దీ (నవంబర్ 20), ${SIDE_CEREMONY.shortAndPandiriTe} (${SIDE_CEREMONY.dateShortTe}), మరియు శుభ వివాహం (నవంబర్ 22)`,
+    eventsSectionSub: IS_KEERTHI_SIDE
+      ? `సాంప్రదాయ తెలంగాణ వివాహ క్రతువులు: పందిరి (ఉ. 8:00), పెళ్ళికూతురు (ఉదయం), హల్దీ (సా. 6:00) నవంబర్ 20న, ఫార్మాలిటీస్ (మ. 2:00) నవంబర్ 21న, మరియు శుభ వివాహం (నవంబర్ 22)`
+      : `సాంప్రదాయ తెలంగాణ వివాహ క్రతువులు: హల్దీ (నవంబర్ 20), ${SIDE_CEREMONY.shortAndPandiriTe} (${SIDE_CEREMONY.dateShortTe}), మరియు శుభ వివాహం (నవంబర్ 22)`,
     filterAll: 'అన్ని కార్యక్రమాలు',
     filterPre: 'పెళ్ళికి ముందు పూజలు',
     filterCeremony: 'శుభ లగ్నం & తాళంబ్రాలు',
@@ -316,11 +330,17 @@ export const translations = {
 
     // Venue & Map
     venueTitle: 'శుభ వేదిక & మార్గదర్శిని',
-    venueSub: `${HALDI_VENUE.shortLabelTe} లో హల్దీ, నిజామాబాద్‌లో ${SIDE_CEREMONY.shortTe}, మరియు సాయి బాబా దేవాలయం, మాధవ్ నగర్‌లో శుభ వివాహానికి విచ్చేయండి.`,
+    venueSub: IS_KEERTHI_SIDE
+      ? `${HALDI_VENUE.shortLabelTe} లో పందిరి, పెళ్ళికూతురు, హల్దీ (సా. 6:00) & ఫార్మాలిటీస్ (మ. 2:00), మరియు సాయి బాబా దేవాలయం, మాధవ్ నగర్‌లో శుభ వివాహానికి విచ్చేయండి.`
+      : `${HALDI_VENUE.shortLabelTe} లో హల్దీ, నిజామాబాద్‌లో ${SIDE_CEREMONY.shortTe}, మరియు సాయి బాబా దేవాలయం, మాధవ్ నగర్‌లో శుభ వివాహానికి విచ్చేయండి.`,
     mainHall: 'వివాహ వేదిక: సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్',
     addressLine: 'మాధవ్ నగర్, నిజామాబాద్, తెలంగాణ 503001',
-    receptionHall: `హల్దీ & ${SIDE_CEREMONY.shortTe} వేదికలు, నిజామాబాద్`,
-    receptionAddressLine: `హల్దీ: ${HALDI_VENUE.shortLabelTe} · ${SIDE_CEREMONY.shortTe}: నిజామాబాద్ 503001`,
+    receptionHall: IS_KEERTHI_SIDE
+      ? `పందిరి, పెళ్ళికూతురు, హల్దీ & ఫార్మాలిటీస్ వేదిక`
+      : `హల్దీ & ${SIDE_CEREMONY.shortTe} వేదికలు, నిజామాబాద్`,
+    receptionAddressLine: IS_KEERTHI_SIDE
+      ? `${HALDI_VENUE.shortLabelTe} · హల్దీ: నవంబర్ 20 (సా. 6:00) · ఫార్మాలిటీస్: నవంబర్ 21 (మ. 2:00)`
+      : `హల్దీ: ${HALDI_VENUE.shortLabelTe} · ${SIDE_CEREMONY.shortTe}: నిజామాబాద్ 503001`,
     openGoogleMaps: 'గూగుల్ మ్యాప్స్ లో తెరవండి',
     openAppleMaps: 'యాపిల్ మ్యాప్స్ లో తెరవండి',
     bookRapido: 'రాపిడో రైడ్ బుక్ చేయండి',

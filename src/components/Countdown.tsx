@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Calendar, Clock, Download, Check } from 'lucide-react';
 import { Language } from '../types/wedding';
 import { translations } from '../data/translations';
-import { WEDDING_DATE_ISO, HALDI_MAP_URL, PELLIKODUKU_MAP_URL, WEDDING_MAP_URL, SIDE_CEREMONY, HALDI_VENUE } from '../data/weddingData';
+import { WEDDING_DATE_ISO, HALDI_MAP_URL, PELLIKODUKU_MAP_URL, WEDDING_MAP_URL, SIDE_CEREMONY, HALDI_VENUE, IS_KEERTHI_SIDE, KEERTHI_FORMALITIES } from '../data/weddingData';
 
 interface CountdownProps {
   currentLang: Language;
@@ -47,7 +47,11 @@ export const Countdown: React.FC<CountdownProps> = ({ currentLang }) => {
         : 'Keerthi & Hariprasad Wedding Muhurtham'
     );
     const details = encodeURIComponent(
-      currentLang === 'te'
+      IS_KEERTHI_SIDE
+        ? currentLang === 'te'
+          ? `పందిరి (ఉ. 8:00) & పెళ్ళికూతురు (ఉదయం): నవంబర్ 20, 2026 - ${HALDI_VENUE.shortLabelTe} (మ్యాప్: ${HALDI_MAP_URL}) · హల్దీ (సా. 6:00): నవంబర్ 20, 2026 - ${HALDI_VENUE.shortLabelTe} (మ్యాప్: ${HALDI_MAP_URL}) · ఫార్మాలిటీస్ (మ. 2:00): నవంబర్ 21, 2026 - ${KEERTHI_FORMALITIES.shortLabelTe} (మ్యాప్: ${KEERTHI_FORMALITIES.mapUrl}) · శుభ ముహూర్తం: నవంబర్ 22, 2026 ఉదయం 9:46 గంటలకు, సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్ (మ్యాప్: ${WEDDING_MAP_URL}).`
+          : `Pandiri (8:00 AM) & Pelli Kuthuru (Morning): Nov 20, 2026 at ${HALDI_VENUE.shortLabelEn} (Map: ${HALDI_MAP_URL}) · Haldi (6:00 PM): Nov 20, 2026 at ${HALDI_VENUE.shortLabelEn} (Map: ${HALDI_MAP_URL}) · Formalities (2:00 PM): Nov 21, 2026 at ${KEERTHI_FORMALITIES.shortLabelEn} (Map: ${KEERTHI_FORMALITIES.mapUrl}) · Subha Muhurtham: Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad (Map: ${WEDDING_MAP_URL}).`
+        : currentLang === 'te'
         ? `హల్దీ: నవంబర్ 20, 2026 - ${HALDI_VENUE.shortLabelTe} (మ్యాప్: ${HALDI_MAP_URL}) · ${SIDE_CEREMONY.shortAndPandiriTe}: ${SIDE_CEREMONY.dateFullTe} (మ్యాప్: ${PELLIKODUKU_MAP_URL}) · శుభ ముహూర్తం: నవంబర్ 22, 2026 ఉదయం 9:46 గంటలకు, సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్ (మ్యాప్: ${WEDDING_MAP_URL}).`
         : `Haldi: Nov 20, 2026 at ${HALDI_VENUE.shortLabelEn} (Map: ${HALDI_MAP_URL}) · ${SIDE_CEREMONY.shortAndPandiriEn}: ${SIDE_CEREMONY.dateMedEn} at Nizamabad (Map: ${PELLIKODUKU_MAP_URL}) · Subha Muhurtham: Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad (Map: ${WEDDING_MAP_URL}).`
     );
@@ -73,7 +77,9 @@ export const Countdown: React.FC<CountdownProps> = ({ currentLang }) => {
       'DTSTART:20261122T041600Z',
       'DTEND:20261122T073000Z',
       `SUMMARY:${summaryText}`,
-      `DESCRIPTION:Haldi: Nov 20, 2026 at ${HALDI_VENUE.shortLabelEn} (${HALDI_MAP_URL}). ${SIDE_CEREMONY.shortAndPandiriEn}: ${SIDE_CEREMONY.dateMedEn} (${PELLIKODUKU_MAP_URL}). Subha Muhurtham: Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad (${WEDDING_MAP_URL}).`,
+      IS_KEERTHI_SIDE
+        ? `DESCRIPTION:Pandiri (8:00 AM) & Pelli Kuthuru (Morning): Nov 20, 2026 at ${HALDI_VENUE.shortLabelEn} (${HALDI_MAP_URL}). Haldi (6:00 PM): Nov 20, 2026 at ${HALDI_VENUE.shortLabelEn} (${HALDI_MAP_URL}). Formalities (2:00 PM): Nov 21, 2026 at ${KEERTHI_FORMALITIES.shortLabelEn} (${KEERTHI_FORMALITIES.mapUrl}). Subha Muhurtham: Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad (${WEDDING_MAP_URL}).`
+        : `DESCRIPTION:Haldi: Nov 20, 2026 at ${HALDI_VENUE.shortLabelEn} (${HALDI_MAP_URL}). ${SIDE_CEREMONY.shortAndPandiriEn}: ${SIDE_CEREMONY.dateMedEn} (${PELLIKODUKU_MAP_URL}). Subha Muhurtham: Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad (${WEDDING_MAP_URL}).`,
       'LOCATION:Sai Baba Temple, Madhav Nagar, Nizamabad, Telangana 503001',
       'STATUS:CONFIRMED',
       'END:VEVENT',

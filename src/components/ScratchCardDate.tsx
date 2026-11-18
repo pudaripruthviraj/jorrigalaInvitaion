@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Sparkles, RefreshCw, CheckCircle2 } from 'lucide-react';
 import { Language } from '../types/wedding';
 import { triggerAkshinthaluShower } from '../utils/confetti';
-import { SIDE_CEREMONY } from '../data/weddingData';
+import { IS_KEERTHI_SIDE, SIDE_CEREMONY } from '../data/weddingData';
 import ganeshImage from '../assets/images/lord_ganesh_gold_1791130909426.jpg';
 
 interface ScratchCardDateProps {
@@ -214,15 +214,28 @@ export const ScratchCardDate: React.FC<ScratchCardDateProps> = ({ currentLang })
           </div>
 
           {/* Pre-wedding Footer */}
-          <div className="pt-1.5 border-t border-[#C89B3C]/40 text-[10px] text-amber-950 flex items-center justify-between font-serif">
-            <span className="font-bold text-[#781B10]">
-              {currentLang === 'te' ? '🌼 హల్దీ: నవంబర్ 20' : '🌼 Haldi: Nov 20'}
-            </span>
-            <span className="font-bold text-[#54121E]">
-              {currentLang === 'te'
-                ? `🌸 ${SIDE_CEREMONY.shortAndPandiriTe}: ${SIDE_CEREMONY.dateShortTe}`
-                : `🌸 ${SIDE_CEREMONY.shortAndPandiriEn}: ${SIDE_CEREMONY.dateShortEn}`}
-            </span>
+          <div className="pt-1.5 border-t border-[#C89B3C]/40 text-[9.5px] sm:text-[10px] text-amber-950 flex items-center justify-between gap-1 font-serif">
+            {IS_KEERTHI_SIDE ? (
+              <>
+                <span className="font-bold text-[#781B10]">
+                  {currentLang === 'te' ? '🌼 నవంబర్ 20: పందిరి 8AM, పెళ్ళికూతురు & హల్దీ 6PM' : '🌼 Nov 20: Pandiri 8AM, Pelli Kuthuru & Haldi 6PM'}
+                </span>
+                <span className="font-bold text-[#54121E] shrink-0">
+                  {currentLang === 'te' ? '✨ నవంబర్ 21: ఫార్మాలిటీస్ 2PM' : '✨ Nov 21: Formalities 2PM'}
+                </span>
+              </>
+            ) : (
+              <>
+                <span className="font-bold text-[#781B10]">
+                  {currentLang === 'te' ? '🌼 హల్దీ: నవంబర్ 20' : '🌼 Haldi: Nov 20'}
+                </span>
+                <span className="font-bold text-[#54121E]">
+                  {currentLang === 'te'
+                    ? `🌸 ${SIDE_CEREMONY.shortAndPandiriTe}: ${SIDE_CEREMONY.dateShortTe}`
+                    : `🌸 ${SIDE_CEREMONY.shortAndPandiriEn}: ${SIDE_CEREMONY.dateShortEn}`}
+                </span>
+              </>
+            )}
           </div>
         </div>
 

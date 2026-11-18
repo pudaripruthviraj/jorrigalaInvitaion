@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { X, Copy, Check, MessageCircle, Send, QrCode, Share2 } from 'lucide-react';
 import { Language } from '../types/wedding';
 import { translations } from '../data/translations';
-import { HALDI_MAP_URL, PELLIKODUKU_MAP_URL, WEDDING_MAP_URL, SIDE_CEREMONY, HALDI_VENUE } from '../data/weddingData';
+import { HALDI_MAP_URL, PELLIKODUKU_MAP_URL, WEDDING_MAP_URL, SIDE_CEREMONY, HALDI_VENUE, IS_KEERTHI_SIDE, KEERTHI_FORMALITIES } from '../data/weddingData';
 
 interface SocialShareModalProps {
   currentLang: Language;
@@ -14,8 +14,11 @@ export const SocialShareModal: React.FC<SocialShareModalProps> = ({ currentLang,
   const [copied, setCopied] = useState(false);
 
   const siteUrl = window.location.href;
-  const shareMessage =
-    currentLang === 'te'
+  const shareMessage = IS_KEERTHI_SIDE
+    ? currentLang === 'te'
+      ? `|| శ్రీరస్తు శుభమస్తు || కీర్తి & హరిప్రసాద్ ల వివాహ మహోత్సవ ఆహ్వాన పత్రిక. 🌸 పందిరి (నవంబర్ 20, ఉ. 8:00) & పెళ్ళికూతురు (ఉదయం): ${SIDE_CEREMONY.venueTe} (${PELLIKODUKU_MAP_URL}) | 🌼 హల్దీ (నవంబర్ 20, సా. 6:00): ${HALDI_VENUE.shortLabelTe} (${HALDI_MAP_URL}) | ✨ ఫార్మాలిటీస్ (నవంబర్ 21, మ. 2:00): ${KEERTHI_FORMALITIES.shortLabelTe} (${KEERTHI_FORMALITIES.mapUrl}) | 💍 వివాహం: ఆదివారం, నవంబర్ 22, 2026 (ఉదయం 9:46) - సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్ (${WEDDING_MAP_URL}). ఆహ్వానాన్ని చూడండి: ${siteUrl}`
+      : `|| Sri Rastuva Subhamastu || Wedding Invitation of Keerthi & Hariprasad. 🌸 Pandiri (Nov 20, 8:00 AM) & Pelli Kuthuru (Morning): ${SIDE_CEREMONY.venueEn} (${PELLIKODUKU_MAP_URL}) | 🌼 Haldi (Nov 20, 6:00 PM): ${HALDI_VENUE.shortLabelEn} (${HALDI_MAP_URL}) | ✨ Formalities (Nov 21, 2:00 PM): ${KEERTHI_FORMALITIES.shortLabelEn} (${KEERTHI_FORMALITIES.mapUrl}) | 💍 Wedding: Sunday, Nov 22, 2026 (9:46 AM) at Sai Baba Temple, Madhav Nagar, Nizamabad (${WEDDING_MAP_URL}). View full invitation: ${siteUrl}`
+    : currentLang === 'te'
       ? `|| శ్రీరస్తు శుభమస్తు || కీర్తి & హరిప్రసాద్ ల వివాహ మహోత్సవ ఆహ్వాన పత్రిక. 🌼 హల్దీ (నవంబర్ 20): ${HALDI_VENUE.shortLabelTe} (${HALDI_MAP_URL}) | 🌸 ${SIDE_CEREMONY.shortAndPandiriTe} (${SIDE_CEREMONY.dateShortTe}): నిజామాబాద్ (${PELLIKODUKU_MAP_URL}) | 💍 వివాహం: ఆదివారం, నవంబర్ 22, 2026 (ఉదయం 9:46) - సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్ (${WEDDING_MAP_URL}). ఆహ్వానాన్ని చూడండి: ${siteUrl}`
       : `|| Sri Rastuva Subhamastu || Wedding Invitation of Keerthi & Hariprasad. 🌼 Haldi (Nov 20): ${HALDI_VENUE.shortLabelEn} (${HALDI_MAP_URL}) | 🌸 ${SIDE_CEREMONY.shortAndPandiriEn} (${SIDE_CEREMONY.dateMedEn}): Nizamabad (${PELLIKODUKU_MAP_URL}) | 💍 Wedding: Sunday, Nov 22, 2026 (9:46 AM) at Sai Baba Temple, Madhav Nagar, Nizamabad (${WEDDING_MAP_URL}). View full invitation: ${siteUrl}`;
 

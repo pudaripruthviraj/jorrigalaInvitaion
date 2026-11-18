@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Check, Mail, Phone, User, Users, Heart, Sparkles, QrCode, Copy, Send, Calendar, Download } from 'lucide-react';
 import { Language, GuestRsvp } from '../types/wedding';
 import { translations } from '../data/translations';
-import { INITIAL_EVENTS, SIDE_CEREMONY, HALDI_VENUE } from '../data/weddingData';
+import { INITIAL_EVENTS, SIDE_CEREMONY, HALDI_VENUE, IS_KEERTHI_SIDE, KEERTHI_FORMALITIES } from '../data/weddingData';
 import { triggerAkshinthaluShower } from '../utils/confetti';
 
 interface RsvpFormProps {
@@ -17,11 +17,11 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [guestCount, setGuestCount] = useState<number>(2);
-  const [attendingEvents, setAttendingEvents] = useState<string[]>([
-    'haldi-mangala-snanam',
-    SIDE_CEREMONY.id,
-    'subha-muhurtham',
-  ]);
+  const [attendingEvents, setAttendingEvents] = useState<string[]>(
+    IS_KEERTHI_SIDE
+      ? ['pandiri-event', SIDE_CEREMONY.id, 'haldi-mangala-snanam', KEERTHI_FORMALITIES.id, 'subha-muhurtham']
+      : ['haldi-mangala-snanam', SIDE_CEREMONY.id, 'subha-muhurtham']
+  );
   const [dietaryPreference, setDietaryPreference] = useState<GuestRsvp['dietaryPreference']>('pure-veg');
   const [accommodationNeeded, setAccommodationNeeded] = useState(false);
   const [transportAssistance, setTransportAssistance] = useState(false);
@@ -75,7 +75,10 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
 
   const handleCopyPass = () => {
     if (!confirmedRsvp) return;
-    const text = `Kalyana Mahotsavam Wedding Pass\nGuest: ${confirmedRsvp.fullName}\nPass ID: ${confirmedRsvp.id}\nAttendees: ${confirmedRsvp.guestCount}\nHaldi: Nov 20, 2026 | ${SIDE_CEREMONY.shortAndPandiriEn}: ${SIDE_CEREMONY.dateMedEn}\nWedding: Nov 22, 2026 (9:46 AM) - Sai Baba Temple, Madhav Nagar, Nizamabad`;
+    const scheduleLine = IS_KEERTHI_SIDE
+      ? `Pandiri (8 AM), Pelli Kuthuru & Haldi (6 PM): Nov 20, 2026 | Formalities (2 PM): Nov 21, 2026`
+      : `Haldi: Nov 20, 2026 | ${SIDE_CEREMONY.shortAndPandiriEn}: ${SIDE_CEREMONY.dateMedEn}`;
+    const text = `Kalyana Mahotsavam Wedding Pass\nGuest: ${confirmedRsvp.fullName}\nPass ID: ${confirmedRsvp.id}\nAttendees: ${confirmedRsvp.guestCount}\n${scheduleLine}\nWedding: Nov 22, 2026 (9:46 AM) - Sai Baba Temple, Madhav Nagar, Nizamabad`;
     navigator.clipboard.writeText(text);
     setCopiedPass(true);
     setTimeout(() => setCopiedPass(false), 2500);
@@ -137,7 +140,11 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
                 </div>
                 <div>
                   <span className="text-amber-800 block">Auspicious Dates:</span>
-                  <span className="font-bold">Nov 20 Haldi · {SIDE_CEREMONY.dateShortEn} {SIDE_CEREMONY.shortEn} · Nov 22 Wedding (9:46 AM)</span>
+                  <span className="font-bold">
+                    {IS_KEERTHI_SIDE
+                      ? 'Nov 20 Pandiri (8 AM), Pelli Kuthuru & Haldi (6 PM) · Nov 21 Formalities (2 PM) · Nov 22 Wedding (9:46 AM)'
+                      : `Nov 20 Haldi · ${SIDE_CEREMONY.dateShortEn} ${SIDE_CEREMONY.shortEn} · Nov 22 Wedding (9:46 AM)`}
+                  </span>
                 </div>
                 <div>
                   <span className="text-amber-800 block">Primary Venue:</span>
@@ -442,8 +449,13 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ currentLang, onAddRsvp }) =>
                   </div>
                 </div>
                 <p className="text-xs font-sans text-amber-900 leading-relaxed">
-                  <strong>🌼 Haldi:</strong> Friday, Nov 20, 2026 ({HALDI_VENUE.shortLabelEn} · {HALDI_VENUE.coordsDisplay})<br />
-                  <strong>🌸 {SIDE_CEREMONY.shortAndPandiriEn}:</strong> {SIDE_CEREMONY.dateMedEn} (Nizamabad · 18.654689, 78.106245)<br />
+                  <strong>🌼 Haldi:</strong> Friday, Nov 20, 2026 · {HALDI_VENUE.timeShortEn} ({HALDI_VENUE.shortLabelEn} · {HALDI_VENUE.coordsDisplay})<br />
+                  <strong>🌸 {SIDE_CEREMONY.shortAndPandiriEn}:</strong> {SIDE_CEREMONY.dateMedEn} · {SIDE_CEREMONY.timeEn} ({SIDE_CEREMONY.coordsDisplay})<br />
+                  {IS_KEERTHI_SIDE && (
+                    <>
+                      <strong>✨ {KEERTHI_FORMALITIES.titleEn}:</strong> {KEERTHI_FORMALITIES.dateMedEn} · {KEERTHI_FORMALITIES.timeShortEn} ({KEERTHI_FORMALITIES.shortLabelEn} · {KEERTHI_FORMALITIES.coordsDisplay})<br />
+                    </>
+                  )}
                   <strong>💍 Wedding:</strong> Sai Baba Temple, Madhav Nagar, Nizamabad (Sunday, Nov 22, 2026 at 9:46 AM)
                 </p>
                 <p className="text-xs font-sans text-amber-900">

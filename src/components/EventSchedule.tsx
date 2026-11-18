@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Calendar, Clock, MapPin, Sparkles, Shirt, ChevronRight, Check } from 'lucide-react';
 import { Language, EventItem } from '../types/wedding';
 import { translations } from '../data/translations';
-import { INITIAL_EVENTS, SIDE_CEREMONY } from '../data/weddingData';
+import { INITIAL_EVENTS, SIDE_CEREMONY, HALDI_VENUE, KEERTHI_FORMALITIES } from '../data/weddingData';
 
 interface EventScheduleProps {
   currentLang: Language;
@@ -32,9 +32,15 @@ export const EventSchedule: React.FC<EventScheduleProps> = ({ currentLang }) => 
     // ISO strings in UTC (IST - 5:30)
     let startIso = '20261122T041600Z';
     let endIso = '20261122T073000Z';
-    if (evt.id === 'haldi-mangala-snanam') {
-      startIso = '20261120T033000Z';
-      endIso = '20261120T063000Z';
+    if (evt.id === 'pandiri-event') {
+      startIso = '20261120T023000Z';
+      endIso = '20261120T043000Z';
+    } else if (evt.id === 'haldi-mangala-snanam') {
+      startIso = HALDI_VENUE.calStartUtc;
+      endIso = HALDI_VENUE.calEndUtc;
+    } else if (evt.id === KEERTHI_FORMALITIES.id) {
+      startIso = KEERTHI_FORMALITIES.calStartUtc;
+      endIso = KEERTHI_FORMALITIES.calEndUtc;
     } else if (evt.id === SIDE_CEREMONY.id) {
       startIso = SIDE_CEREMONY.calStartUtc;
       endIso = SIDE_CEREMONY.calEndUtc;

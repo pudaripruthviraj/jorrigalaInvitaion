@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Heart, Sparkles, Calendar, MapPin, ChevronRight } from 'lucide-react';
 import { Language } from '../types/wedding';
 import { LordGaneshHeader } from './LordGaneshHeader';
-import { COUPLE_PORTRAIT_URL, COUPLE_PORTRAIT_FALLBACK_URL, HALDI_MAP_URL, WEDDING_MAP_URL, SIDE_CEREMONY, HALDI_VENUE } from '../data/weddingData';
+import { COUPLE_PORTRAIT_URL, COUPLE_PORTRAIT_FALLBACK_URL, HALDI_MAP_URL, WEDDING_MAP_URL, SIDE_CEREMONY, HALDI_VENUE, IS_KEERTHI_SIDE, KEERTHI_FORMALITIES } from '../data/weddingData';
 
 interface Milestone {
   id: string;
@@ -71,15 +71,19 @@ const MILESTONES: Milestone[] = [
     id: 'haldi-nov-2026',
     yearEn: '20 NOV 2026',
     yearTe: '20 నవంబర్ 2026',
-    dateEn: 'Friday, November 20, 2026 · 9:00 AM',
-    dateTe: 'శుక్రవారం, నవంబర్ 20, 2026 · ఉదయం 9:00',
+    dateEn: `Friday, November 20, 2026 · ${HALDI_VENUE.timeShortEn}`,
+    dateTe: `శుక్రవారం, నవంబర్ 20, 2026 · ${HALDI_VENUE.timeShortTe}`,
     titleEn: 'Haldi & Mangala Snanam',
     titleTe: 'హల్దీ వేడుక & మంగళస్నానం',
     locationEn: HALDI_VENUE.shortLabelEn,
     locationTe: HALDI_VENUE.shortLabelTe,
     mapUrl: HALDI_MAP_URL,
-    descriptionEn: 'Joyful pre-wedding morning filled with auspicious turmeric blessings, fragrant rose petals, and herbal mangala snanam.',
-    descriptionTe: 'పచ్చి పసుపు, సుగంధ పరిమళాలు మరియు పూల వర్షంతో జరిగే మంగళకరమైన హల్దీ & మంగళస్నానం వేడుక.',
+    descriptionEn: IS_KEERTHI_SIDE
+      ? 'Joyful evening haldi celebration at 6:00 PM filled with auspicious turmeric blessings, fragrant rose petals, and folk songs.'
+      : 'Joyful pre-wedding morning filled with auspicious turmeric blessings, fragrant rose petals, and herbal mangala snanam.',
+    descriptionTe: IS_KEERTHI_SIDE
+      ? 'సాయంత్రం 6:00 గంటలకు పచ్చి పసుపు, సుగంధ పరిమళాలు మరియు పూల వర్షంతో జరిగే మంగళకరమైన హల్దీ వేడుక.'
+      : 'పచ్చి పసుపు, సుగంధ పరిమళాలు మరియు పూల వర్షంతో జరిగే మంగళకరమైన హల్దీ & మంగళస్నానం వేడుక.',
     imageUrl: '/images/telangana_haldi_celebration_1791062787214.jpg',
     icon: '🌼',
   },
@@ -87,10 +91,10 @@ const MILESTONES: Milestone[] = [
     id: SIDE_CEREMONY.id,
     yearEn: SIDE_CEREMONY.timelineYearEn,
     yearTe: SIDE_CEREMONY.timelineYearTe,
-    dateEn: SIDE_CEREMONY.dateFullEn,
-    dateTe: SIDE_CEREMONY.dateFullTe,
-    titleEn: SIDE_CEREMONY.titleEn,
-    titleTe: SIDE_CEREMONY.titleTe,
+    dateEn: `${SIDE_CEREMONY.dateFullEn} · ${SIDE_CEREMONY.timeEn}`,
+    dateTe: `${SIDE_CEREMONY.dateFullTe} · ${SIDE_CEREMONY.timeTe}`,
+    titleEn: SIDE_CEREMONY.shortAndPandiriEn,
+    titleTe: SIDE_CEREMONY.shortAndPandiriTe,
     locationEn: SIDE_CEREMONY.venueEn,
     locationTe: SIDE_CEREMONY.venueTe,
     mapUrl: SIDE_CEREMONY.mapUrl,
@@ -99,6 +103,28 @@ const MILESTONES: Milestone[] = [
     imageUrl: '/images/luxury_floral_toran_1791066104986.jpg',
     icon: '🌸',
   },
+  ...(IS_KEERTHI_SIDE
+    ? [
+        {
+          id: KEERTHI_FORMALITIES.id,
+          yearEn: KEERTHI_FORMALITIES.timelineYearEn,
+          yearTe: KEERTHI_FORMALITIES.timelineYearTe,
+          dateEn: `${KEERTHI_FORMALITIES.dateFullEn} · ${KEERTHI_FORMALITIES.timeShortEn}`,
+          dateTe: `${KEERTHI_FORMALITIES.dateFullTe} · ${KEERTHI_FORMALITIES.timeShortTe}`,
+          titleEn: KEERTHI_FORMALITIES.titleEn,
+          titleTe: KEERTHI_FORMALITIES.titleTe,
+          locationEn: KEERTHI_FORMALITIES.shortLabelEn,
+          locationTe: KEERTHI_FORMALITIES.shortLabelTe,
+          mapUrl: KEERTHI_FORMALITIES.mapUrl,
+          descriptionEn:
+            'Traditional afternoon wedding formalities at 2:00 PM bringing families and elders together at Seetharam Nagar Colony ahead of the Subha Muhurtham.',
+          descriptionTe:
+            'శనివారం మధ్యాహ్నం 2:00 గంటలకు సీతారాం నగర్ కాలనీలో బంధుమిత్రులు, పెద్దల సమక్షంలో జరిగే సాంప్రదాయ వివాహ ఫార్మాలిటీస్ వేడుక.',
+          imageUrl: '/images/luxury_floral_toran_1791066104986.jpg',
+          icon: '✨',
+        },
+      ]
+    : []),
   {
     id: 'wedding-nov-2026',
     yearEn: '22 NOV 2026',
