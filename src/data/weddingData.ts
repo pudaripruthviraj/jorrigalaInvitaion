@@ -39,9 +39,9 @@ export const SIDE_CEREMONY = IS_KEERTHI_SIDE
       timeEn: 'Pandiri: 8:00 AM · Pelli Kuthuru: Morning',
       timeTe: 'పందిరి: ఉదయం 8:00 · పెళ్ళికూతురు: ఉదయం',
       descriptionEn:
-        'Auspicious Pandiri installation at 8:00 AM with fresh mango leaves, followed by morning Pelli Kuthuru rituals where elders anoint Keerthi with fragrant turmeric, sandalwood, nalugu, and bless her with traditional silks.',
+        'Auspicious Pandiri installation at 8:00 AM with fresh mango leaves, followed by morning Pelli Kuthuru rituals where elders anoint Keerthi (Sravanthi) with fragrant turmeric, sandalwood, nalugu, and bless her with traditional silks.',
       descriptionTe:
-        'ఉదయం 8:00 గంటలకు పచ్చి మామిడాకుల తోరణాలతో పవిత్ర పందిరి రాట వేసి, అనంతరం ఉదయం పెద్దలందరూ పెళ్ళికూతురు కీర్తికి పసుపు, గంధం, నలుగు పెట్టి పట్టు వస్త్రాలతో ఆశీర్వదించే శుభ వేడుక.',
+        'ఉదయం 8:00 గంటలకు పచ్చి మామిడాకుల తోరణాలతో పవిత్ర పందిరి రాట వేసి, అనంతరం ఉదయం పెద్దలందరూ పెళ్ళికూతురు కీర్తి (శ్రావంతి) కి పసుపు, గంధం, నలుగు పెట్టి పట్టు వస్త్రాలతో ఆశీర్వదించే శుభ వేడుక.',
       significanceEn:
         'Invokes divine blessings on the home and formally prepares the bride for the sacred Grihastha Ashrama.',
       significanceTe:
@@ -238,9 +238,9 @@ export const INITIAL_EVENTS: EventItem[] = IS_KEERTHI_SIDE
         venueTe: SIDE_CEREMONY.venueTe,
         mapUrl: SIDE_CEREMONY.mapUrl,
         descriptionEn:
-          'Elders and family members anoint Keerthi with fragrant turmeric, sandalwood, and nalugu, blessing her with new traditional silks and jewelry as the bride-to-be.',
+          'Elders and family members anoint Keerthi (Sravanthi) with fragrant turmeric, sandalwood, and nalugu, blessing her with new traditional silks and jewelry as the bride-to-be.',
         descriptionTe:
-          'పెద్దలందరూ కీర్తికి పసుపు, గంధం, నలుగు పెట్టి, నూతన పట్టు వస్త్రాలతో పెళ్ళికూతురుగా అలంకరించి ఆశీర్వదించే శుభ వేడుక.',
+          'పెద్దలందరూ కీర్తి (శ్రావంతి) కి పసుపు, గంధం, నలుగు పెట్టి, నూతన పట్టు వస్త్రాలతో పెళ్ళికూతురుగా అలంకరించి ఆశీర్వదించే శుభ వేడుక.',
         significanceEn:
           'Formally honors and prepares the bride for the sacred Grihastha Ashrama.',
         significanceTe:
@@ -310,9 +310,9 @@ export const INITIAL_EVENTS: EventItem[] = IS_KEERTHI_SIDE
         venueTe: 'సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్, తెలంగాణ',
         mapUrl: WEDDING_MAP_URL,
         descriptionEn:
-          'The sacred Telugu wedding rituals of Keerthi & Hariprasad: holding cumin & jaggery paste over each other’s heads, tying the Mangalasutra with three sacred knots, and showering fragrant Talambralu.',
+          'The sacred Telugu wedding rituals of Keerthi (Sravanthi) & Hariprasad: holding cumin & jaggery paste over each other’s heads, tying the Mangalasutra with three sacred knots, and showering fragrant Talambralu.',
         descriptionTe:
-          'కీర్తి & హరిప్రసాద్‌ల శిరస్సులపై జీలకర్ర-బెల్లం ఉంచడం, ముల్లోకాల సాక్షిగా మూడు ముళ్ళు వేయడం, మరియు ఆనందోత్సాహాల నడుమ ముత్యాల తాళంబ్రాల మహోత్సవం.',
+          'కీర్తి (శ్రావంతి) & హరిప్రసాద్‌ల శిరస్సులపై జీలకర్ర-బెల్లం ఉంచడం, ముల్లోకాల సాక్షిగా మూడు ముళ్ళు వేయడం, మరియు ఆనందోత్సాహాల నడుమ ముత్యాల తాళంబ్రాల మహోత్సవం.',
         significanceEn:
           'Jeelakarra Bellam symbolizes eternal inseparability; Mangalasutra represents lifelong protection; Talambralu brings prosperity and joy.',
         significanceTe:
@@ -380,9 +380,9 @@ export const INITIAL_EVENTS: EventItem[] = IS_KEERTHI_SIDE
         venueTe: 'సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్, తెలంగాణ',
         mapUrl: WEDDING_MAP_URL,
         descriptionEn:
-          'The sacred Telugu wedding rituals of Keerthi & Hariprasad: holding cumin & jaggery paste over each other’s heads, tying the Mangalasutra with three sacred knots, and showering fragrant Talambralu.',
+          'The sacred Telugu wedding rituals of Keerthi (Sravanthi) & Hariprasad: holding cumin & jaggery paste over each other’s heads, tying the Mangalasutra with three sacred knots, and showering fragrant Talambralu.',
         descriptionTe:
-          'కీర్తి & హరిప్రసాద్‌ల శిరస్సులపై జీలకర్ర-బెల్లం ఉంచడం, ముల్లోకాల సాక్షిగా మూడు ముళ్ళు వేయడం, మరియు ఆనందోత్సాహాల నడుమ ముత్యాల తాళంబ్రాల మహోత్సవం.',
+          'కీర్తి (శ్రావంతి) & హరిప్రసాద్‌ల శిరస్సులపై జీలకర్ర-బెల్లం ఉంచడం, ముల్లోకాల సాక్షిగా మూడు ముళ్ళు వేయడం, మరియు ఆనందోత్సాహాల నడుమ ముత్యాల తాళంబ్రాల మహోత్సవం.',
         significanceEn:
           'Jeelakarra Bellam symbolizes eternal inseparability; Mangalasutra represents lifelong protection; Talambralu brings prosperity and joy.',
         significanceTe:
@@ -405,8 +405,8 @@ export const INITIAL_GALLERY: GalleryPhoto[] = [
   {
     id: 'photo-2',
     url: COUPLE_PORTRAIT_URL,
-    captionEn: 'Keerthi & Hariprasad - Our Cartoon Caricature Portrait',
-    captionTe: 'కీర్తి & హరిప్రసాద్ - ప్రత్యేక కార్టూన్ క్యారికేచర్ చిత్రం',
+    captionEn: 'Keerthi (Sravanthi) & Hariprasad - Our Cartoon Caricature Portrait',
+    captionTe: 'కీర్తి (శ్రావంతి) & హరిప్రసాద్ - ప్రత్యేక కార్టూన్ క్యారికేచర్ చిత్రం',
     category: 'couple',
   },
   {
@@ -455,7 +455,7 @@ export const INITIAL_RSVPS: GuestRsvp[] = [
     dietaryPreference: 'pure-veg',
     accommodationNeeded: false,
     transportAssistance: false,
-    personalNote: 'Warmest blessings to Keerthi & Hariprasad.',
+    personalNote: 'Warmest blessings to Keerthi (Sravanthi) & Hariprasad.',
     status: 'confirmed',
     tableId: 'table-1',
     createdAt: '2026-10-02',

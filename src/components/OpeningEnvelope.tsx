@@ -43,7 +43,7 @@ export const OpeningEnvelope: React.FC<OpeningEnvelopeProps> = ({ onOpen, curren
         }}
       >
         {/* FOREGROUND CARD ARTWORK: Crisp Luxury Indian Wedding Blush Rose & Peacock Palace Invitation Card */}
-        <div className="relative w-full aspect-[9/14] bg-[#FFF9F7] overflow-hidden">
+        <div className="relative w-full min-h-[580px] sm:min-h-0 sm:aspect-[9/14] bg-[#FFF9F7] overflow-hidden">
           <img
             src="/images/blush_peacock_arch_1791066357714.jpg"
             alt="Wedding Invitation Envelope"
@@ -90,8 +90,16 @@ export const OpeningEnvelope: React.FC<OpeningEnvelopeProps> = ({ onOpen, curren
               <div className="space-y-1 py-0.5">
                 {/* Bride Keerthi */}
                 <div>
-                  <h1 className="text-xl sm:text-2xl font-display font-bold text-[#54121E] tracking-tight drop-shadow-xs">
-                    {isTelugu ? 'కీర్తి' : 'Keerthi'}
+                  <h1 className="text-lg sm:text-xl font-display font-bold text-[#54121E] tracking-tight drop-shadow-xs whitespace-nowrap leading-snug">
+                    {isTelugu ? (
+                      <>
+                        కీర్తి <span className="text-sm sm:text-base font-semibold">(శ్రావంతి)</span>
+                      </>
+                    ) : (
+                      <>
+                        Keerthi <span className="text-sm sm:text-base font-semibold">(Sravanthi)</span>
+                      </>
+                    )}
                   </h1>
                   <p className="text-[8.5px] sm:text-[9px] text-amber-900 font-serif leading-tight">
                     {isTelugu ? 'శ్రీమతి ఓ. భాగ్యలక్ష్మి & శ్రీ ఓ. కిషన్ గార్ల సుపుత్రిక' : 'D/o Smt. O. Bhagyalaxmi & Sri O. Kishan'}

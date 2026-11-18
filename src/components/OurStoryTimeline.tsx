@@ -169,7 +169,7 @@ export const OurStoryTimeline: React.FC<OurStoryTimelineProps> = ({ currentLang 
         </h2>
         <p className="text-xs text-amber-950/80 max-w-md mx-auto">
           {isTelugu 
-            ? '2020 లో మిత్రులుగా కలిసి, అమర ప్రేమికులుగా మారి, నవంబర్ 22, 2026 న పెళ్ళితో ఒక్కటవుతున్న కీర్తి & హరిప్రసాద్ కథ' 
+            ? '2020 లో మిత్రులుగా కలిసి, అమర ప్రేమికులుగా మారి, నవంబర్ 22, 2026 న పెళ్ళితో ఒక్కటవుతున్న కీర్తి (శ్రావంతి) & హరిప్రసాద్ కథ' 
             : "From best friends in 2020 to forever soulmates, uniting in marriage on November 22, 2026"}
         </p>
       </div>

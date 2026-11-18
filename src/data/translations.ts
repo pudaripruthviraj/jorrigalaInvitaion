@@ -3,8 +3,8 @@ import { HALDI_VENUE, IS_KEERTHI_SIDE, KEERTHI_FORMALITIES, SIDE_CEREMONY } from
 export const translations = {
   en: {
     // Navigation & Common
-    appTitle: 'Keerthi & Hariprasad Kalyana Mahotsavam',
-    subtitle: 'Keerthi & Hariprasad Wedding Celebration',
+    appTitle: 'Keerthi (Sravanthi) & Hariprasad Kalyana Mahotsavam',
+    subtitle: 'Keerthi (Sravanthi) & Hariprasad Wedding Celebration',
     navInvitation: 'Invitation',
     navEvents: 'Schedule',
     navGallery: 'Gallery',
@@ -22,7 +22,7 @@ export const translations = {
     heroKicker: 'An Auspicious Union Blessed By The Elders',
     groomName: 'Hariprasad',
     groomParents: 'S/o Smt. J. Laxmi & Sri J. Narayana',
-    brideName: 'Keerthi',
+    brideName: 'Keerthi (Sravanthi)',
     brideParents: 'D/o Smt. O. Bhagyalaxmi & Sri O. Kishan',
     andSymbol: '&',
     weddingDateFull: 'Sunday, November 22, 2026',
@@ -202,8 +202,8 @@ export const translations = {
 
   te: {
     // Navigation & Common
-    appTitle: 'కీర్తి & హరిప్రసాద్ కళ్యాణ మహోత్సవం',
-    subtitle: 'కీర్తి & హరిప్రసాద్ వివాహ మహోత్సవం',
+    appTitle: 'కీర్తి (శ్రావంతి) & హరిప్రసాద్ కళ్యాణ మహోత్సవం',
+    subtitle: 'కీర్తి (శ్రావంతి) & హరిప్రసాద్ వివాహ మహోత్సవం',
     navInvitation: 'ఆహ్వాన పత్రిక',
     navEvents: 'శుభ కార్యాల వివరాలు',
     navGallery: 'ఛాయాచిత్రాలు',
@@ -221,7 +221,7 @@ export const translations = {
     heroKicker: 'పెద్దల ఆశీస్సులతో జరుగబోవు శుభ పరిణయం',
     groomName: 'హరిప్రసాద్',
     groomParents: 'శ్రీమతి జె. లక్ష్మి & శ్రీ జె. నారాయణ గార్ల సుపుత్రుడు',
-    brideName: 'కీర్తి',
+    brideName: 'కీర్తి (శ్రావంతి)',
     brideParents: 'శ్రీమతి ఓ. భాగ్యలక్ష్మి & శ్రీ ఓ. కిషన్ గార్ల సుపుత్రిక',
     andSymbol: 'సమేత',
     weddingDateFull: 'ఆదివారం, నవంబర్ 22, 2026',

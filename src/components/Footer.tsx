@@ -23,7 +23,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
               : '|| Mangalam Bhagavan Vishnuh Mangalam Garudadhvajah | Mangalam Pundarikakshah Mangalaya Tano Harih ||'}
           </p>
           <p className="text-xs text-amber-400/80 font-display">
-            Keerthi & Hariprasad Kalyana Mahotsavam
+            Keerthi (Sravanthi) & Hariprasad Kalyana Mahotsavam
           </p>
         </div>
 

@@ -43,8 +43,8 @@ export const Countdown: React.FC<CountdownProps> = ({ currentLang }) => {
     // Nov 22, 2026, 09:46 AM IST (04:16 UTC)
     const title = encodeURIComponent(
       currentLang === 'te'
-        ? 'కీర్తి & హరిప్రసాద్ కళ్యాణ మహోత్సవం (వివాహం)'
-        : 'Keerthi & Hariprasad Wedding Muhurtham'
+        ? 'కీర్తి (శ్రావంతి) & హరిప్రసాద్ కళ్యాణ మహోత్సవం (వివాహం)'
+        : 'Keerthi (Sravanthi) & Hariprasad Wedding Muhurtham'
     );
     const details = encodeURIComponent(
       IS_KEERTHI_SIDE
@@ -65,8 +65,8 @@ export const Countdown: React.FC<CountdownProps> = ({ currentLang }) => {
   const handleDownloadIcs = () => {
     const summaryText =
       currentLang === 'te'
-        ? 'కీర్తి & హరిప్రసాద్ కళ్యాణ మహోత్సవం'
-        : 'Keerthi & Hariprasad Wedding Ceremony';
+        ? 'కీర్తి (శ్రావంతి) & హరిప్రసాద్ కళ్యాణ మహోత్సవం'
+        : 'Keerthi (Sravanthi) & Hariprasad Wedding Ceremony';
     const icsData = [
       'BEGIN:VCALENDAR',
       'VERSION:2.0',

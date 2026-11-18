@@ -46,7 +46,7 @@ export const CoupleStory: React.FC<CoupleStoryProps> = ({ currentLang }) => {
             <div className="w-64 h-80 sm:w-72 sm:h-92 rounded-2xl overflow-hidden shadow-lg border-4 border-amber-200 bg-amber-50 relative">
               <img
                 src={COUPLE_PORTRAIT_URL}
-                alt="Keerthi and Hariprasad"
+                alt="Keerthi (Sravanthi) and Hariprasad"
                 referrerPolicy="no-referrer"
                 onError={(e) => {
                   if (!e.currentTarget.src.endsWith(COUPLE_PORTRAIT_FALLBACK_URL)) {

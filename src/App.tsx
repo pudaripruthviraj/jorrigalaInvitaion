@@ -154,7 +154,7 @@ export default function App() {
 
   useEffect(() => {
     localStorage.setItem('wedding_lang', currentLang);
-    document.title = `Keerthi & Hariprasad Wedding & ${SIDE_CEREMONY.shortEn} | Nov 20 - 22, 2026`;
+    document.title = `Keerthi (Sravanthi) & Hariprasad Wedding & ${SIDE_CEREMONY.shortEn} | Nov 20 - 22, 2026`;
   }, [currentLang]);
   useEffect(() => {
     localStorage.setItem('wedding_rsvps', JSON.stringify(rsvps));
@@ -232,8 +232,8 @@ export default function App() {
   const handleWhatsAppRsvp = () => {
     const msg =
       currentLang === 'te'
-        ? `|| శ్రీరస్తు శుభమస్తు || కీర్తి & హరిప్రసాద్ వివాహ ఆహ్వానానికి నమస్కారములు. మేము (${rsvpName || 'మా కుటుంబం'}, ${rsvpCount} మంది) నవంబర్ 22, 2026 ఉదయం 9:46 గంటలకు సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్‌లో జరుగు శుభ ముహూర్తానికి విచ్చేసి వధూవరులను ఆశీర్వదిస్తాము. - ${rsvpPhone}`
-        : `Namaskaram! Delighted to accept the wedding invitation of Keerthi & Hariprasad. We (${rsvpName || 'Our family'}, ${rsvpCount} guests) look forward to gracing the Subha Muhurtham on Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad. Warmest blessings!`;
+        ? `|| శ్రీరస్తు శుభమస్తు || కీర్తి (శ్రావంతి) & హరిప్రసాద్ వివాహ ఆహ్వానానికి నమస్కారములు. మేము (${rsvpName || 'మా కుటుంబం'}, ${rsvpCount} మంది) నవంబర్ 22, 2026 ఉదయం 9:46 గంటలకు సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్‌లో జరుగు శుభ ముహూర్తానికి విచ్చేసి వధూవరులను ఆశీర్వదిస్తాము. - ${rsvpPhone}`
+        : `Namaskaram! Delighted to accept the wedding invitation of Keerthi (Sravanthi) & Hariprasad. We (${rsvpName || 'Our family'}, ${rsvpCount} guests) look forward to gracing the Subha Muhurtham on Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad. Warmest blessings!`;
     window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`, '_blank');
   };
 
@@ -281,14 +281,14 @@ export default function App() {
 
   const shareText = IS_KEERTHI_SIDE
     ? currentLang === 'te'
-      ? `శుభ వివాహ ఆహ్వానం: కీర్తి & హరిప్రసాద్ | 🌸 పందిరి (నవంబర్ 20, ఉ. 8:00) & పెళ్ళికూతురు (ఉదయం): ${SIDE_CEREMONY.venueTe} (${PELLIKODUKU_MAP_URL}) | 🌼 హల్దీ (నవంబర్ 20, సా. 6:00): ${HALDI_VENUE.shortLabelTe} (${HALDI_MAP_URL}) | ✨ ఫార్మాలిటీస్ (నవంబర్ 21, మ. 2:00): ${KEERTHI_FORMALITIES.shortLabelTe} (${KEERTHI_FORMALITIES.mapUrl}) | 💍 శుభ వివాహం (నవంబర్ 22, ఉదయం 9:46): సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్ (${WEDDING_MAP_URL}). పూర్తి ఆహ్వాన పత్రిక: ${window.location.href}`
-      : `Wedding Invitation: Keerthi & Hariprasad | 🌸 Pandiri (Nov 20, 8:00 AM) & Pelli Kuthuru (Morning): ${SIDE_CEREMONY.venueEn} (${PELLIKODUKU_MAP_URL}) | 🌼 Haldi (Nov 20, 6:00 PM): ${HALDI_VENUE.shortLabelEn} (${HALDI_MAP_URL}) | ✨ Formalities (Nov 21, 2:00 PM): ${KEERTHI_FORMALITIES.shortLabelEn} (${KEERTHI_FORMALITIES.mapUrl}) | 💍 Wedding (Subha Muhurtham, Nov 22, 2026 at 9:46 AM): Sai Baba Temple, Madhav Nagar, Nizamabad (${WEDDING_MAP_URL}). View full invitation: ${window.location.href}`
+      ? `శుభ వివాహ ఆహ్వానం: కీర్తి (శ్రావంతి) & హరిప్రసాద్ | 🌸 పందిరి (నవంబర్ 20, ఉ. 8:00) & పెళ్ళికూతురు (ఉదయం): ${SIDE_CEREMONY.venueTe} (${PELLIKODUKU_MAP_URL}) | 🌼 హల్దీ (నవంబర్ 20, సా. 6:00): ${HALDI_VENUE.shortLabelTe} (${HALDI_MAP_URL}) | ✨ ఫార్మాలిటీస్ (నవంబర్ 21, మ. 2:00): ${KEERTHI_FORMALITIES.shortLabelTe} (${KEERTHI_FORMALITIES.mapUrl}) | 💍 శుభ వివాహం (నవంబర్ 22, ఉదయం 9:46): సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్ (${WEDDING_MAP_URL}). పూర్తి ఆహ్వాన పత్రిక: ${window.location.href}`
+      : `Wedding Invitation: Keerthi (Sravanthi) & Hariprasad | 🌸 Pandiri (Nov 20, 8:00 AM) & Pelli Kuthuru (Morning): ${SIDE_CEREMONY.venueEn} (${PELLIKODUKU_MAP_URL}) | 🌼 Haldi (Nov 20, 6:00 PM): ${HALDI_VENUE.shortLabelEn} (${HALDI_MAP_URL}) | ✨ Formalities (Nov 21, 2:00 PM): ${KEERTHI_FORMALITIES.shortLabelEn} (${KEERTHI_FORMALITIES.mapUrl}) | 💍 Wedding (Subha Muhurtham, Nov 22, 2026 at 9:46 AM): Sai Baba Temple, Madhav Nagar, Nizamabad (${WEDDING_MAP_URL}). View full invitation: ${window.location.href}`
     : currentLang === 'te'
-    ? `శుభ వివాహ ఆహ్వానం: కీర్తి & హరిప్రసాద్ | 🌼 హల్దీ (నవంబర్ 20, 2026): ${HALDI_VENUE.shortLabelTe} (${HALDI_MAP_URL}) | 🌸 ${SIDE_CEREMONY.shortAndPandiriTe} (${SIDE_CEREMONY.dateFullTe}): నిజామాబాద్ (${PELLIKODUKU_MAP_URL}) | 💍 శుభ వివాహం (నవంబర్ 22, 2026, ఉదయం 9:46): సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్ (${WEDDING_MAP_URL}). పూర్తి ఆహ్వాన పత్రిక: ${window.location.href}`
-    : `Wedding Invitation: Keerthi & Hariprasad | 🌼 Haldi (Nov 20, 2026): ${HALDI_VENUE.shortLabelEn} (${HALDI_MAP_URL}) | 🌸 ${SIDE_CEREMONY.shortAndPandiriEn} (${SIDE_CEREMONY.dateMedEn}): Nizamabad (${PELLIKODUKU_MAP_URL}) | 💍 Wedding (Subha Muhurtham, Nov 22, 2026 at 9:46 AM): Sai Baba Temple, Madhav Nagar, Nizamabad (${WEDDING_MAP_URL}). View full invitation: ${window.location.href}`;
+    ? `శుభ వివాహ ఆహ్వానం: కీర్తి (శ్రావంతి) & హరిప్రసాద్ | 🌼 హల్దీ (నవంబర్ 20, 2026): ${HALDI_VENUE.shortLabelTe} (${HALDI_MAP_URL}) | 🌸 ${SIDE_CEREMONY.shortAndPandiriTe} (${SIDE_CEREMONY.dateFullTe}): నిజామాబాద్ (${PELLIKODUKU_MAP_URL}) | 💍 శుభ వివాహం (నవంబర్ 22, 2026, ఉదయం 9:46): సాయి బాబా దేవాలయం, మాధవ్ నగర్, నిజామాబాద్ (${WEDDING_MAP_URL}). పూర్తి ఆహ్వాన పత్రిక: ${window.location.href}`
+    : `Wedding Invitation: Keerthi (Sravanthi) & Hariprasad | 🌼 Haldi (Nov 20, 2026): ${HALDI_VENUE.shortLabelEn} (${HALDI_MAP_URL}) | 🌸 ${SIDE_CEREMONY.shortAndPandiriEn} (${SIDE_CEREMONY.dateMedEn}): Nizamabad (${PELLIKODUKU_MAP_URL}) | 💍 Wedding (Subha Muhurtham, Nov 22, 2026 at 9:46 AM): Sai Baba Temple, Madhav Nagar, Nizamabad (${WEDDING_MAP_URL}). View full invitation: ${window.location.href}`;
 
   const handleCalendar = () => {
-    const title = encodeURIComponent(`Keerthi & Hariprasad Wedding & ${SIDE_CEREMONY.shortEn} (Nov 20 - 22, 2026)`);
+    const title = encodeURIComponent(`Keerthi (Sravanthi) & Hariprasad Wedding & ${SIDE_CEREMONY.shortEn} (Nov 20 - 22, 2026)`);
     const details = encodeURIComponent(
       IS_KEERTHI_SIDE
         ? `Celebrations Schedule:\n1. Pandiri Event: Friday, Nov 20, 2026 at 8:00 AM at ${SIDE_CEREMONY.venueEn} (Map: ${PELLIKODUKU_MAP_URL}).\n2. Pelli Kuthuru: Friday, Nov 20, 2026 (Morning) at ${SIDE_CEREMONY.venueEn} (Map: ${PELLIKODUKU_MAP_URL}).\n3. Haldi: Friday, Nov 20, 2026 at 6:00 PM at ${HALDI_VENUE.shortLabelEn} (Map: ${HALDI_MAP_URL}).\n4. Formalities: Saturday, Nov 21, 2026 at 2:00 PM at ${KEERTHI_FORMALITIES.shortLabelEn} (Map: ${KEERTHI_FORMALITIES.mapUrl}).\n5. Wedding (Subha Muhurtham): Sunday, Nov 22, 2026 at 9:46 AM at Sai Baba Temple, Madhav Nagar, Nizamabad (Map: ${WEDDING_MAP_URL}).`
@@ -525,8 +525,17 @@ export default function App() {
             <div className="py-1 space-y-2">
               {/* Bride Keerthi */}
               <div>
-                <h1 className="text-2xl sm:text-3xl font-display font-bold text-[#54121E] tracking-tight drop-shadow-xs">
-                  {currentLang === 'te' ? 'చి||ల||సౌ|| కీర్తి' : 'Keerthi'}
+                <h1 className="text-xl sm:text-2xl font-display font-bold text-[#54121E] tracking-tight drop-shadow-xs whitespace-nowrap leading-snug">
+                  {currentLang === 'te' ? (
+                    <>
+                      <span className="text-sm sm:text-base font-semibold mr-1">చి||ల||సౌ||</span>కీర్తి{' '}
+                      <span className="text-base sm:text-lg font-semibold">(శ్రావంతి)</span>
+                    </>
+                  ) : (
+                    <>
+                      Keerthi <span className="text-base sm:text-lg font-semibold">(Sravanthi)</span>
+                    </>
+                  )}
                 </h1>
                 <p className="text-xs text-amber-900 font-serif mt-0.5">
                   {currentLang === 'te' 
@@ -561,7 +570,7 @@ export default function App() {
               <div className="w-56 h-72 mx-auto rounded-t-full rounded-b-3xl overflow-hidden border-4 border-[#C89B3C] ring-2 ring-rose-300/40 shadow-xl bg-gradient-to-b from-[#FFFDF9] to-[#FEF5E7] relative group p-1 flex items-center justify-center">
                 <img
                   src={COUPLE_PORTRAIT_URL}
-                  alt="Keerthi & Hariprasad Cartoon Caricature"
+                  alt="Keerthi (Sravanthi) & Hariprasad Cartoon Caricature"
                   referrerPolicy="no-referrer"
                   onError={(e) => {
                     if (!e.currentTarget.src.endsWith(COUPLE_PORTRAIT_FALLBACK_URL)) {
@@ -1341,8 +1350,8 @@ export default function App() {
                 </p>
                 <p className="text-[11px] text-amber-900/80 italic">
                   {currentLang === 'te' 
-                    ? 'కీర్తి & హరిప్రసాద్ లకు మీ అమూల్యమైన శుభాకాంక్షలు తెలియజేసే తొలి గౌరవ అతిథి అవ్వండి!' 
-                    : 'Be the first honored guest to post your heartfelt blessing for Keerthi & Hariprasad!'}
+                    ? 'కీర్తి (శ్రావంతి) & హరిప్రసాద్ లకు మీ అమూల్యమైన శుభాకాంక్షలు తెలియజేసే తొలి గౌరవ అతిథి అవ్వండి!' 
+                    : 'Be the first honored guest to post your heartfelt blessing for Keerthi (Sravanthi) & Hariprasad!'}
                 </p>
               </div>
             ) : (
